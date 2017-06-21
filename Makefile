@@ -15,6 +15,26 @@ include sub.mk
 
 ## Content
 
+## MS
+Sources += interval.tex
+interval.pdf: interval.tex
+
+## Refs
+
+Sources += manual.bib auto.rmu
+refs.bib: auto.bib manual.bib
+	$(cat)
+
+auto.html: auto.rmu
+
+######################################################################
+
+## Ref machinery
+
+export autorefs = autorefs
+-include autorefs/inc.mk
+-include $(ms)/pandoc.mk
+
 ######################################################################
 
 # Modules
@@ -30,6 +50,7 @@ Sources += $(dirs)
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/flextex.mk
 
 # -include $(ms)/wrapR.mk
 # -include $(ms)/oldlatex.mk
