@@ -1,6 +1,16 @@
 commit.time
 .*.sw*
 
+auto.bib
+auto.bibmk
+auto.html
+auto.mdmk
+auto.point
+interval.bcf
+interval.deps
+interval.run.xml
+target.mk
+
 *.pdf
 
 *.log
