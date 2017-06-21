@@ -1,4 +1,5 @@
 # generation_links
+http://dushoff.github.io/generation_links/
 ### Hooks for the editor to set the default target
 current: target
 target = Makefile
