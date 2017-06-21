@@ -1,3 +1,9 @@
 [submodule "makestuff"]
 	path = makestuff
-	url = git@github.com:dushoff/makestuff.git
+	url = https://github.com/dushoff/makestuff.git
+[submodule "Generation_distributions"]
+	path = Generation_distributions
+	url = https://github.com/dushoff/Generation_distributions.git
+[submodule "autorefs"]
+	path = autorefs
+	url = https://github.com/dushoff/autorefs.git

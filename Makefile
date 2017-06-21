@@ -7,7 +7,6 @@ target: $(target)
 
 ##################################################################
 
-
 Sources = Makefile .gitignore README.md sub.mk LICENSE.md
 include sub.mk
 # include $(ms)/perl.def
@@ -15,6 +14,17 @@ include sub.mk
 ##################################################################
 
 ## Content
+
+######################################################################
+
+# Modules
+
+dirs += Generation_distributions autorefs
+
+dfiles: $(dirs:%=%/Makefile)
+Sources += $(dirs)
+
+-include $(ms)/hmodules.mk
 
 ######################################################################
 
