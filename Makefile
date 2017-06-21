@@ -44,7 +44,7 @@ dirs += Generation_distributions autorefs
 dfiles: $(dirs:%=%/Makefile)
 Sources += $(dirs) $(ms)
 
--include $(ms)/hmodules.mk
+-include $(ms)/modules.mk
 
 ######################################################################
 

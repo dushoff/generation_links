@@ -12,6 +12,7 @@ Foundations
 * DHM PMID: 2117040
 * Kendall 1948. On the role of variable generation (doi:10.1093/biomet/35.3-4.316)
 
+
 Generations
 ===========
 
@@ -26,7 +27,7 @@ Linking r and R
 
 * KW (Keeling, Rohani, Wearing) PMID:16013892
 
-* Anderson D, Watson R. doi_10.1093/biomet/67.1.191 On the spread of a disease with gamma distributed latent and infectious periods. Biometrika. 1980;67:191–198 for the original KW formula. I'm inclined not to cite this, since it seems super-deep.
+* doi:10.1093/biomet/67.1.191 Anderson D, Watson R. On the spread … for the original KW formula. I'm inclined not to cite this, since it seems super-deep.
 
 * Nishiura obscure flu paper (an early example of our X equation) http://www.ncbi.nlm.nih.gov/pubmed/19497256. They cite Roberts below, but we don't quite get it.
 
@@ -44,7 +45,7 @@ Examples
 * http://www.ncbi.nlm.nih.gov/pubmed/19393959. Lessler … Cumming, review of incubation periods.
 
 * Olga has two papers that may be useful:
-	* https://www.ncbi.nlm.nih.gov/pubmed/23676892
+	* http://www.ncbi.nlm.nih.gov/pubmed/23676892
 
 * Probably not anything good from Alun (2000)
 
