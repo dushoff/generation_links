@@ -42,7 +42,7 @@ export autorefs = autorefs
 dirs += Generation_distributions autorefs
 
 dfiles: $(dirs:%=%/Makefile)
-Sources += $(dirs)
+Sources += $(dirs) $(ms)
 
 -include $(ms)/hmodules.mk
 
