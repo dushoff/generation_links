@@ -1,4 +1,5 @@
 # generation_links
+http://dushoff.github.io/generation_links/
 ### Hooks for the editor to set the default target
 current: target
 target = Makefile
@@ -44,7 +45,7 @@ dirs += Generation_distributions autorefs
 dfiles: $(dirs:%=%/Makefile)
 Sources += $(dirs) $(ms)
 
--include $(ms)/hmodules.mk
+-include $(ms)/modules.mk
 
 ######################################################################
 

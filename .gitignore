@@ -6,6 +6,7 @@ auto.bib
 refs.bib
 auto.bibmk
 auto.html
+auto.md
 auto.mdmk
 auto.point
 
@@ -33,7 +34,6 @@ auto.point
 local.mk
 
 testdir/
+pages/
 .testdir/
 subclone_dir/
-
-*.makestuff
