@@ -135,16 +135,16 @@ We investigate this approximation approach using three different examples. Our i
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/EbolaCurve.flat.Rout.pdf}
 	\caption{Estimating \RR~from Ebola data.
-(black curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{WHOforward14}.
+(black curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{WHO14}.
 (blue curve) the same relationship, approximated using the observed mean and CV. 
 The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{WHOforward14}.
+Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{WHO14}.
 	\label{fig:EbolaCurve}}
 \end{figure}
 
-We first estimated a realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{WHOforward14} and a lognormal assumption for both the incubation and infectious periods.
+We first estimated a realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{WHO14} and a lognormal assumption for both the incubation and infectious periods.
 We used the reported standard deviation for the infectious period, and used chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution.
-We matched the serial interval distribution parameter as it is expected to be very similar to the generation interval distribution for EVD \cite{WHOforward14}.
+We matched the serial interval distribution parameter as it is expected to be very similar to the generation interval distribution for EVD \cite{WHO14}.
 % We estimated the squared CV $\kappa$ using a maximum-likelikhood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the realistic distribution to a single-gamma approximation.
 We  then compared the relationship between $r$ and $\RR$ implied by our realistic distribution \eref{Euler}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation works well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
@@ -202,11 +202,11 @@ Disease & Ebola & Measles & Rabies\\
 \hline
 Parameter & \multicolumn{3}{c}{Values}\\
 \hline
-Reproduction number & 1.38, 1.51, 1.81 \cite{WHOforward14} & & 1.06, 1.32 \cite{Katie} \\
-Mean incubation period (days) & 11.4 \cite{WHOforward14} & 12.77 \cite{lessler2009incubation}  & 24.24 \cite{Katie} \\
-SD incubation perid (days) & 7.5 [assumption] & 2.67 \cite{lessler2009incubation} & 29.49 \cite{Katie} \\
-Mean infectious period (days) & 5 \cite{WHOforward14} & 3.65 \cite{lloyd2001realistic} & 3.57 \cite{Katie} \\
-SD infectious period (days) & 4.7 \cite{WHOforward14} & 1.63 \cite{lloyd2001realistic} & 2.26 \cite{Katie}
+Reproduction number & 1.38, 1.51, 1.81 \cite{WHO14} & & 1.06, 1.32 \cite{Katie} \\
+Mean incubation period (days) & 11.4 \cite{WHO14} & 12.77 \cite{LessReic09inc}  & 24.24 \cite{Katie} \\
+SD incubation perid (days) & 7.5 [assumption] & 2.67 \cite{LessReic09inc} & 29.49 \cite{Katie} \\
+Mean infectious period (days) & 5 \cite{WHO14} & 3.65 \cite{lloyd2001realistic} & 3.57 \cite{Katie} \\
+SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{lloyd2001realistic} & 2.26 \cite{Katie}
 \end{tabular}
 \caption{This is not a caption.}
 \tlab{parameters}
