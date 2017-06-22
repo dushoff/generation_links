@@ -30,7 +30,7 @@
 
 \title{Exploring how generation intervals link strength and speed of epidemics}
 \author{Sang Woo Park \and David Champredon \and Joshua Weitz \and Jonathan Dushoff}
-\date{The end of time}
+\date{June 2017}
 
 \begin{document}
 \maketitle
@@ -172,9 +172,9 @@ To test whether gamma moment matching works for high \RR\ values, we applied the
 	\caption{Estimating \RR~from rabies data.
 		(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution.
 		(dashed curve) the same relationship approximated using the observed mean and CV.
-		(dash-dotted curve) the same relationship approximated using the mean and CV calculated from a maximum-likelihood fid.
+		(dash-dotted curve) the same relationship approximated using the mean and CV calculated from a maximum-likelihood fit.
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-		Points are estimates from \cite{Katie}.
+		Points are estimates from \cite{HampDush09}.
 	}
 	\label{fig:rabiesCurve}
 \end{figure}
@@ -183,7 +183,7 @@ To test whether gamma moment matching works for high \RR\ values, we applied the
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/rabies_mle.Rout.pdf}
 	\caption{
 		Fitting gamma distributions to generation intervals. 
-		Rabies generation distributions estimated from incubation and infectious periods observed by \cite{Katie}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve).
+		Rabies generation distributions estimated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve).
 	}
 	\label{fig:rabiesHist}
 \end{figure}
@@ -202,17 +202,17 @@ Disease & Ebola & Measles & Rabies\\
 \hline
 Parameter & \multicolumn{3}{c}{Values}\\
 \hline
-Reproduction number & 1.38, 1.51, 1.81 \cite{WHO14} & & 1.06, 1.32 \cite{Katie} \\
-Mean incubation period (days) & 11.4 \cite{WHO14} & 12.77 \cite{LessReic09inc}  & 24.24 \cite{Katie} \\
-SD incubation perid (days) & 7.5 [assumption] & 2.67 \cite{LessReic09inc} & 29.49 \cite{Katie} \\
-Mean infectious period (days) & 5 \cite{WHO14} & 3.65 \cite{lloyd2001realistic} & 3.57 \cite{Katie} \\
-SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{lloyd2001realistic} & 2.26 \cite{Katie}
+Reproduction number & 1.38, 1.51, 1.81 \cite{WHO14} & & 1.06, 1.32 \cite{HampDush09} \\
+Mean incubation period (days) & 11.4 \cite{WHO14} & 12.77 \cite{LessReic09inc}  & 24.24 \cite{HampDush09} \\
+SD incubation perid (days) & 7.5 [assumption] & 2.67 \cite{LessReic09inc} & 29.49 \cite{HampDush09} \\
+Mean infectious period (days) & 5 \cite{WHO14} & 3.65 \cite{Lloy01} & 3.57 \cite{HampDush09} \\
+SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{Lloy01} & 2.26 \cite{HampDush09}
 \end{tabular}
 \caption{This is not a caption.}
 \tlab{parameters}
 \end{table}
 
-\jd{Can you make the table into a real table (csv or tsv), and then use make or something to make the latex version?}
+\jd{Can you make the table into a real table (csv or tsv), and then use make or something to make the latex version? Also, let's discuss the table.}
 
 In order to obtain a theoretical distribution of generation intervals of each disease, we first gathered information on empirical and estimated distributions of latent and infectious periods of the disease from various sources (see text above). For simplicity, we assumed that latent and infectious periods are independently distributed and that incubation period is equivalent to latent period. We also assumed that transmission rate remains constant over infectious period.
 
@@ -245,9 +245,9 @@ In particular, we show that estimates of \RR\ increase when the generation time 
 We confirmed the effectiveness of the gamma approximation framework by applying it to three diseases: Ebola, measles, and rabies. 
 We found that MLE-based approximations are generally better than approximations based on moment matching. Nonetheless, the simpler moment-based approximations give good estimates when the generation-interval distribution is not too broad (this is the case for Ebola and measles, but not for rabies \tref{eggplant}). 
 
-Surprisingly, the gamma approximation based on moment matching captures $r$-\RR\ relationship almost perfectly for measles,
-apparently because the estimated generation-interval distribution for measles is quite narrow (see table ??).
-This result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR (results not shown). 
+% Surprisingly, the gamma approximation based on moment matching captures $r$-\RR\ relationship almost perfectly for measles,
+% apparently because the estimated generation-interval distribution for measles is quite narrow (see table ??).
+% This result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR (results not shown). 
 
 Generation interval plays a crucial role in linking the exponential growth rate to the basic reproduction number of an outbreak.
 Despite much effort put into understanding how generation interval characterizes an epidemic, most of the work is too technical for non-mathematicians and lacks an intuitive interpretation \cite{WallLips07,Sven07,Sven15,Nish10}.

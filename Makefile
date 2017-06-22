@@ -17,6 +17,8 @@ include sub.mk
 
 ## Content
 
+products: interval.pdf.gp auto.html.pages
+
 ## MS
 Sources += interval.tex
 interval.pdf: interval.tex
