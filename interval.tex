@@ -49,13 +49,11 @@ The reproductive number provides information about how a disease spreads, on the
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread, $r_0$, can often be measured robustly early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r_0t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r_0$. This is closely related to the doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
-\swp{This section seemed redundant so I edited a bit:}
-
-In a disease outbreaks, the rate of spread is often inferred from case-incidence reports \swp{by fitting an exponential function to the curve CITE Ma et al} and used to estimate the reproductive number, \RR.
+In disease outbreaks, the rate of spread is often inferred from case-incidence reports, by fitting an exponential function to the incidence curve \cite{Ma,WhoElse} and used to estimate the reproductive number, \RR.
 In particular, $\RR$ is often calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} is the interval between the time that an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
-Whereas the rate of spread measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
+While the rate of spread measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
 It is typically inferred from contact tracing, sometimes in combination with clinical data \swp{CITE?}.
 Like the reproductive number, the generation interval can be thought of as a single number (typically its mean), or as a distribution.
 
@@ -77,9 +75,11 @@ This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter g
 We define the generation-interval distribution using a renewal-equation approach.
 A wide range of disease models can be described using this model: $$i(t) = S(t)\int{K(s)i(t-s) \,ds},$$ where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
-We then have the basic reproductive number: $$\Ro = \int{K(s)ds},$$ and the \emph{intrinsic} generation-interval distribution: $$g(s) = \frac{K(s)}{\Ro}$$ the ``intrinsic'' interval can be distinguished from ``realized'' intervals, which can look ``forward'' or ``backward'' in time \cite{ChamDush15} (see also earlier work \cite{Sven07,Nish10}).
+We then have the basic reproductive number: $$\Ro = \int{K(s)ds},$$ and the \emph{intrinsic} generation-interval distribution:
+$$g(s) = \frac{K(s)}{\Ro}.$$ 
+The ``intrinsic'' interval can be distinguished from ``realized'' intervals, which can look ``forward'' or ``backward'' in time \cite{ChamDush15} (see also earlier work \cite{Sven07,Nish10}).
 
-Disease growth is approximately exponential in the early phase because the depletion in the effective number of susceptibles is relatively small.
+Disease growth is approximately exponential in the early phase, because the depletion in the effective number of susceptibles is relatively small.
 Thus, for the exponential phase, we approximate $S(t)$ as 1, and write:
 
 $$i(t) = \RR\int{g(\tau)i(t-\tau) \,d\tau}$$
@@ -116,15 +116,17 @@ The longer the generation interval is compared to $T_c$, the higher the estimate
 We define the generalized exponential function $X$ in an attempt to convey an intuitive understanding.
 It is equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}.
 
-For small $\rho$ it always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
+For small $\rho$, $X$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
 For large values of $1/\kappa$, $X$ looks like the ``compound-interest approximation'' to the exponential; and when $\kappa \to 0$, $X(\rho)$ converges to $\exp(\rho)$.
 
 The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If the generation interval is fixed, then this means the average case must cause $\RR = \exp(\rho)$ new cases.
 If variation in the generation time (i.e., $\kappa$) increases, then some new cases will be produced before, and some after, the mean generation time.
 Since we assume the disease is increasing exponentially, infections that occur early on represent a larger proportion of the population, and thus will have a disproportionate effect: individuals don't have to produce as many lifetime infections to sustain the growth rate, and thus we expect  $\RR < \exp(\rho)$.
 
-\jd{Is there a nice interpretation for the $\kappa=1$ case?}
-\swp{Exponentially distributed generation interval reduces down to a pure birth Markov chain model. If each individual produces $1+\rho$ offsprings, we get an exponential growth model that is increasing by a factor of $\exp(\rho)$ per average disease generation.}
+The straight-line relationship for $\kappa=1$ also has a biological interpretation. 
+In our approximation, this corresponds to a generation distribution that is approximated by an exponential distribution. 
+In this case, recovery rate and infection rate are constant for each individual.
+The rate of exponential growth is then given directly by the net per capita increase in infections -- $\RR-1$, where one represents the individual's recovery -- divided by the generation time.
 
 \section{Examples}
 
@@ -143,6 +145,7 @@ Points indicate estimates for the three focal countries of the West African Ebol
 \end{figure}
 
 We first estimated a realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{WHO14} and a lognormal assumption for both the incubation and infectious periods.
+The lognormal was chosen as a simple distribution over positive numbers that is not too similar to the gamma, in order to probe the gamma approximation.
 We used the reported standard deviation for the infectious period, and used chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution.
 We matched the serial interval distribution parameter as it is expected to be very similar to the generation interval distribution for EVD \cite{WHO14}.
 % We estimated the squared CV $\kappa$ using a maximum-likelikhood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the realistic distribution to a single-gamma approximation.
@@ -154,14 +157,14 @@ We  then compared the relationship between $r$ and $\RR$ implied by our realisti
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/measles_curve.Rout.pdf}
 	\caption{Estimating \RR~from measles data.
 		(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution.
-		(dashed curve) the same relationship approximated using the observed mean and CV (this curve is almost invisible becasue it overlaps the solid curve)
+		(dashed curve) the same relationship approximated using the observed mean and CV (this curve is almost invisible because it overlaps the solid curve)
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
 	}
 	\label{fig:measlesCurve}
 \end{figure}
 
 
-To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to measles generation distribution. We found that the approximation matches the theoretical distribution almost perfectly even when \RR\ is very high ($\approx 13$).
+To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to measles generation distribution. We found that the approximation matches the theoretical distribution almost perfectly across our range of interest (\RR\ up to $>20$).
 
 \subsection{Rabies}
 
