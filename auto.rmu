@@ -1,3 +1,12 @@
+|| WARN - I didn't find a database entry for 'GenerationMeasurement' (section 0)
+|| WARN - I didn't find a database entry for 'Weitz' (section 0)
+|| WARN - I didn't find a database entry for 'Althaus' (section 0)
+|| WARN - I didn't find a database entry for 'OtherFastResponders' (section 0)
+|| WARN - I didn't find a database entry for 'Weitz?' (section 0)
+
+Nishiura, H., Castillo-Chavez, C., Safan, M., & Chowell, G. (2009a). Transmission potential of the new
+influenza A(H1N1) virus and
+
 Wallinga
 ========
 
@@ -21,14 +30,22 @@ Generations
 * Scalia-Tomba. observing generation times (doi:10.1016/j.mbs.2009.10.004)
 * DC/JD intervals: http://www.ncbi.nlm.nih.gov/pubmed/26674948
 
+Exponential growth
+==================
+
+* PMID: 15602562 (Mills flu)
+* https://www.ncbi.nlm.nih.gov/pubmed/24272389
+
 Linking r and R
 ===============
 
+* Althaus PMID: 25642364
+
 * KW (Keeling, Rohani, Wearing) PMID:16013892
 
-* doi:10.1093/biomet/67.1.191 Anderson D, Watson R. On the spread … for the original KW formula. I'm inclined not to cite this, since it seems super-deep.
+* doi:10.1093/biomet/67.1.191 Anderson D, Watson R. On the spread … for the original KW formula. Seems super-deep.
 
-* Nishiura obscure flu paper (an early example of our X equation) http://www.ncbi.nlm.nih.gov/pubmed/19497256. They cite Roberts below, but we don't quite get it.
+* Nishiura flu paper (an early example of our X equation) http://www.ncbi.nlm.nih.gov/pubmed/19497256. They cite Roberts below, but we don't quite get it.
 
 * Lessler, J., Reich, N. G., & Cummings, D. A. (2009). Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school. New England Journal of Medicine, 361(27), 2628-2636.
 
@@ -38,6 +55,16 @@ Examples
 ========
 
 * WHOforward Ebola PMID: 25244186
+
+Ebola:
+------------
+
+* Weitz:
+	* PMID: 27524644
+	* PMID: 25736239 
+
+Measles
+-------
 
 * http://dx.doi.org/10.1016/j.jtbi.2011.06.015 Nishiura and measles. We got confused by the intervals here, could be worth reviewing.
 
@@ -50,5 +77,10 @@ Examples
 
 * PMID: 6600102 (Schenzle)
 
-* PMID: 19278295 (TZ rabies)
+* http://www.ncbi.nlm.nih.gov/pubmed/7063839 (A+M original)
+
+Rabies
+------
+
+* PMID: 19278295 (TZ)
 

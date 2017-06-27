@@ -31,6 +31,8 @@ refs.bib: auto.bib manual.bib
 
 auto.html: auto.rmu
 
+interval.bbl: auto.rmu
+
 ######################################################################
 
 ## Ref machinery
