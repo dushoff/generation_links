@@ -16,6 +16,7 @@
 
 \newcommand{\eref}[1]{(\ref{eq:#1})}
 \newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\frange}[2]{Fig.~\ref{fig:#1}--\ref{fig:#2}}
 \newcommand{\tref}[1]{Table~\ref{tab:#1}}
 \newcommand{\tlab}[1]{\label{tab:#1}}
 
@@ -98,11 +99,18 @@ One way to explore solutions to this equation is by using approximations based o
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = \theta/\kappa$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization).
 Substituting into \eref{Euler} then yields:
 \begin{equation}
+	\RR \approx (1 + \kappa r \bar G)^{1/\kappa}.
+	\label{eq:genExp}
+\end{equation}
+
+We try to interpret this equation further by writing:
+\begin{equation}
 	\RR \approx (1 + \kappa \rho)^{1/\kappa} \equiv X(\rho; 1/\kappa),
 	\label{eq:genExp}
 \end{equation}
 where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
 The longer the generation interval is compared to $T_c$, the higher the estimate of $\RR$ (see \fref{link}).
+We define the generalized exponential function $X$ above -- it is equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers} -- its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
 
 \begin{figure}[htbp]
 	\centering \includegraphics[width=1.0\textwidth]{Generation_distributions/genExp.flat.Rout.pdf}
@@ -113,8 +121,6 @@ The longer the generation interval is compared to $T_c$, the higher the estimate
 		distribution
 	} \label{fig:genExp} 
 \end{figure}
-We define the generalized exponential function $X$ in an attempt to convey an intuitive understanding.
-It is equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}.
 
 For small $\rho$, $X$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
 For large values of $1/\kappa$, $X$ looks like the ``compound-interest approximation'' to the exponential; and when $\kappa \to 0$, $X(\rho)$ converges to $\exp(\rho)$.
@@ -194,6 +200,26 @@ We did a similar analysis for rabies, and found that approximation is generally 
 
 The reason for this can be seen in \fref{rabiesHist}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals. Short intervals will be much more important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. The maximum-likelihood fit to the same data does a better job of matching the observed pattern of short generation intervals (\fref{rabiesHist}) and of predicting the simulated relationship between $r$ and \RR, particularly for larger values of $r$, where estimates diverge more (\fref{rabiesCurve}).
 
+\subsection{Robust estimation}
+
+
+\begin{figure}[htbp] \centering
+	\includegraphics[width=1.0\textwidth]{Generation_distributions/ebola_sample_curve.Rout.pdf}
+\caption{
+%
+The effect of sample size on estimates of \RR.
+(black) the relationship between growth rate and \RR~using a known generation-interval distribution (see \fref{EbolaCurve}).
+(colors) estimates based on finite samples from this distribution: curves show the median of 1000 sampling experiments, and shading shows the range where 95\% of the results fall
+Blue shows estimates based on estimated mean and CV.
+Red shows estimates based on maximum likelihood fits.
+%
+}
+	\label{fig:ebolaSample}
+\end{figure}
+
+
+The moment-matching method (approximating $\RR$ based on estimated mean and variance of the generation interval) has an appealing simplicity, and works well for all of the actual disease parameters we tested (the breakdown for rabies distributions occurs for values of $\RR$ well above observed values). We therefore wanted to compare its robustness in statistical estimation to that of the more sophisticated maximum likelihood method.
+
 \section{Methods}
 
 \begin{table}[h!]
@@ -210,7 +236,7 @@ SD incubation period (days) & 7.5 \jd{Where?} & 2.67 \cite{LessReic09inc} & 29.4
 Mean infectious period (days) & 5 \cite{WHO14} & 3.65 \cite{Lloy01} & 3.57 \cite{HampDush09} \\
 SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{Lloy01} & 2.26 \cite{HampDush09}
 \end{tabular}
-\caption{This is not a caption.}
+\caption{\jd{Caption needed!}}
 \tlab{parameters}
 \end{table}
 
@@ -219,6 +245,7 @@ SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{Lloy01} & 2.26 \cite
 
 In order to obtain realistic example generation-interval distributions, we first gathered empirical information about each disease. For simplicity, we assumed that latent and infectious periods are independently distributed and (for rabies and Ebola) that incubation period is equivalent to latent period. We also assumed that transmission rate remains constant over infectious period.
 
+\jd{We need to discuss this.}
 For a disease whose estimates of the distribution parameters were given, we generated the theoretical distributions of the latent and infectious periods by taking 10000 samples from their quantile distributions corresponding to the estimated parameters. We then re-sampled the infectious periods from the 10000 samples by weighing each sample by the length of the period to account for higher chance of transmission of infected individuals with longer infectious periods. 
 For a disease whose empirical distributions of the latent and infectious periods were available, we drew 10000 samples directly from the empirical distributions and re-sampled infectious period samples using the method described above.
 Finally, a generation interval of each sample was drawn from a uniform distribution whose minimum given by the duration of the latent period and maximum is given by the sum of the durations of the two periods.
@@ -230,9 +257,7 @@ We estimated the theoretical relationship between exponential growth rate and re
 \end{equation}
 where $N$ is the number of samples, $x_i$ represent a sample, and $C$ is the characteristic time. By varying $C$, we were able to obtain a smooth curve describing the relationship between $r$ and $\RR$.
 
-Then, we investigated how using estimated distribution affects the relationship by fitting gamma distribution to the 10000 samples using maximum likelihood and method of moments. Using the estimated parameters, 10000 samples were drawn from the corresponding gamma quantile distribution. We applied equation~\ref{eq:obsR} to the gamma samples again to draw out the curve.
-
-To test for robustness of gamma fitting, we took small number of samples from estimated generation interval distribution and fitted gamma. See ?? for results. \swp{Do we want to get rid of this?}
+Then, we investigated how using estimated distribution affects the relationship by fitting gamma distributions to samples from this distribution, using either maximum likelihood or moment matching. We used 10000 samples for the smooth curves in figures \frange{EbolaCurve}{rabiesCurve}, and smaller numbers for the sampling example \fref{ebolaSample}. We used \eref{obsR} to draw curves related $r$ to $\RR$.
 
 \section{Discussion}
 
@@ -250,7 +275,7 @@ We found that MLE-based approximations are generally better than approximations 
 
 % Surprisingly, the gamma approximation based on moment matching captures $r$-\RR\ relationship almost perfectly for measles,
 % apparently because the estimated generation-interval distribution for measles is quite narrow (see table ??).
-% This result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR (results not shown). 
+% This result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR\ (results not shown). 
 \swp{You didn't edit these:}
 Generation interval plays a crucial role in linking the exponential growth rate to the basic reproduction number of an outbreak.
 Despite much effort put into understanding how generation interval characterizes an epidemic, most of the work is too technical for non-mathematicians and lacks an intuitive interpretation \cite{WallLips07,Sven07,Sven15,Nish10}.
@@ -262,26 +287,8 @@ Model based approach may be able to give accurate estimation of \Ro\ but are oft
 
 On the other hand, estimation based on generation interval can give similar answers even with a much simpler framework.
 During the Ebola outbreak, \cite{WeitDush15} used a generation-interval argument to  show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \Ro.
-Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \Ro for a given estimate of $r_0$.
+Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \Ro\ for a given estimate of $r_0$.
 Knowing the exact shape of the generation interval distribution is difficult, but thinking about how various transmission routes and epidemic parameters affect the distribution will help researchers understand future outbreaks.
-
-\section{Sampling}
-
-\jd{Let's keep this figure, but refer to it just briefly in a Results section.}
-
-\begin{figure}[htbp] \centering
-	\includegraphics[width=1.0\textwidth]{Generation_distributions/ebola_sample_curve.Rout.pdf}
-\caption{
-%
-The effect of sample size on estimates of \RR.
-(black) the relationship between growth rate and \RR~using a known generation-interval distribution (see \fref{EbolaCurve}).
-(colors) estimates based on finite samples from this distribution: curves show the median of 1000 sampling experiments, and shading shows the range where 95\% of the results fall
-Blue shows estimates based on estimated mean and CV.
-Red shows estimates based on maximum likelihood fits.
-%
-}
-	\label{fig:ebolaSample}
-\end{figure}
 
 \subsection*{Acknowledgments}
 
