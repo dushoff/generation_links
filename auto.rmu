@@ -1,8 +1,3 @@
-|| WARN - I didn't find a database entry for 'GenerationMeasurement' (section 0)
-|| WARN - I didn't find a database entry for 'Weitz' (section 0)
-|| WARN - I didn't find a database entry for 'Althaus' (section 0)
-|| WARN - I didn't find a database entry for 'OtherFastResponders' (section 0)
-|| WARN - I didn't find a database entry for 'Weitz?' (section 0)
 
 Nishiura, H., Castillo-Chavez, C., Safan, M., & Chowell, G. (2009a). Transmission potential of the new
 influenza A(H1N1) virus and
@@ -54,10 +49,12 @@ Linking r and R
 Examples
 ========
 
-* WHOforward Ebola PMID: 25244186
-
 Ebola:
 ------------
+
+* WHOforward Ebola PMID: 25244186
+
+* FOI:10.1098/rspb.2015.0347 (King)
 
 * Weitz:
 	* PMID: 27524644
