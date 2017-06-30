@@ -152,7 +152,7 @@ Points indicate estimates for the three focal countries of the West African Ebol
 
 We first estimated a realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{WHO14} and a lognormal assumption for both the incubation and infectious periods.
 The lognormal was chosen as a simple distribution over positive numbers that is not too similar to the gamma, in order to probe the gamma approximation.
-We used the reported standard deviation for the infectious period, and used chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution.
+We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution.
 We matched the serial interval distribution parameter as it is expected to be very similar to the generation interval distribution for EVD \cite{WHO14}.
 % We estimated the squared CV $\kappa$ using a maximum-likelikhood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the realistic distribution to a single-gamma approximation.
 We  then compared the relationship between $r$ and $\RR$ implied by our realistic distribution \eref{Euler}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation works well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
@@ -169,7 +169,6 @@ We  then compared the relationship between $r$ and $\RR$ implied by our realisti
 	}
 	\label{fig:measlesCurve}
 \end{figure}
-\jd{Add points at R=12.5 and 15.8}
 
 To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to measles generation distribution. We found that the approximation matches the theoretical distribution almost perfectly across our range of interest (\RR\ up to $>20$).
 
@@ -232,11 +231,11 @@ Parameter & \multicolumn{3}{c}{Values}\\
 \hline
 Reproduction number & 1.38, 1.51, 1.81 \cite{WHO14} & 12.5, 15.8 \cite{AndeMay82} & 1.06, 1.32 \cite{HampDush09} \\
 Mean incubation period (days) & 11.4 \cite{WHO14} & 12.77 \cite{LessReic09inc}  & 24.24 \cite{HampDush09} \\
-SD incubation period (days) & 7.5 \jd{Where?} & 2.67 \cite{LessReic09inc} & 29.49 \cite{HampDush09} \\
+SD incubation period (days) & 7.5 \swp{Assumption. Read 4.1.} & 2.67 \cite{LessReic09inc} & 29.49 \cite{HampDush09} \\
 Mean infectious period (days) & 5 \cite{WHO14} & 3.65 \cite{Lloy01} & 3.57 \cite{HampDush09} \\
 SD infectious period (days) & 4.7 \cite{WHO14} & 1.63 \cite{Lloy01} & 2.26 \cite{HampDush09}
 \end{tabular}
-\caption{\jd{Caption needed!}}
+\caption{Parameters that were used to obtain theoretical generation distributions for each disease. Reproduction numbers are represented as points in figure \frange{EbolaCurve}{rabiesCurve}.}
 \tlab{parameters}
 \end{table}
 
