@@ -33,7 +33,10 @@ auto.point
 
 local.mk
 
-testdir/
+dotdir/
+clonedir/
+sourcedir/
+
 pages/
 .testdir/
 subclone_dir/
