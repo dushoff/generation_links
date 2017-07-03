@@ -8,3 +8,4 @@ make dfiles
 make interval.pdf
 ```
 
+After that, `make interval.pdf` (again!) should make an up-to-date copy of the MS.
