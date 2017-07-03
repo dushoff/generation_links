@@ -3,7 +3,6 @@
 
 ### Hooks for the editor to set the default target
 current: target
-target = setup
 -include target.mk
 target: $(target)
 
