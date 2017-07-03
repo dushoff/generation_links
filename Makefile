@@ -3,10 +3,9 @@
 
 ### Hooks for the editor to set the default target
 current: target
-target = interval.pdf
+target = setup
 -include target.mk
 target: $(target)
-
 
 ##################################################################
 
@@ -44,6 +43,18 @@ export autorefs = autorefs
 -include $(ms)/pandoc.mk
 
 ######################################################################
+
+## Set up
+
+setup:
+	$(MAKE)
+	$(MAKE) dfiles
+	$(MAKE) interval.pdf
+	$(MAKE) interval.pdf.go
+
+
+######################################################################
+
 
 # Modules
 
