@@ -30,6 +30,7 @@ refs.bib: auto.bib manual.bib
 	$(cat)
 
 auto.html: auto.rmu
+auto.bib: auto.rmu
 
 interval.bbl: auto.rmu
 

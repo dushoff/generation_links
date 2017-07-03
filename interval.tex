@@ -23,6 +23,8 @@
 \newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
 \newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
 \newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
+\newcommand{\jsw}[1]{\comment{red}{JSW}{#1}}
 
 \addbibresource{refs.bib}
 \usepackage{graphicx,grffile}
@@ -31,7 +33,7 @@
 
 \title{Exploring how generation intervals link strength and speed of epidemics}
 \author{Sang Woo Park \and David Champredon \and Joshua Weitz \and Jonathan Dushoff}
-\date{June 2017}
+\date{July 2017}
 
 \begin{document}
 \maketitle
@@ -46,9 +48,13 @@ The reproductive number provides information about the disease's potential for s
 It is often thought of a single number: an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
 But the reproductive number can also be thought of as a distribution across the population of possible infectors: different hosts may have different tendencies to transmit disease.
 
+\jsw{Weitz comment example}
+
 The reproductive number provides information about how a disease spreads, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread, $r_0$, can often be measured robustly early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r_0t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r_0$. This is closely related to the doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
+
+\dc{Champredon comment example}
 
 In disease outbreaks, the rate of spread is often inferred from case-incidence reports, by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14} and used to estimate the reproductive number, \RR.
 In particular, $\RR$ is often calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
@@ -286,4 +292,6 @@ Knowing the exact shape of the generation interval distribution is difficult, bu
 \subsection*{Acknowledgments}
 
 \printbibliography
+
+\end{document}
 
