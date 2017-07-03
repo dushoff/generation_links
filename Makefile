@@ -25,7 +25,7 @@ interval.pdf: interval.tex
 ## Refs
 
 Sources += manual.bib auto.rmu
-refs.bib: auto.bib manual.bib
+refs.bib: git_push/auto.bib manual.bib
 	$(cat)
 
 auto.html: auto.rmu
