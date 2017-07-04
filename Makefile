@@ -54,7 +54,6 @@ setup:
 
 ######################################################################
 
-
 # Modules
 
 dirs += Generation_distributions autorefs
