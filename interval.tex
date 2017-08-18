@@ -174,14 +174,14 @@ Our initial investigation of this question was motivated by the West African Ebo
 \jd{WTF is going with these refs??}
 (blue curve) the same relationship, approximated using the observed mean and CV. 
 The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: \swp{Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).}
+Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).}
 	\label{fig:EbolaCurve}}
 \end{figure}
 
 We first simulated a generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
 We used lognormal (rather than gamma, the other simple alternative) for our components because we thought this would provide a more challenging test of our gamma approximation. 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
-% We estimated the squared CV $\kappa$ using a maximum-likelikhood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the simulated distribution to a single-gamma approximation.
+% We estimated the squared CV $\kappa$ using a maximum-likelihood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the simulated distribution to a single-gamma approximation.
 We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{Euler}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to wor well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
 \subsection{Measles}
@@ -194,11 +194,12 @@ We  then simulated the relationship between $r$ and $\RR$ implied by our simulat
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points are estimates from \cite{AndeMay82}:
 		\swp{You have 12.8 and 15.8 in the R file but I can't find 15.8 in the paper and 12.8 is \RR\ after vaccination...}
+		\jd{Do you want to change to whatever points you think are better?}
 	}
 	\label{fig:measlesCurve}
 \end{figure}
 
-To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to outbreaks of measles in country $X$ during year $Y$ \swp{assuming that they all share same generation interval distributions}. The estimates values of \RR\ for measles are repeatedly amonst the highest of studied infectious diseases [CITE]. Here, we found that the approximation matches the theoretical distribution almost perfectly across our range of interest (\RR\ up to $>20$).
+To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to outbreaks of measles in country $X$ during year $Y$ assuming that they all share same generation interval distributions. The estimates values of \RR\ for measles are repeatedly amonst the highest of studied infectious diseases [CITE]. Here, we found that the approximation matches the theoretical distribution almost perfectly across our range of interest (\RR\ up to $>20$).
 
 \subsection{Rabies}
 
@@ -210,7 +211,7 @@ To test whether gamma moment matching works for high \RR\ values, we applied the
 		(dash-dotted curve) the same relationship approximated using the mean and CV calculated from a maximum-likelihood fit.
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points are estimates from \cite{HampDush09}:
-		\swp{Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$).}
+		Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$).
 	}
 	\label{fig:rabiesCurve}
 \end{figure}
@@ -232,7 +233,7 @@ The reason for this can be seen in \fref{rabiesHist}. The moment approximation i
 \jsw{clarify what ML fits are doing}
 % \subsection{Robust estimation}
 
-\swp{Move the figure to an appendix, along with the s.\ that explains how we generate it.}
+\jd{SWP please: Move the figure to an appendix, along with the s.\ that explains how we generate it.}
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/ebola_sample_curve.Rout.pdf}
 \caption{
@@ -272,19 +273,22 @@ SD infectious period (days) & 4.7 \cite{AylwBarb14} & 1.63 \cite{Lloy01} & 2.26 
 \end{table}
 
 \swp{Now, I agree with JSW that this should go before example. I like the idea of having two sections called (1) approximation method, in theory and (2) approximation method, in practice. Adding a paragraph like this might be helpful:}
+\jd{K. Just try to do IMRD an dkeep this in jmind.}
 
-Given an empirical distribution of generation intervals, we can simply use the observed moments of the distribution to apply the gamma approximation. To obtain the theoretical relationship between exponential growth rate and reproductive number, we can discretize the equation \ref{eq:Euler} and subtitute the empirical distribution:
+Given an empirical distribution of generation intervals, we obtain the theoretical relationship between exponential growth rate and reproductive number, we can discretize \eref{Euler} and subtitute the empirical distribution:
 \begin{equation}
 1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
 \label{eq:obsR}
 \end{equation}
 where $x_i$ represent a sample and $N$ is the total number of samples. If we interpret $\int g(\tau) \exp(-\tau/C) d\tau$ as a weighted mean of $\exp(-\tau)/C$, equation \ref{eq:obsR} is an intuitive transition from a continuous distribution to a discrete data.
-
+We obtain the gamma approximation by estimating moments from data and using \eref{genExp}; these moments can be calculated directly, or estimated using a maximum-likelihood fit.
 \swp{we need to say something about the histogram based method by WL here... This is not sensitive to the histogram widths and is more intuitive IMHO.}
+\jd{Not clear what to do or say about this. Obviously, they should not be losing data by binning, but it's not clear that they are. The other question is whether to treat 17d as 17.0d or as 16.5-17.5d. It shouldn't matter much.}
 
-In other cases, we may be given empirical distributions of incubation and symptomatic periods (or their estimated distributions and respective parameters) instead. For simplicity, we can assume that latent and infectious period follow the same distributions as incubation and symptomatic periods respectively (see [CITE] for further dicussion). \swp{I don't know how much we want to talk about this here.}
+\jd{Maybe better not to say this here, but instead address it specifically with rabies and Ebola.} In other cases, we may be given empirical distributions of incubation and symptomatic periods (or their estimated distributions and respective parameters) instead. For simplicity, we can assume that latent and infectious period follow the same distributions as incubation and symptomatic periods respectively (see [CITE] for further dicussion). \swp{I don't know how much we want to talk about this here.}
 
 \swp{Talk about how we can estimate the moments of the generation interval distribution from latent/infectious periods and even the full distribution. Making a waiting time analogy might help the readers.}
+\jd{Yes. I was not saying anything about this P., just the one before it.}
 
 \swp{If we decide to incorporate what I wrote above, we can clean up the following paragraphs and it might be easier to format the paper:}
 
@@ -296,6 +300,8 @@ We then re-sampled the infectious periods from our samples, weighting each sampl
 Generation intervals were drawn (uniformly) at random from the resulting infectious period (i.e., between the end of the latent period and the end of the infectious period).
 
 \jd{JD needs to figure out why he did something weird about Ebola and whether he agrees with SWP about not doing it.}
+\jd{Should we look into getting an empirical distribution instead?}
+\swp{Yes.}
 
 \swp{Since we're using the lognormal anyway, the way we're trying to match WHO doesn't quite work.}
 
