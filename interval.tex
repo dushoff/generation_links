@@ -271,6 +271,23 @@ SD infectious period (days) & 4.7 \cite{AylwBarb14} & 1.63 \cite{Lloy01} & 2.26 
 \tlab{parameters}
 \end{table}
 
+\swp{Now, I agree with JSW that this should go before example. I like the idea of having two sections called (1) approximation method, in theory and (2) approximation method, in practice. Adding a paragraph like this might be helpful:}
+
+Given an empirical distribution of generation intervals, we can simply use the observed moments of the distribution to apply the gamma approximation. To obtain the theoretical relationship between exponential growth rate and reproductive number, we can discretize the equation \ref{eq:Euler} and subtitute the empirical distribution:
+\begin{equation}
+1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
+\label{eq:obsR}
+\end{equation}
+where $x_i$ represent a sample and $N$ is the total number of samples. If we interpret $\int g(\tau) \exp(-\tau/C) d\tau$ as a weighted mean of $\exp(-\tau)/C$, equation \ref{eq:obsR} is an intuitive transition from a continuous distribution to a discrete data.
+
+\swp{we need to say something about the histogram based method by WL here... This is not sensitive to the histogram widths and is more intuitive IMHO.}
+
+In other cases, we may be given empirical distributions of incubation and symptomatic periods (or their estimated distributions and respective parameters) instead. For simplicity, we can assume that latent and infectious period follow the same distributions as incubation and symptomatic periods respectively (see [CITE] for further dicussion). \swp{I don't know how much we want to talk about this here.}
+
+\swp{Talk about how we can estimate the moments of the generation interval distribution from latent/infectious periods and even the full distribution. Making a waiting time analogy might help the readers.}
+
+\swp{If we decide to incorporate what I wrote above, we can clean up the following paragraphs and it might be easier to format the paper:}
+
 In order to obtain realistic example generation-interval distributions, we first gathered empirical information about each disease. For simplicity, we assumed that latent and infectious periods are independently distributed and (for rabies and Ebola) that incubation period is equivalent to latent period. We also assumed that transmission rate remains constant over the infectious period.
 
 For rabies, we used the reported values from \cite{HampDush09} as our sample.
@@ -285,7 +302,6 @@ Generation intervals were drawn (uniformly) at random from the resulting infecti
 We estimated the theoretical relationship between exponential growth rate and reproductive number by discretized version of the equation \ref{eq:Euler}.
 \begin{equation}
 1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
-\label{eq:obsR}
 \end{equation}
 where $N$ is the number of samples, $x_i$ represent a sample, and $C$ is the characteristic time. By varying $C$, we are able to obtain a relationship between $r$ and $\RR$.
 
