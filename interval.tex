@@ -112,6 +112,8 @@ The present formulation from equations \eref{Renewal}--\eref{Euler} summarizes t
 
 \section{Approximation framework}
 
+\subsection{Approximation method, theory}
+
 Here, we propose an approximation approach to estimate \RR\ from \eref{Euler}. 
 The approximation approach was inpired by the work of \cite{WallLips07} who used a normal approximation to construct such a moment approximation. 
 Instead, we use the case study of H1N1 influenza in Japan \cite{NishCast09} as an example and approximate the generation interval with a gamma distribution.
@@ -157,11 +159,41 @@ In our approximation, this corresponds to a generation distribution that is appr
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth is then given directly by the net per capita increase in infections -- $\RR-1$, where one represents the individual's recovery -- divided by the generation time.
 
+\subsection{Approximation method, in practice}
+
+Given an empirical distribution of generation intervals, we obtain the gamma approximation by estimating moments from data and using \eref{genExp}; these moments can be calculated directly, or estimated using a maximum-likelihood fit.
+However, empirical data on generation interval distributions is not always available. 
+Even when data is available, using observed distribution will almost always introduce bias \cite{ChamDush15}.
+
+In other cases, we may be given empirical distributions of latent and infectious periods (or their estimated distributions and respective parameters) instead. 
+To compute the moments of the generation interval distribution, we construct a theoretical sample of generation interval distributions from latent and infectious period distributions. 
+First, we draw a large sample from each distribution by either (1) bootstrapping from the reported sample or (2) taking samples from the estimated distribution such that their quantiles are equally spaced. 
+For our examples, we drew 10000 values from each distribution. 
+We then re-sample the infectious periods from our samples, weighting each sample by infectious-period length (since individuals with longer infectious periods have more time to transmit).
+Assuming that transmission rate stays constant over infectious period, generation intervals can be drawn (uniformly) at random from the resulting infectious period (i.e., between the end of the latent period and the end of the infectious period) \cite{HampDush09}.
+We then apply gamma approximation to the theoretical sample of generation interval distributions.
+
+To test our approximation, we obtain the theoretical relationship between exponential growth rate and reproductive number by substituting the theoretical generation interval sample into \eref{eq:Euler}. As \eref{eq:Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
+\begin{equation}
+1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
+\label{eq:obsR}
+\end{equation}
+where $x_i$ represent a sample and $N$ is the total number of samples.
+
+\swp{we need to say something about the histogram based method by WL here... This is not sensitive to the histogram widths and is more intuitive.}
+\jd{Not clear what to do or say about this. Obviously, they should not be losing data by binning, but it's not clear that they are. The other question is whether to treat 17d as 17.0d or as 16.5-17.5d. It shouldn't matter much.}
+
+\jd{JD needs to figure out why he did something weird about Ebola and whether he agrees with SWP about not doing it.}
+\jd{Should we look into getting an empirical distribution instead?}
+\swp{Yes.}
+
+% To investigate the effect of small samples, we used our full samples to draw the reference curves in figures \frange{EbolaCurve}{rabiesCurve}, and subsampled from these for the sampling example \fref{ebolaSample}. We used \eref{obsR} to draw curves related $r$ to $\RR$.
+
 \section{Examples}
 
 We investigate this approximation approach using three different examples. 
 In doing so, we demonstrate the practicality of using our gamma approximation to estimate the basic reproductive number. 
-These examples also serve to demonstrate that roust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
+These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
 Our initial investigation of this question was motivated by the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles).
 
 \subsection{Ebola}
@@ -250,10 +282,6 @@ Red shows estimates based on maximum likelihood fits.
 
 The moment-matching method (approximating $\RR$ based on estimated mean and variance of the generation interval) has an appealing simplicity, and works well for all of the actual disease parameters we tested (the breakdown for rabies distributions occurs for values of $\RR$ well above observed values). We therefore wanted to compare its robustness in statistical estimation to that of the more sophisticated maximum likelihood method. \fref{ebolaSample} shows results of this experiment. When sample size is limited, estimates using MLE tend to be substantially close to the known true values in these experiments.
 
-\jsw{For this paper, I really think 5 must precede 4. You have an approximation method in 3. But then you apply this to data... Then you tell us what you actually did. No good! I want to know about the discretization before I judge your fits. Please move this up to 4, or break section 3 into two parts:  3.1 Approximation method, theory; 3.2 Approximation method, in practice.}
-
-\section{Methods}
-
 \begin{table}[h!]
 \centering
 \begin{tabular}{l*{3}{c}}
@@ -271,47 +299,6 @@ SD infectious period (days) & 4.7 \cite{AylwBarb14} & 1.63 \cite{Lloy01} & 2.26 
 \caption{Parameters that were used to obtain theoretical generation distributions for each disease. Reproduction numbers are represented as points in figure \frange{EbolaCurve}{rabiesCurve}.}
 \tlab{parameters}
 \end{table}
-
-\swp{Now, I agree with JSW that this should go before example. I like the idea of having two sections called (1) approximation method, in theory and (2) approximation method, in practice. Adding a paragraph like this might be helpful:}
-\jd{K. Just try to do IMRD an dkeep this in jmind.}
-
-Given an empirical distribution of generation intervals, we obtain the theoretical relationship between exponential growth rate and reproductive number, we can discretize \eref{Euler} and subtitute the empirical distribution:
-\begin{equation}
-1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
-\label{eq:obsR}
-\end{equation}
-where $x_i$ represent a sample and $N$ is the total number of samples. If we interpret $\int g(\tau) \exp(-\tau/C) d\tau$ as a weighted mean of $\exp(-\tau)/C$, equation \ref{eq:obsR} is an intuitive transition from a continuous distribution to a discrete data.
-We obtain the gamma approximation by estimating moments from data and using \eref{genExp}; these moments can be calculated directly, or estimated using a maximum-likelihood fit.
-\swp{we need to say something about the histogram based method by WL here... This is not sensitive to the histogram widths and is more intuitive IMHO.}
-\jd{Not clear what to do or say about this. Obviously, they should not be losing data by binning, but it's not clear that they are. The other question is whether to treat 17d as 17.0d or as 16.5-17.5d. It shouldn't matter much.}
-
-\jd{Maybe better not to say this here, but instead address it specifically with rabies and Ebola.} In other cases, we may be given empirical distributions of incubation and symptomatic periods (or their estimated distributions and respective parameters) instead. For simplicity, we can assume that latent and infectious period follow the same distributions as incubation and symptomatic periods respectively (see [CITE] for further dicussion). \swp{I don't know how much we want to talk about this here.}
-
-\swp{Talk about how we can estimate the moments of the generation interval distribution from latent/infectious periods and even the full distribution. Making a waiting time analogy might help the readers.}
-\jd{Yes. I was not saying anything about this P., just the one before it.}
-
-\swp{If we decide to incorporate what I wrote above, we can clean up the following paragraphs and it might be easier to format the paper:}
-
-In order to obtain realistic example generation-interval distributions, we first gathered empirical information about each disease. For simplicity, we assumed that latent and infectious periods are independently distributed and (for rabies and Ebola) that incubation period is equivalent to latent period. We also assumed that transmission rate remains constant over the infectious period.
-
-For rabies, we used the reported values from \cite{HampDush09} as our sample.
-For other diseases, we use 10000 quantiles from idealized distributions of the latent and infectious periods corresponding to the estimated parameters.
-We then re-sampled the infectious periods from our samples, weighting each sample by infectious-period length (since individuals with longer infectious periods have more time to transmit). 
-Generation intervals were drawn (uniformly) at random from the resulting infectious period (i.e., between the end of the latent period and the end of the infectious period).
-
-\jd{JD needs to figure out why he did something weird about Ebola and whether he agrees with SWP about not doing it.}
-\jd{Should we look into getting an empirical distribution instead?}
-\swp{Yes.}
-
-\swp{Since we're using the lognormal anyway, the way we're trying to match WHO doesn't quite work.}
-
-We estimated the theoretical relationship between exponential growth rate and reproductive number by discretized version of the equation \ref{eq:Euler}.
-\begin{equation}
-1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
-\end{equation}
-where $N$ is the number of samples, $x_i$ represent a sample, and $C$ is the characteristic time. By varying $C$, we are able to obtain a relationship between $r$ and $\RR$.
-
-% To investigate the effect of small samples, we used our full samples to draw the reference curves in figures \frange{EbolaCurve}{rabiesCurve}, and subsampled from these for the sampling example \fref{ebolaSample}. We used \eref{obsR} to draw curves related $r$ to $\RR$.
 
 \section{Discussion}
 
