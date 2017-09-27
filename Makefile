@@ -3,7 +3,6 @@
 
 ### Hooks for the editor to set the default target
 current: target
-target = Makefile
 -include target.mk
 target: $(target)
 
@@ -26,10 +25,11 @@ interval.pdf: interval.tex
 ## Refs
 
 Sources += manual.bib auto.rmu
-refs.bib: auto.bib manual.bib
+refs.bib: git_push/auto.bib manual.bib
 	$(cat)
 
 auto.html: auto.rmu
+auto.bib: auto.rmu
 
 interval.bbl: auto.rmu
 
@@ -40,6 +40,17 @@ interval.bbl: auto.rmu
 export autorefs = autorefs
 -include autorefs/inc.mk
 -include $(ms)/pandoc.mk
+
+######################################################################
+
+## Set up
+
+setup:
+	$(MAKE)
+	$(MAKE) dfiles
+	$(MAKE) interval.pdf
+	$(MAKE) interval.pdf.go
+
 
 ######################################################################
 
