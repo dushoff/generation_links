@@ -106,14 +106,14 @@ Thus, for the exponential phase, we write:
 \begin{equation}
 i(t) = \RR\int{g(\tau)i(t-\tau) \,d\tau},
 \end{equation}
-where $\RR = \Ro S(t)$.
+where $\RR = \Ro S$.
 
 We then solve for the characteristic time $\Tc$ by assuming that the population is growing exponentially: i.e., substitute $i(t) = i(0) \exp(t/\Tc)$ to obtain
 \begin{equation}
 	1/\RR = \int{g(\tau)\exp(-\tau/\Tc) \,d\tau}.\label{eq:Euler}
 \end{equation}
-The present formulation from equations \eref{Renewal}--\eref{Euler} summarizes the work of \cite{WallLips07} as a prelude to our approximation framework.
-\jd{This is our way of formulating the Euler-Lotka equation. Why should we re-credit WallLips07?}
+% The present formulation from equations \eref{Renewal}--\eref{Euler} summarizes the work of \cite{WallLips07} as a prelude to our approximation framework.
+% \jd{This is our way of formulating the Euler-Lotka equation. Why should we re-credit WallLips07?}
 
 \section{Approximation framework}
 
@@ -121,8 +121,8 @@ The present formulation from equations \eref{Renewal}--\eref{Euler} summarizes t
 
 Here, we propose an approximation approach to estimate \RR\ from \eref{Euler}. 
 The approximation approach was inpired by the work of \cite{WallLips07} who used a normal approximation to construct such a moment approximation. 
-Instead, we use the case study of H1N1 influenza in Japan \cite{NishCast09} as an example and approximate the generation interval with a gamma distribution.
-Gamma approximation provides a more realistic framework as it does not support negative values (See Appendix for more discussion).
+Instead, we follow \cite{NishCast09} and approximate the generation interval with a gamma distribution.
+This provides a more robust framework, based on more realistic assumptions, since the gamma distribution is confined to non-negative values. 
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = \theta/\kappa$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution, $g_{\gamma}(\tau)$, into \eref{Euler} then yields:
 \begin{equation}
