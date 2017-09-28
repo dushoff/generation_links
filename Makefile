@@ -22,6 +22,9 @@ products: interval.pdf.gp auto.html.pages
 Sources += interval.tex
 interval.pdf: interval.tex
 
+compare.tex: dushoff.tex park.tex makestuff/latexdiff.pl
+	$(PUSH)
+
 ## Refs
 
 Sources += manual.bib auto.rmu
