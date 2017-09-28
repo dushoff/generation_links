@@ -22,6 +22,8 @@ products: interval.pdf.gp auto.html.pages
 Sources += interval.tex
 interval.pdf: interval.tex
 
+appendix.pdf: appendix.tex
+
 compare.tex: dushoff.tex park.tex makestuff/latexdiff.pl
 	$(PUSH)
 
