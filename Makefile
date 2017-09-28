@@ -19,7 +19,7 @@ include sub.mk
 products: interval.pdf.gp auto.html.pages
 
 ## MS
-Sources += interval.tex
+Sources += interval.tex appendix.tex
 interval.pdf: interval.tex
 
 appendix.pdf: appendix.tex
