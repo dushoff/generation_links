@@ -30,6 +30,7 @@ appendix.pdf: appendix.tex
 compare.tex: dushoff.tex park.tex makestuff/latexdiff.pl
 	$(PUSH)
 
+mdirs += Generation_distributions
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
 	cd Generation_distributions && $(MAKE) $*
