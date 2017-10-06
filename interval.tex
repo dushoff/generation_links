@@ -223,8 +223,10 @@ We  then simulated the relationship between $r$ and $\RR$ implied by our simulat
 	\label{fig:measlesCurve}
 \end{figure}
 
-To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to estimated generation-interval distributions for measles from \cite{MeaslesReview}. Here, we found that the approximation matches the theoretical distribution almost perfectly (no visible differences in the curves) across our range of interest (\RR\ up to $>20$).
-This result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR\ (results not shown).
+To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to a simulated generation intervals distribution using information from \cite{LessReic09} and \cite{Lloy01}. 
+Here, we found that the approximation matches the theoretical distribution almost perfectly (no visible differences in the curves) across our range of interest (\RR\ up to $>20$).
+Although infectious period distributions was inferred from a modelling study, this result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR\ (results not shown). 
+\swp{Nevertheless, we caution the readers that this result should not be taken too seriously. This example is presented to illustrate that summarizing a distribution with its moments may be sufficient to capture its essential information.}
 
 \subsection{Rabies}
 
@@ -262,7 +264,7 @@ Disease & Ebola & Measles & Rabies\\
 \hline
 Parameter & \multicolumn{3}{c}{Values}\\
 \hline
-Reproduction number & 1.38, 1.51, 1.81 \cite{AylwBarb14} & 12.8, 16 \cite{AndeMay82} & 1.06, 1.32 \cite{HampDush09} \\
+Reproduction number & 1.38, 1.51, 1.81 \cite{AylwBarb14} & NA & 1.06, 1.32 \cite{HampDush09} \\
 Mean incubation period (days) & 11.4 \cite{AylwBarb14} & 12.77 \cite{LessReic09}  & 24.24 \cite{HampDush09} \\
 SD incubation period (days) & 7.5 (see \sref{EbolaEx}) & 2.67 \cite{LessReic09} & 29.49 \cite{HampDush09} \\
 Mean infectious period (days) & 5 \cite{AylwBarb14} & 3.65 \cite{Lloy01} & 3.57 \cite{HampDush09} \\
