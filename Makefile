@@ -12,6 +12,9 @@ Sources = Makefile .gitignore README.md sub.mk LICENSE.md
 include sub.mk
 # include $(ms)/perl.def
 
+## Why is this here? Where should it be?
+-include $(ms)/repos.def
+
 ##################################################################
 
 ## Content
@@ -26,6 +29,10 @@ appendix.pdf: appendix.tex
 
 compare.tex: dushoff.tex park.tex makestuff/latexdiff.pl
 	$(PUSH)
+
+## This should not be necessary, but don't waste Daniel's time!
+Generation_distributions/%:
+	cd Generation_distributions && $(MAKE) $*
 
 ## Refs
 
