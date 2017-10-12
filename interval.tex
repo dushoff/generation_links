@@ -195,7 +195,7 @@ For simplicity, we assumed that latent and infectious periods are equivalent to 
 (black curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
 (blue curve) the same relationship, approximated using the observed mean and CV. 
 The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).}
+Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods and mean serial intervals reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$).
 	\label{fig:EbolaCurve}}
 \end{figure}
 
@@ -203,7 +203,7 @@ We first simulated a generation-interval distribution for Ebola virus disease (E
 We used lognormal (rather than gamma, the other simple alternative) for our components because we thought this would provide a more challenging test of our gamma approximation. 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 % We estimated the squared CV $\kappa$ using a maximum-likelihood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the simulated distribution to a single-gamma approximation.
-We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to wor well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
+We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
 \subsection{Measles}
 
@@ -240,7 +240,7 @@ Although infectious period distributions was inferred from a modelling study, th
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/rabies_mle.Rout.pdf}
 	\caption{
 		Fitting gamma distributions to generation intervals. 
-		Rabies generation distributions simulated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve).
+		Rabies generation distributions simulated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve). Initial growth rate for each outbreak was inferred by solving \eref{Euler} numerically using the simulated generation interval distributions.
 	}
 	\label{fig:rabiesHist}
 \end{figure}
