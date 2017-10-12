@@ -55,12 +55,12 @@ As it is a unitless quantity, it does not, however, contain information about \e
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to the doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, is often inferred from case-incidence reports, by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
-Estimate of the rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the disease to esimate the reproductive number, \RR.
+Estimate of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the disease to esimate the initial reproductive number, \RR.
 In particular, $\RR$ is often calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 While the rate of spread measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
 The \emph{generation interval} denotes the time that elapses between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
-Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{GenerationMeasurement}.
+Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 As a consequence, generation interval distributions are difficult to ascertain empirically. Further, the generation function approach depends on entire distribution -- which makes it difficult to ascertain which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
 Here, we re-interpret the work of \cite{WallLips07} using means, variance measures and approximations.
@@ -286,7 +286,8 @@ We found that approximation based on observed moments gives good estimates when 
 Our key finding is that summarizing an entire generation interval distribution with its moments can give sensible and robust estimates.
 This framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
-For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, Others_p, KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
+For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofg14, 
+KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
 During the outbreak, \cite{WeitDush15} used a generation-interval argument to  show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.
 Knowing the exact shape of the generation interval distribution is difficult, but thinking about how various transmission routes and epidemic parameters affect the distribution will help researchers better understand future outbreaks.

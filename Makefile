@@ -17,6 +17,8 @@ include sub.mk
 
 ##################################################################
 
+auto.rmu.72ee58.oldfile:
+
 ## Content
 
 products: interval.pdf.gp auto.html.pages
@@ -38,7 +40,7 @@ Generation_distributions/%:
 ## Refs
 
 Sources += manual.bib auto.rmu
-refs.bib: git_push/auto.bib manual.bib
+refs.bib: auto.bib manual.bib
 	$(cat)
 
 auto.html: auto.rmu
