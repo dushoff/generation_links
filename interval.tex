@@ -41,10 +41,6 @@
 
 \section*{Abstract}
 
-\jd{Need a philosophy and maybe an explanation about the 0 subscript. Also, a philosophy on when we say basic (never?) or initial and when we don't bother.}
-
-\swp{I got rid of the 0 subscript for now because it's confusing.}
-
 \jd{OK, but we need to go back and add initial or exponential in a few places then.}
 
 \section{Introduction}
@@ -211,8 +207,6 @@ We  then simulated the relationship between $r$ and $\RR$ implied by our simulat
 
 \subsection{Measles}
 
-\jd{Points! Can we figure out why Dushoff thinks that the Ebola points mean something? And can we remove the measles points? What about rabies?}
-
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/measles_curve.Rout.pdf}
 	\caption{Estimating \RR~from measles data.
@@ -226,7 +220,6 @@ We  then simulated the relationship between $r$ and $\RR$ implied by our simulat
 To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to a simulated generation intervals distribution using information from \cite{LessReic09} and \cite{Lloy01}. 
 Here, we found that the approximation matches the theoretical distribution almost perfectly (no visible differences in the curves) across our range of interest (\RR\ up to $>20$).
 Although infectious period distributions was inferred from a modelling study, this result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR\ (results not shown). 
-\swp{Nevertheless, we caution the readers that this result should not be taken too seriously. This example is presented to illustrate that summarizing a distribution with its moments may be sufficient to capture its essential information.}
 
 \subsection{Rabies}
 
@@ -276,16 +269,17 @@ SD infectious period (days) & 4.7 \cite{AylwBarb14} & 1.63 \cite{Lloy01} & 2.26 
 
 \section{Discussion}
 
-Estimating the reproductive number \RR\ is a key part of characterizing and controlling infectious disease spread. \RR\ is often estimated by estimating the exponential rate of growth, and then using a generation-interval distribution to relate the two quantities. 
-Such estimates require detailed information on the times between when individuals are first infected and when they infect other susceptible individuals. 
-In this paper, we propose a method to esetimate \RR, in practice, given minimal information about the full (unknown) generation interval distribution.
+Estimating the reproductive number \RR\ is a key part of characterizing and controlling infectious disease spread. The initial value of \RR\ for an outbreak is often estimated by estimating the initial exponential rate of growth, and then using a generation-interval distribution to relate the two quantities. 
+Detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
+Here we discuss a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We use examples to test the robustness of the framework. We also compare estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
-The main contribution is a framework to use a gamma approximation \cite{NishCast09} to estimate how \RR\ depend on estimates of the mean ($\bar G$) and squared CV ($\kappa$) of the generation-interval distribution, as well as on the exponential growth rate ($r$) \eref{genExp}. 
-We attempted to present these approximations in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
+The gamma approximation was developed by \cite{NishCast09}, and  
+provides estimates that are simpler, more robust and more realistic than those from normal approximations \cite{WallLips07}.
+Here, we attempted to present these approximations in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
+We discuss the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}. 
+We also provide mechanistic interpretations: when generation intervals are slower, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
+
 The framework has another advantage when propagating uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
-The gamma approximation provides estimates that are simpler, more robust and more realistic than those from normal approximations \cite{WallLips07}.
-
-We rederived the result of \cite{WallLips07} that estimates of \RR\ increase when the generation time gets longer, and decrease when variation in generation times increase. We also provide mechanistic interpretations. If generation intervals are slower, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
 
 We confirmed the effectiveness of the gamma approximation framework by applying it to three diseases: Ebola, measles, and rabies. 
 We found that approximation based on observed moments gives good estimates when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies \tref{parameters}), but using maximum likelihood to estimate the moments provides better estimates even when data is limited (see Appendix).
