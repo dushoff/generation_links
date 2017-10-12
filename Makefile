@@ -29,7 +29,7 @@ interval.pdf: interval.tex
 
 appendix.pdf: appendix.tex
 
-compare.tex: dushoff.tex park.tex makestuff/latexdiff.pl
+compare.tex: interval.tex* makestuff/latexdiff.pl
 	$(PUSH)
 
 mdirs += Generation_distributions
