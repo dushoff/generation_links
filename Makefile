@@ -27,6 +27,7 @@ products: interval.pdf.gp auto.html.pages
 Sources += interval.tex appendix.tex
 interval.pdf: interval.tex
 
+## appendix.pdf shouldn't be a thing … roll it into the MS
 appendix.pdf: appendix.tex
 
 compare.tex: interval.tex* makestuff/latexdiff.pl
