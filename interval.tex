@@ -1,5 +1,5 @@
 
-\documentclass[12pt,]{article}
+\documentclass[12pt]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 
@@ -40,8 +40,6 @@
 \maketitle
 
 \section*{Abstract}
-
-\jd{OK, but we need to go back and add initial or exponential in a few places then.}
 
 \section{Introduction}
 
@@ -169,14 +167,14 @@ To generate an estimated distribution of generation intervals from information a
 We then sample an infection delay uniformly from the infectious period (i.e., assuming constant infectiousness) and estimate generation interval as the sum of latent period and infection delay.  
 For our examples, we drew 10000 values from each distribution. 
 
-The estimated relationship between exponential growth rate and reproductive number is obtained by substituting the simulated generation interval sample into \eref{eq:Euler}.
-As \eref{eq:Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
+The estimated relationship between exponential growth rate and reproductive number is obtained by substituting the simulated generation interval sample into \eref{Euler}.
+As \eref{Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
 \begin{equation}
 1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
 \label{eq:obsR}
 \end{equation}
 where $x_i$ represents each sample generation interval and $N$ is the total number of samples. 
-This is then compared to the approximate relationship based on \eqref{gamApp}
+This is then compared to the approximate relationship based on \eref{gamApp}
 
 \section{Examples}
 
@@ -195,7 +193,7 @@ For simplicity, we assumed that latent and infectious periods are equivalent to 
 (black curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
 (blue curve) the same relationship, approximated using the observed mean and CV. 
 The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).}
+Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$).
 	\label{fig:EbolaCurve}}
 \end{figure}
 
@@ -203,7 +201,7 @@ We first simulated a generation-interval distribution for Ebola virus disease (E
 We used lognormal (rather than gamma, the other simple alternative) for our components because we thought this would provide a more challenging test of our gamma approximation. 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 % We estimated the squared CV $\kappa$ using a maximum-likelihood fit to a gamma distribution (it is also possible to estimate the squared CV directly, but our way is better, see Appendix) and compared the simulated distribution to a single-gamma approximation.
-We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to wor well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
+We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
 \subsection{Measles}
 
@@ -240,7 +238,7 @@ Although infectious period distributions was inferred from a modelling study, th
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/rabies_mle.Rout.pdf}
 	\caption{
 		Fitting gamma distributions to generation intervals. 
-		Rabies generation distributions simulated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve).
+		Rabies generation distributions simulated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve). Initial growth rate for each outbreak was inferred by solving \eref{Euler} numerically using the simulated generation interval distributions.
 	}
 	\label{fig:rabiesHist}
 \end{figure}
@@ -275,7 +273,7 @@ However, detailed estimates of the full generation interval are difficult to obt
 Here we discuss a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We use examples to test the robustness of the framework. We also compare estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
 The gamma approximation was developed by \cite{NishCast09}, and  
-provides estimates that are simpler, more robust and more realistic than those from the normal approximations developed by \cite{WallLips07}.
+provides estimates that are simpler, more robust and more realistic than those from the normal approximations developed by \cite{WallLips07} (see Appendix).
 Here, we attempted to present the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 We discuss the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}. 
 We also provide mechanistic interpretations: when generation intervals are slower, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
@@ -296,5 +294,10 @@ Knowing the exact shape of the generation interval distribution is difficult, bu
 
 \printbibliography
 
-\end{document}
+\clearpage
 
+\section{Appendix}
+
+\input{appendix.tex}
+
+\end{document}

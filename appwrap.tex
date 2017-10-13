@@ -1,0 +1,44 @@
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{biblatex}
+
+\newcommand{\RR}{\ensuremath{{\cal R}}}
+\newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
+\newcommand{\Ro}{\Rx{0}}
+\newcommand{\Reff}{\Rx{\mathit{eff}}}
+\newcommand{\Tc}{\ensuremath{C}}
+
+\newcommand{\eref}[1]{(\ref{eq:#1})}
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\sref}[1]{Sec.~\ref{#1}}
+\newcommand{\frange}[2]{Fig.~\ref{fig:#1}--\ref{fig:#2}}
+\newcommand{\tref}[1]{Table~\ref{tab:#1}}
+\newcommand{\tlab}[1]{\label{tab:#1}}
+
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
+\newcommand{\jsw}[1]{\comment{red}{JSW}{#1}}
+
+\addbibresource{refs.bib}
+\usepackage{graphicx,grffile}
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+\title{Appendix}
+\author{Sang Woo Park \and David Champredon \and Joshua Weitz \and Jonathan Dushoff}
+\date{July 2017}
+
+\begin{document}
+\maketitle
+
+\printbibliography
+
+\end{document}
+
