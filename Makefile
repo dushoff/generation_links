@@ -24,10 +24,11 @@ auto.rmu.72ee58.oldfile:
 products: interval.pdf.gp auto.html.pages
 
 ## MS
-Sources += interval.tex appendix.tex
+Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
 
-## appendix.pdf shouldn't be a thing … roll it into the MS
+## appendix.pdf is no longer a thing … rolled it into the MS
+## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 appendix.pdf: appendix.tex
 
 compare.tex: interval.tex* makestuff/latexdiff.pl

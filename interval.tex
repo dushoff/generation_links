@@ -167,14 +167,14 @@ To generate an estimated distribution of generation intervals from information a
 We then sample an infection delay uniformly from the infectious period (i.e., assuming constant infectiousness) and estimate generation interval as the sum of latent period and infection delay.  
 For our examples, we drew 10000 values from each distribution. 
 
-The estimated relationship between exponential growth rate and reproductive number is obtained by substituting the simulated generation interval sample into \eref{eq:Euler}.
-As \eref{eq:Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
+The estimated relationship between exponential growth rate and reproductive number is obtained by substituting the simulated generation interval sample into \eref{Euler}.
+As \eref{Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
 \begin{equation}
 1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
 \label{eq:obsR}
 \end{equation}
 where $x_i$ represents each sample generation interval and $N$ is the total number of samples. 
-This is then compared to the approximate relationship based on \eqref{gamApp}
+This is then compared to the approximate relationship based on \eref{gamApp}
 
 \section{Examples}
 
@@ -294,5 +294,8 @@ Knowing the exact shape of the generation interval distribution is difficult, bu
 
 \printbibliography
 
-\end{document}
+\section{Appendix}
 
+\clearpage\input{appendix.tex}
+
+\end{document}
