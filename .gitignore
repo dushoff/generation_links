@@ -40,3 +40,6 @@ sourcedir/
 pages/
 .testdir/
 subclone_dir/
+
+*.oldfile
+compare.tex
