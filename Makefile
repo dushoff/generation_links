@@ -1,5 +1,6 @@
 # generation_links
 # http://dushoff.github.io/generation_links/
+# ~/Downloads/interval_jsw.pdf
 
 ### Hooks for the editor to set the default target
 current: target
@@ -17,8 +18,6 @@ include sub.mk
 
 ##################################################################
 
-auto.rmu.72ee58.oldfile:
-
 ## Content
 
 products: interval.pdf.gp auto.html.pages
@@ -29,7 +28,7 @@ interval.pdf: interval.tex
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
-appendix.pdf: appendix.tex
+## appendix.pdf: appendix.tex
 
 compare.tex: interval.tex* makestuff/latexdiff.pl
 	$(PUSH)
