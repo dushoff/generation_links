@@ -152,11 +152,13 @@ We define the generalized exponential function $X$ above -- it is equivalent to 
 \end{figure}
 
 \jsw{Okay!  But, for readability, why do you need to define this as X.  By defining in terms of X you have sentences like \ldots}
-\jd{I see the point, but I don't think that's much abstraction. R is approximated by the function X, and we're investigating how 
+\jd{I see the point, but I don't think that's much abstraction. R is approximated by the function X, and we're investigating how X behaves.}
 For small $\rho$, $X$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
-For large values of $1/\kappa$, $X$ looks like the ``compound-interest approximation'' to the exponential; and when $\kappa \to 0$, $X(\rho)$ converges to $\exp(\rho)$.
+For large values of $1/\kappa$, $X$ converges toward $\exp(\rho)$.
+\jsw{specify this using a formula, don't just allude to the compound interest approximation to the exponential. Just go ahead and specify it.}
+\jd{I thought about this, but it would look just like the formula for X \ldots I just simplified}
 
-The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If the generation interval is fixed (and therefore, there is no variation, i.e., $\kappa=0$), then this means the average case must cause $\RR = \exp(\rho)$ new cases.
+The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If $\kappa=0$, the generation interval is fixed, so the means the average case must cause $\RR = \exp(\rho)$ new cases.
 If variation in the generation time (i.e., $\kappa$) increases, then some new cases will be produced before, and some after, the mean generation time.
 Since we assume the disease is increasing exponentially, infections that occur early on represent a larger proportion of the population, and thus will have a disproportionate effect: individuals don't have to produce as many lifetime infections to sustain the growth rate, and thus we expect  $\RR < \exp(\rho)$.
 

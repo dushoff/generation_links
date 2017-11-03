@@ -30,6 +30,8 @@ interval.pdf: interval.tex
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
+interval.tex.1f6db5.oldfile:
+compare.pdf: compare.tex
 compare.tex: interval.tex* makestuff/latexdiff.pl
 	$(PUSH)
 
