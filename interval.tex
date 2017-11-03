@@ -120,6 +120,7 @@ This fundamental relationship dates back to the work of Euler. We will explore t
 We do not expect to know the full distribution $g(\tau)$, so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
 This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values. 
+
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = \theta/\kappa$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution, $g_{\gamma}(\tau)$, into \eref{Euler} then yields:
 \begin{equation}
@@ -139,9 +140,9 @@ We define the generalized exponential function $X$ above -- it is equivalent to 
 \begin{figure}[htbp]
 	\centering \includegraphics[width=1.0\textwidth]{Generation_distributions/genExp.flat.Rout.pdf}
 	\caption{
-		The approximate relationship (\eref{gamApp}) between mean
+		The approximate relationship \eref{gamApp} between mean
 		generation time (relative to the characteristic time of
-		exponential growth) and reproductive number, as for different
+		exponential growth) and reproductive number. The curves correspond to different
 		amounts of variation in the generation-interval
 		distribution. 
 		Recall that the 
@@ -155,7 +156,7 @@ We define the generalized exponential function $X$ above -- it is equivalent to 
 For small $\rho$, $X$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
 For large values of $1/\kappa$, $X$ looks like the ``compound-interest approximation'' to the exponential; and when $\kappa \to 0$, $X(\rho)$ converges to $\exp(\rho)$.
 
-The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If the generation interval is fixed, then this means the average case must cause $\RR = \exp(\rho)$ new cases.
+The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If the generation interval is fixed (and therefore, there is no variation, i.e., $\kappa=0$), then this means the average case must cause $\RR = \exp(\rho)$ new cases.
 If variation in the generation time (i.e., $\kappa$) increases, then some new cases will be produced before, and some after, the mean generation time.
 Since we assume the disease is increasing exponentially, infections that occur early on represent a larger proportion of the population, and thus will have a disproportionate effect: individuals don't have to produce as many lifetime infections to sustain the growth rate, and thus we expect  $\RR < \exp(\rho)$.
 
@@ -252,7 +253,7 @@ Although infectious period distributions was inferred from a modelling study, th
 
 We did a similar analysis for rabies, and found that approximation is generally harder for this high-variance case (see \fref{rabiesCurve}). Since rabies estimates point to a value of \RR\ near 1, results are not very sensitive to any tested assumption about the relationship. But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
 
-The reason for this can be seen in \fref{rabiesHist}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals. Short intervals will be much more important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the generation intervals we simulated based on observations. This fit does a better job of matching the observed pattern of short generation intervals (\fref{rabiesHist}) and of predicting the simulated relationship between $r$ and \RR across a broad range (\fref{rabiesCurve}).
+The reason for this can be seen in \fref{rabiesHist}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals. Short intervals will be much more important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the generation intervals we simulated based on observations. This fit does a better job of matching the observed pattern of short generation intervals (\fref{rabiesHist}) and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
 
 \begin{table}[h!]
 \centering
@@ -277,7 +278,7 @@ SD infectious period (days) & 4.7 \cite{AylwBarb14} & 1.63 \cite{Lloy01} & 2.26 
 Estimating the reproductive number \RR\ is a key part of characterizing and controlling infectious disease spread. The initial value of \RR\ for an outbreak is often estimated by estimating the initial exponential rate of growth, and then using a generation-interval distribution to relate the two quantities. 
 Much work has been done in exploring such links \cite{WallLips07,Sven07,Nish10,Sven15}.
 However, detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
-Here we discuss a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We use examples to test the robustness of the framework. We also compare estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
+Here we introduced and analyzed simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We use examples to test the robustness of the framework. We also compare estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
 The gamma approximation was developed by \cite{NishCast09}, and  
 provides estimates that are simpler, more robust and more realistic than those from the normal approximations developed by \cite{WallLips07} (see Appendix).
@@ -295,7 +296,7 @@ For example, during the Ebola outbreak in West Africa, many researchers tried to
 KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
 During the outbreak, \cite{WeitDush15} used a generation-interval argument to  show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.
-Knowing the exact shape of the generation interval distribution is difficult, but thinking about how various transmission routes and epidemic parameters affect the distribution will help researchers better understand future outbreaks.
+Knowing the exact shape of the generation interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation interval distribution will help researchers better understand and predict the scope of future outbreaks.
 
 \subsection*{Acknowledgments}
 
