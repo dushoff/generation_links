@@ -34,10 +34,12 @@
 
 \title{Exploring how generation intervals link strength and speed of epidemics}
 \author{Sang Woo Park \and David Champredon \and Joshua Weitz \and Jonathan Dushoff}
-\date{July 2017}
+\date{\today}
 
 \begin{document}
 \maketitle
+
+\jd{Overall: rewrite to be clearer about methods: empirical data, realistic simulations and links, approximations and links.}
 
 \section*{Abstract}
 
@@ -122,7 +124,7 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values. 
 
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = \theta/\kappa$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
-Substituting the gamma distribution, $g_{\gamma}(\tau)$, into \eref{Euler} then yields:
+Substituting the gamma distribution, into \eref{Euler} then yields:
 \begin{equation}
 	\RR \approx (1 + \kappa r \bar G)^{1/\kappa}.
 	\label{eq:gamApp}
@@ -192,7 +194,7 @@ We investigate this approximation approach using three different examples.
 In doing so, we demonstrate the practicality of using our gamma approximation to estimate the basic reproductive number. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
 Our initial investigation of this question was motivated by the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). 
-For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for EVD and canine rabies.
+For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD) and canine rabies.
 
 \subsection{Ebola}
 \label{EbolaEx}
@@ -206,6 +208,8 @@ The blue dotted curves show the approximations based on exponential (lower) and 
 Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$).
 	\label{fig:EbolaCurve}}
 \end{figure}
+
+\jd{Talk about intrinsic, censored and backward intervals!!}
 
 We first simulated a generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
 We used lognormal (rather than gamma, the other simple alternative) for our components because we thought this would provide a more challenging test of our gamma approximation. 
@@ -287,7 +291,7 @@ Here we introduced and analyzed simple framework for \emph{estimating} the relat
 The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and  provides estimates that are simpler, more robust and more realistic than those from the normal approximations developed by \cite{WallLips07} (see Appendix).
 Here, we attempted to present the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 We discuss the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}. 
-We also provide mechanistic interpretations: when generation intervals are slower, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
+We also provide mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximation based on observed moments gives good estimates when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies, see \tref{parameters}), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters, and also when data are limited (see Appendix). \jsw{Wishy washy (particularly ``good'')}.
