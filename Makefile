@@ -68,7 +68,6 @@ setup:
 	$(MAKE) interval.pdf
 	$(MAKE) interval.pdf.go
 
-
 ######################################################################
 
 # Modules
@@ -85,7 +84,6 @@ Sources += $(dirs) $(ms)
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
--include $(ms)/flextex.mk
+-include $(ms)/texdeps.mk
 
 # -include $(ms)/wrapR.mk
-# -include $(ms)/oldlatex.mk
