@@ -35,7 +35,6 @@ compare.pdf: compare.tex
 compare.tex: interval.tex* makestuff/latexdiff.pl
 	$(PUSH)
 
-mdirs += Generation_distributions
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
 	cd Generation_distributions && $(MAKE) $*
@@ -74,7 +73,8 @@ setup:
 
 # Modules
 
-dirs += Generation_distributions autorefs
+mdirs += Generation_distributions autorefs
+dirs += $(mdirs)
 
 dfiles: $(dirs:%=%/Makefile)
 Sources += $(dirs) $(ms)
