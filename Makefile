@@ -1,6 +1,6 @@
 # generation_links
-# http://dushoff.github.io/generation_links/
-# ~/Downloads/interval_jsw.pdf
+# This is a working repo, not yet converted in any way for the hybrid paradigm
+# It has the first generation links paper
 
 ### Hooks for the editor to set the default target
 current: target
