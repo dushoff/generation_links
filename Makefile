@@ -72,7 +72,8 @@ setup:
 
 # Modules
 
-mdirs += Generation_distributions autorefs
+mdirs += Generation_distributions autorefs 
+# mdirs += Generation_distributions autorefs link_calculations
 dirs += $(mdirs)
 
 dfiles: $(dirs:%=%/Makefile)
@@ -85,5 +86,6 @@ Sources += $(dirs) $(ms)
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 -include $(ms)/texdeps.mk
+-include $(ms)/hybrid.mk
 
 # -include $(ms)/wrapR.mk

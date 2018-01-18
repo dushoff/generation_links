@@ -13,13 +13,6 @@ dotdir/
 clonedir/
 *.oldfile
 *.olddiff
-up.time
-commit.time
-commit.default
-dotdir/
-clonedir/
-*.oldfile
-*.olddiff
 *.log
 *.aux
 .*.aux
