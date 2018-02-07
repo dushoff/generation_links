@@ -48,8 +48,8 @@
 \section{Introduction}
 
 Infectious disease research often focuses on estimating the reproductive number, i.e., the number of new infections caused on average by a single infection.
-This number is termed the basic reproductive number -- \Ro\ -- in the event that a single infection emerges in an otherwise susceptible population.
-The basic reproductive number provides information about the disease's potential for spread and the difficulty of control.
+This number is termed the reproductive number -- \RR.
+The reproductive number provides information about the disease's potential for spread and the difficulty of control.
 It is described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
 
 The reproductive number has remained a focal point for research because it provides information about how a disease spreads in a population, on the scale of disease generations.
@@ -63,13 +63,12 @@ Estimates of the initial exponential rate of spread, $r$, can then be combined w
 In particular, $\RR$ is often calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} denotes the time that elapses between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
-While the rate of spread measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
+While $r$ measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on entire distribution -- which makes it difficult to ascertain which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
-\jd{Broaden this P.}
-Here, we re-interpret the work of \cite{WallLips07} using means, variance measures and approximations.
-By doing so, we hope to shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use even when data on generation intervals is limited or hard to obtain.
+Here, we explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and approximations.
+By doing so, we hope to shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
 \section{Relating \RR\ and $r$}
 
@@ -82,10 +81,10 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 \end{figure}
 
 We are interested in the relationship between $r$, \RR~and the generation-interval distribution, which describes the interval between the time an individual becomes \emph{infected} and the time that they \emph{infect} another individual.
-This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely, and somewhat counter-intuitively, if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
+This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely, and perhaps counter-intuitively, if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
 
 We define the generation-interval distribution using a renewal-equation approach.
-A wide range of disease models can be described using this model: 
+A wide range of disease models can be described using the model: 
 \begin{equation}
 i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \label{eq:Renewal}
@@ -139,7 +138,7 @@ We write:
 \end{equation}
 where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
 The longer the generation interval is compared to $T_c$, the higher the estimate of $\RR$ (see \fref{link}).
-We then explore the behaviour of the generalized exponential function $X$ defined above -- it is equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers} -- its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
+We then explore the behaviour of the generalized exponential function $X$ defined above (equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}): its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
 
 \begin{figure}[htbp]
 	\centering \includegraphics[width=1.0\textwidth]{Generation_distributions/genExp.flat.Rout.pdf}
@@ -173,11 +172,16 @@ The rate of exponential growth per generation is then given directly by the net 
 
 \subsection{Approximation method, in practice}
 
-To apply our approximation method, we need an estimated distribution of generation intervals. 
+We test our approximation method by generating pseudo-realistic generation-interval distributions, using observed generation intervals (or else latent and infectious intervals) from specific disease. 
+For each pseudo-realistic distribution, we calculate the relationship between $r$ and \RR\ that would be calculated if the distribution were known exactly, and compare it with one or more distributions based on gamma approximations. 
+These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
+
 This may be based directly on empirical observations of generation intervals, or inferred from observations of (or estimated parameters from) latent and infectious periods. 
 Given the estimated distribution of generation intervals, we can obtain the gamma approximation by estimating moments from data and using \eref{gamApp}; these moments can be calculated directly, or estimated using a maximum-likelihood fit.
 \swp{It is important to note that empirical observations through contact tracing data are subject to temporal bias [CITE DC]. Hence, we use simulated distributions as our examples to simply focus on developing an intuition. We will discuss ways to correct biases in empirical distributions in future papers.}
+\jd{Not sure why that's important to note here; we've noted it elsewhere.}
 
+We evaluate our approximations, we compare results from ga
 To generate an estimated distribution of generation intervals from information about latent and infectious periods, we use a simulation method \cite{HampDush09}: briefly, we generate deviates from each distribution independently (by bootstrap sampling for empirical observations, or using quantiles for estimated distributions). 
 We then sample an infection delay uniformly from the infectious period (i.e., assuming constant infectiousness) and estimate generation interval as the sum of latent period and infection delay.  
 For our examples, we drew 10000 values from each distribution. 

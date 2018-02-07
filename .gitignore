@@ -20,17 +20,3 @@ clonedir/
 *.blg
 *.bbl
 .texdeps/
-up.time
-commit.time
-commit.default
-dotdir/
-clonedir/
-*.hup
-*.oldfile
-*.olddiff
-*.log
-*.aux
-.*.aux
-*.blg
-*.bbl
-.texdeps/
