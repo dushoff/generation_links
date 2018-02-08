@@ -9,7 +9,7 @@ target: $(target)
 
 ##################################################################
 
-Sources = Makefile .gitignore README.md sub.mk LICENSE.md
+Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
 include sub.mk
 # include $(ms)/perl.def
 
@@ -42,6 +42,7 @@ Generation_distributions/%:
 ## Refs
 
 Sources += manual.bib auto.rmu
+Ignore += refs.bib
 refs.bib: auto.bib manual.bib
 	$(cat)
 
