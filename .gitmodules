@@ -7,3 +7,7 @@
 [submodule "autorefs"]
 	path = autorefs
 	url = https://github.com/dushoff/autorefs.git
+[submodule "link_calculations"]
+	path = link_calculations
+	url = https://github.com/dushoff/link_calculations.git
+	branch = master

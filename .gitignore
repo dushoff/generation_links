@@ -6,11 +6,21 @@ make.log
 .gitignore 
 
 ## content from makestuff
+auto.rmu
+auto.bib
+*.int
+*.bibmk
+*.point
+*.ref
+*.int
+*.md
+*.mdmk
 up.time
 commit.time
 commit.default
 dotdir/
 clonedir/
+.clean_dir
 *.hup
 *.oldfile
 *.olddiff

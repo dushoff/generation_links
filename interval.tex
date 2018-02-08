@@ -172,33 +172,24 @@ The rate of exponential growth per generation is then given directly by the net 
 
 \subsection{Approximation method, in practice}
 
-We test our approximation method by generating pseudo-realistic generation-interval distributions, using observed generation intervals (or else latent and infectious intervals) from specific disease. 
+We test our approximation method by generating pseudo-realistic generation-interval distributions, using observations (or estimated parameters) of generation intervals (or else latent and infectious intervals) from specific diseases. 
 For each pseudo-realistic distribution, we calculate the relationship between $r$ and \RR\ that would be calculated if the distribution were known exactly, and compare it with one or more distributions based on gamma approximations. 
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
 
-This may be based directly on empirical observations of generation intervals, or inferred from observations of (or estimated parameters from) latent and infectious periods. 
-Given the estimated distribution of generation intervals, we can obtain the gamma approximation by estimating moments from data and using \eref{gamApp}; these moments can be calculated directly, or estimated using a maximum-likelihood fit.
+Estimating generation intervals is complex; our goal with pseudo-realistic distributions in not precision, but distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
 \swp{It is important to note that empirical observations through contact tracing data are subject to temporal bias [CITE DC]. Hence, we use simulated distributions as our examples to simply focus on developing an intuition. We will discuss ways to correct biases in empirical distributions in future papers.}
 \jd{Not sure why that's important to note here; we've noted it elsewhere.}
 
-We evaluate our approximations, we compare results from ga
-To generate an estimated distribution of generation intervals from information about latent and infectious periods, we use a simulation method \cite{HampDush09}: briefly, we generate deviates from each distribution independently (by bootstrap sampling for empirical observations, or using quantiles for estimated distributions). 
-We then sample an infection delay uniformly from the infectious period (i.e., assuming constant infectiousness) and estimate generation interval as the sum of latent period and infection delay.  
+When starting from parametric distributions, we first generate quantiles. 
+To generate generation intervals from latent and infectious periods (whether empirical or parametric), we choose infectious periods by weighted resampling, then choose infection delays uniformly within infectious periods. Generation interval is the sum of latent period and infection delay \cite{HampDush09}.  
 For our examples, we drew 10000 values from each distribution. 
 
-The estimated relationship between exponential growth rate and reproductive number is obtained by substituting the simulated generation interval sample into \eref{Euler}.
-As \eref{Euler} is a weighted mean of $\exp(-\tau/C)$ over a continuous distribution, equivalent expression given discrete samples is then:
-\begin{equation}
-1/\RR = \frac{1}{N} \sum_{i=1}^{N} \exp(-x_i/C),
-\label{eq:obsR}
-\end{equation}
-where $x_i$ represents each sample generation interval and $N$ is the total number of samples. 
-This is then compared to the approximate relationship based on \eref{gamApp}
+We then calculate ``exact'' relationships (exact for our pseudo-realistic distributions) by substituting sampled generation intervals into \eref{Euler}.
+This relationship is then compared to the approximate relationship based on \eref{gamApp}
 
 \section{Examples}
 
 We investigate this approximation approach using three different examples. 
-In doing so, we demonstrate the practicality of using our gamma approximation to estimate the basic reproductive number. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
 Our initial investigation of this question was motivated by the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). \swp{I still want to remove measles; it's a nice example but it doesn't necessarily help with the intuition}
 For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD) and canine rabies.

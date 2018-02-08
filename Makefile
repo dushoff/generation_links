@@ -54,7 +54,7 @@ interval.bbl: auto.rmu
 
 ## Ref machinery
 
-export autorefs = autorefs
+export autorefs = $(realpath autorefs)
 -include autorefs/inc.mk
 -include $(ms)/pandoc.mk
 
