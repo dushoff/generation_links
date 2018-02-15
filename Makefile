@@ -73,8 +73,8 @@ setup:
 
 # Modules
 
-mdirs += Generation_distributions autorefs 
-# mdirs += Generation_distributions autorefs link_calculations
+mdirs += Generation_distributions autorefs link_calculations
+# mdirs += Generation_distributions autorefs
 dirs += $(mdirs)
 
 dfiles: $(dirs:%=%/Makefile)
