@@ -7,21 +7,11 @@ make.log
 
 ## content from makestuff
 refs.bib
-auto.rmu
-auto.bib
-*.int
-*.bibmk
-*.point
-*.ref
-*.int
-*.md
-*.mdmk
 up.time
 commit.time
 commit.default
 dotdir/
 clonedir/
-.clean_dir
 *.hup
 *.oldfile
 *.olddiff
@@ -30,12 +20,4 @@ clonedir/
 .*.aux
 *.blg
 *.bbl
-*.bcf
-*.run.xml
 .texdeps/
-appwrap.pdf
-appendix.pdf
-interval.pdf
-appwrap.out
-appendix.out
-interval.out
