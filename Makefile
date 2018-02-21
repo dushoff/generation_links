@@ -20,6 +20,8 @@ include sub.mk
 
 ## Content
 
+Sources += todo.mkd
+
 products: interval.pdf.gp auto.html.pages
 
 ## MS
