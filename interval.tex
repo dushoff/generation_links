@@ -92,6 +92,7 @@ i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \end{equation}
 \jd{DC: can you cite and/or improve this s.?}
 \swp{We can cite DC and JD or Heesterbeek and Dietz (cited by DC and JD)}
+\jd{Heesterbeek}
 where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
 We then have the basic reproductive number: 
@@ -116,7 +117,7 @@ We then solve for the characteristic time $\Tc$ by assuming that the population 
 	1/\RR = \int{g(\tau)\exp(-\tau/\Tc) \,d\tau}.\label{eq:Euler}
 \end{equation}
 
-This fundamental relationship dates back to the work of Euler \swp{cite?}.
+This fundamental relationship dates back to the work of Euler \swp{cite; yes, please}.
 We will explore the shape of this relationship using parameters based on some human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
 
 \section{Approximation framework}
@@ -125,7 +126,7 @@ We will explore the shape of this relationship using parameters based on some hu
 
 We do not expect to know the full distribution $g(\tau)$, so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
-This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values. \swp{maybe we should cite appendix here rather than in the discussion?}
+This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values (see Appendix for comparisons).
 
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields:
@@ -172,7 +173,6 @@ The straight-line relationship for $\kappa=1$ also has a biological interpretati
 In our approximation, this corresponds to a generation distribution that is approximated by an exponential distribution. 
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of an infectious individual. 
-\swp{rather than an infectious individual, maybe we can say infector to be slightly more clear?}
 
 \subsection{Approximation method, in practice}
 
@@ -180,10 +180,9 @@ We test our approximation method by generating pseudo-realistic generation-inter
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ based on our distribution assumptions, and compare it with one or more distributions based on gamma approximations. 
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
 
-Estimating generation intervals is complex; our goal with pseudo-realistic distributions in not precision, but distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
+Estimating generation intervals is complex; our goal with pseudo-realistic distributions is not to precisely match real diseases, but to generate distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
 To generate generation intervals we sample from observations (for empirical distributions) or generate from uniform quantiles (for parametric distributions). We sample latent periods at random.
-\swp{weighted resampling needs to be slightly clarified -- we should say that we are weigting by its length or something}
-We then choose infectious periods by weighted resampling (to account for greater opportunities to infect with a longer infectious period), then choose infection delays uniformly within infectious periods. Generation interval is the sum of latent period and infection delay \cite{HampDush09}.  
+We then choose infectious periods by length-weighted resampling (since longer infectious period implies more opportunities to infect), then choose infection delays uniformly within resampled infectious periods. Generation interval is the sum of latent period and infection delay \cite{HampDush09}.  
 For our examples, we drew 10000 values from each distribution. 
 
 We then calculate ``exact'' relationships (for our pseudo-realistic distributions) by substituting sampled generation intervals into \eref{Euler}.
@@ -193,8 +192,7 @@ This relationship is then compared to the approximate relationship based on \ere
 
 We investigate this approximation approach using three different examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
-Our initial investigation of this question was motivated by our work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). \swp{I still want to remove measles; it's a nice example but it doesn't necessarily help with the intuition}\jd{Convinced yet?}
-For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD) and canine rabies.
+Our initial investigation of this question was motivated by our work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD) and canine rabies.
 
 \subsection{Ebola}
 \label{EbolaEx}
@@ -220,7 +218,7 @@ We used the reported standard deviation for the infectious period, and chose the
 \Fref{EbolaCurve} We then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
 \jsw{What do you mean "simulated"... a distribution. The reader expects you are using real data... and will be concerned that you are doing gamma in -> gamma out.}
-\jd{I have been working hard on the language about simulated distributions\ldots}
+\jd{I have been working hard on the language about simulated distributions, let me know what you think.}
 \jd{We explain that we picked a lognormal to make sure it was different. I'm pretty sure that last time you suggested that we not mess with the lognormal (implicitly suggesting that we \emph{should} do gamma in/gamma out, which is not actually stupid, but would definitely be confusing.}
 \jd{Using an estimate from observed intervals might in fact be possible, but raises issues that I might rather deal with in another paper.}
 
