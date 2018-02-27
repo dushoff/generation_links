@@ -76,7 +76,7 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 \begin{figure}[htbp] \centering
 	% 
 	\includegraphics[width=1.0\textwidth]{link_calculations/steps.pdf}
-	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller value for the reproductive number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
+	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller reproductive number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
 % {(For calculations, we assumed, generation intervals were fixed.)} 
 	\label{fig:link}}
 \end{figure}
@@ -91,6 +91,7 @@ i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \label{eq:Renewal}
 \end{equation}
 \jd{DC: can you cite and/or improve this s.?}
+\swp{We can cite DC and JD or Heesterbeek and Dietz (cited by DC and JD)}
 where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
 We then have the basic reproductive number: 
@@ -115,7 +116,8 @@ We then solve for the characteristic time $\Tc$ by assuming that the population 
 	1/\RR = \int{g(\tau)\exp(-\tau/\Tc) \,d\tau}.\label{eq:Euler}
 \end{equation}
 
-This fundamental relationship dates back to the work of Euler. We will explore the shape of this relationship using parameters based on some human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
+This fundamental relationship dates back to the work of Euler \swp{cite?}.
+We will explore the shape of this relationship using parameters based on some human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
 
 \section{Approximation framework}
 
@@ -123,7 +125,7 @@ This fundamental relationship dates back to the work of Euler. We will explore t
 
 We do not expect to know the full distribution $g(\tau)$, so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
-This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values. 
+This is a better-grounded starting point than the earlier normal-distribution approach of \cite{WallLips07}, since the gamma distribution is confined to non-negative values. \swp{maybe we should cite appendix here rather than in the discussion?}
 
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields:
@@ -151,7 +153,7 @@ We then explore the behaviour of the generalized exponential function $X$ define
 		distribution. 
 		Recall that the 
 		relative length of generation interval $\rho$ is the ratio of
-		mean generation time $\hat G$ to characteristic time $C = 1/r$.
+		mean generation time $\hat G$ to characteristic time $\Tc = 1/r$.
 	} \label{fig:genExp} 
 \end{figure}
 
@@ -169,7 +171,8 @@ Since we assume the disease is increasing exponentially, infections that occur e
 The straight-line relationship for $\kappa=1$ also has a biological interpretation. 
 In our approximation, this corresponds to a generation distribution that is approximated by an exponential distribution. 
 In this case, recovery rate and infection rate are constant for each individual.
-The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of an infectious individual.
+The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of an infectious individual. 
+\swp{rather than an infectious individual, maybe we can say infector to be slightly more clear?}
 
 \subsection{Approximation method, in practice}
 
@@ -178,11 +181,9 @@ For each pseudo-realistic distribution, we calculate the ``true'' relationship b
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
 
 Estimating generation intervals is complex; our goal with pseudo-realistic distributions in not precision, but distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
-\swp{It is important to note that empirical observations through contact tracing data are subject to temporal bias [CITE DC]. Hence, we use simulated distributions as our examples to simply focus on developing an intuition. We will discuss ways to correct biases in empirical distributions in future papers.}
-\jd{Not sure why that's important to note here; we've noted it elsewhere.}
-\jd{I now notice that I try to raise this point somewhere else, and you say it can go in another paper (smiley face).}
-
-To generate generation intervals we sample from observations (for empirical distributions) or from uniform quantiles we generate (for parametric distributions). We sample latent periods at random. We then choose infectious periods by weighted resampling (to account for greater opportunities to infect with a longer infectious period), then choose infection delays uniformly within infectious periods. Generation interval is the sum of latent period and infection delay \cite{HampDush09}.  
+To generate generation intervals we sample from observations (for empirical distributions) or generate from uniform quantiles (for parametric distributions). We sample latent periods at random.
+\swp{weighted resampling needs to be slightly clarified -- we should say that we are weigting by its length or something}
+We then choose infectious periods by weighted resampling (to account for greater opportunities to infect with a longer infectious period), then choose infection delays uniformly within infectious periods. Generation interval is the sum of latent period and infection delay \cite{HampDush09}.  
 For our examples, we drew 10000 values from each distribution. 
 
 We then calculate ``exact'' relationships (for our pseudo-realistic distributions) by substituting sampled generation intervals into \eref{Euler}.
@@ -201,9 +202,9 @@ For simplicity, we assumed that latent and infectious periods are equivalent to 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/ebola.pdf}
 	\caption{Estimating \RR~from Ebola infectious case data.
-(black curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
-(blue curve) the same relationship, approximated using the observed mean and CV. 
-The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
+(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
+(dashed curve) the same relationship, approximated using the observed mean and CV. 
+(dotted curves) naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$).
 	\label{fig:EbolaCurve}}
 \end{figure}
@@ -216,34 +217,12 @@ We generated a pseudo-realistic generation-interval distribution for Ebola virus
 We used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation. 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
-\Fref{EbolaCurve} We  then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
+\Fref{EbolaCurve} We then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
 
 \jsw{What do you mean "simulated"... a distribution. The reader expects you are using real data... and will be concerned that you are doing gamma in -> gamma out.}
 \jd{I have been working hard on the language about simulated distributions\ldots}
 \jd{We explain that we picked a lognormal to make sure it was different. I'm pretty sure that last time you suggested that we not mess with the lognormal (implicitly suggesting that we \emph{should} do gamma in/gamma out, which is not actually stupid, but would definitely be confusing.}
 \jd{Using an estimate from observed intervals might in fact be possible, but raises issues that I might rather deal with in another paper.}
-
-
-\swp{maybe add the following text (slightly edited) from appendix}
-The moment-matching method (approximating $\RR$ based on estimated mean and variance of the generation interval) has an appealing simplicity and appears to work well for this example. We therefore wanted to compare its robustness in statistical estimation to that of the more sophisticated maximum likelihood method. \fref{ebolaSample} shows results of this experiment. When sample size is limited, estimates using MLE tend to be substantially close to the known true values in these experiments. However, it is worth noting that using the observed moment gives narrower estimates than the two naive estimates even when the sample size is small.
-
-\begin{figure}[htbp] \centering
-	\includegraphics[width=1.0\textwidth]{link_calculations/ebola_sample.pdf}
-\caption{
-%
-The effect of sample size on estimates of \RR.
-(black solid) the relationship between growth rate and \RR~using a known generation-interval distribution (see \fref{EbolaCurve}).
-(black dotted) approximate relationship based on exponential (lower) and fixed (upper) generation distributions with known mean.
-(colors) estimates based on finite samples from this distribution: solid curves show the median of 1000 sampling experiments, and shading shows the range where 95\% of the results fall.
-Blue shows estimates based on estimated mean and CV.
-Red shows estimates based on maximum likelihood fits.
-%
-}
-	\label{fig:ebolaSample}
-\end{figure}
-
-\swp{I think we can remove this and make Ebola and Rabies examples lengthier}
-\subsection{Measles}
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{Generation_distributions/measles_curve.Rout.pdf}
