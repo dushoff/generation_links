@@ -242,31 +242,23 @@ Although infectious period distributions was inferred from a modelling study, th
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/rabies.pdf}
-	\caption{Estimating \RR~from rabies infectious case data.
+	\caption{(Left) estimating \RR~from rabies infectious case data.
 		(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution.
 		(dashed curve) the same relationship approximated using the observed mean and CV.
 		(dash-dotted curve) the same relationship approximated using the mean and CV calculated from a maximum-likelihood fit.
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points are estimates from \cite{HampDush09}:
-		Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$).
+		Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$) \citep{HampDush09}.
+		Initial growth rate for each outbreak was inferred by solving \eref{Euler} numerically using the simulated generation interval distributions.
+		(Right) histogram represents rabies generation interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
+		Curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate $r-\RR$ relationships of the left figure).
 	}
 	\label{fig:rabiesCurve}
-\end{figure}
-
-\begin{figure}[htbp] \centering
-	\includegraphics[width=1.0\textwidth]{link_calculations/rabies.pdf}
-	\caption{
-		Fitting gamma distributions to generation intervals. 
-		Rabies generation distributions simulated from incubation and infectious periods observed by \cite{HampDush09}, with gamma approximations based on moments (dashed curve) and a maximum-likelihood fit (dotted curve). Initial growth rate for each outbreak was inferred by solving \eref{Euler} numerically using the simulated generation interval distributions.
-	}
-	\label{fig:rabiesHist}
 \end{figure}
 
 We did a similar analysis for rabies, and found that approximation is generally harder for this high-variance case (see \fref{rabiesCurve}). Since rabies estimates point to a value of \RR\ near 1, results are not very sensitive to any tested assumption about the relationship. But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
 
 The reason for this can be seen in \fref{rabiesHist}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals -- in particular \jd{How much description is needed here?}. We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the generation intervals we simulated based on observations. This fit does a better job of matching the observed pattern of short generation intervals (\fref{rabiesHist}) and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
-
-\swp{Would it be redundant if we made the same sample size plot for rabies?}
 
 \begin{table}[h!]
 \centering
