@@ -34,8 +34,8 @@ clonedir/
 *.run.xml
 .texdeps/
 appwrap.pdf
-interval.pdf
 appendix.pdf
+interval.pdf
 appwrap.out
-interval.out
 appendix.out
+interval.out
