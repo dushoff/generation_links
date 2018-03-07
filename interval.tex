@@ -35,12 +35,10 @@
 
 \title{Exploring how generation intervals link strength and speed of epidemics}
 \author{Sang Woo Park \and David Champredon \and Joshua Weitz \and Jonathan Dushoff}
-\date{\today}
+\date{\today: In preparation for \emph{PRSB}}
 
 \begin{document}
 \maketitle
-
-\jd{Overall: rewrite to be clearer about methods: empirical data, realistic simulations and links, approximations and links.}
 
 \section*{Abstract}
 
@@ -90,7 +88,7 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 \end{figure}
 
 We are interested in the relationship between $r$, \RR~and the generation-interval distribution, which describes the interval between the time an individual becomes \emph{infected} and the time that they \emph{infect} another individual.
-This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely, and perhaps counter-intuitively, if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
+This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
 
 We define the generation-interval distribution using a renewal-equation approach.
 A wide range of disease models can be described using the model: 
@@ -157,12 +155,11 @@ We then explore the behaviour of the generalized exponential function $X$ define
 	\caption{
 		The approximate relationship \eref{gamApp} between mean
 		generation time (relative to the characteristic time of
-		exponential growth) and reproductive number. The curves correspond to different
+		exponential growth, $\rho = r \bar G = \bar G/\Tc)
+		and reproductive number.
+		The curves correspond to different
 		amounts of variation in the generation-interval
 		distribution. 
-		Recall that the 
-		relative length of generation interval $\rho$ is the ratio of
-		mean generation time $\hat G$ to characteristic time $\Tc = 1/r$.
 	} \label{fig:genExp} 
 \end{figure}
 
@@ -207,34 +204,30 @@ Our initial investigation of this question was motivated by our work on the West
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/ebola.pdf}
-	\caption{Estimating \RR~from Ebola infectious case data.
-(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
-(dashed curve) the same relationship, approximated using the observed mean and CV. 
-(dotted curves) naive approximations based on exponential (lower) and fixed (upper) generation distributions.
+	\caption{Estimating \RR~for the West African Ebola Outbreak.
+(solid curve) The relationship between growth rate and \RR~using a realistic generation-interval distribution based on \cite{AylwBarb14}.
+(dashed curve) The same relationship, approximated using the observed mean and CV. 
+(dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$).
 	\label{fig:EbolaCurve}}
 \end{figure}
-
-\jd{Talk about intrinsic, censored and backward intervals!!}
-\swp{I think we can leave this for future papers...}
-\jd{Let's agree where and how to mention this briefly.}
 
 We generated a pseudo-realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
 We used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation. 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
-\Fref{EbolaCurve} We then simulated the relationship between $r$ and $\RR$ implied by our simulated distribution \eref{obsR}, and the approximate relationship \eref{genExp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation appears to work well over relevant parameter ranges, implying that it may be sufficient to understand the mean and CV of the generation-interval distribution when investigating this relationship.
+We then calculated the exact relationship between $r$ and $\RR$ implied by our pseudo-realistic distribution \eref{Euler}, and the approximate relationship \eref{gamApp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates, which were done using a different approach. 
 
-\jsw{What do you mean "simulated"... a distribution. The reader expects you are using real data... and will be concerned that you are doing gamma in -> gamma out.}
+\jsw{What do you mean "simulated"... a distribution. The reader expects you are using real data... and will be concerned that you are doing gamma in gamma out.}
 \jd{I have been working hard on the language about simulated distributions, let me know what you think.}
-\jd{We explain that we picked a lognormal to make sure it was different. I'm pretty sure that last time you suggested that we not mess with the lognormal (implicitly suggesting that we \emph{should} do gamma in/gamma out, which is not actually stupid, but would definitely be confusing.}
+\jd{We explain that we picked a lognormal to make sure it was different. I'm pretty sure that last time you suggested that we not mess with the lognormal (that is, you suggested that we \emph{should} do gamma in/gamma out, which is not actually stupid, but would probably be confusing.}
 \jd{Using an estimate from observed intervals might in fact be possible, but raises issues that I might rather deal with in another paper.}
 
 \subsection{Measles}
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/measles.pdf}
-	\caption{Estimating \RR~from measles data.
+	\caption{Estimating \RR~for measles.
 		(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution.
 		(dashed curve) the same relationship approximated using the estimated mean and CV (this curve is almost invisible because it overlaps the solid curve)
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
@@ -242,9 +235,9 @@ We used the reported standard deviation for the infectious period, and chose the
 	\label{fig:measlesCurve}
 \end{figure}
 
-To test whether gamma moment matching works for high \RR\ values, we applied the moment approximation to a simulated generation intervals distribution using information from \cite{LessReic09} and \cite{Lloy01}. 
-Here, we found that the approximation matches the theoretical distribution almost perfectly (no visible differences in the curves) across our range of interest (\RR\ up to $>20$).
-Although infectious period distributions was inferred from a modelling study, this result is not sensitive to our estimate of the variation in infectious period: because the length of infectious period is much shorter than that of latent period, changing the variation in the infectious period distribution has little effect on \RR\ (results not shown). 
+We also applied the moment approximation to a pseudo-realistic generation-interval distribution based on information about measles from \cite{LessReic09} and \cite{Lloy01}. 
+Here, we found surprisingly close agreement between the exact and approximate relationships between $r$ and \RR\ across a much wider range of interest (a difference of $<0.5\%$ for \RR\ up to $>20$).
+On examination, this closer agreement is due to the smaller overall variation in generation times in measles: when overall variation is small, differences between distributions have less effect.
 
 \subsection{Rabies}
 
@@ -256,7 +249,7 @@ Although infectious period distributions was inferred from a modelling study, th
 		(dash-dotted curve) the same relationship approximated using the mean and CV calculated from a maximum-likelihood fit.
 		The blue dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points are estimates from \cite{HampDush09}:
-		Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$) \citep{HampDush09}.
+		Serengeti (circle, $\RR=1.06$) and Ngorongoro (triangle, $\RR=1.32$).
 		Initial growth rate for each outbreak was inferred by solving \eref{Euler} numerically using the simulated generation interval distributions.
 		(Right) histogram represents rabies generation interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
 		Curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate $r-\RR$ relationships of the left figure).
@@ -266,7 +259,7 @@ Although infectious period distributions was inferred from a modelling study, th
 
 We did a similar analysis for rabies, and found that approximation is generally harder for this high-variance case (see \fref{rabiesCurve}). Since rabies estimates point to a value of \RR\ near 1, results are not very sensitive to any tested assumption about the relationship. But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
 
-The reason for this can be seen in \fref{rabiesHist}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals -- in particular \jd{How much description is needed here?}. We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the generation intervals we simulated based on observations. This fit does a better job of matching the observed pattern of short generation intervals (\fref{rabiesHist}) and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
+The reason for this can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the pseudo-realistic generation intervals. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
 
 \begin{table}[h!]
 \centering
