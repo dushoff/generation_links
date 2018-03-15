@@ -82,6 +82,7 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 	% 
 	\includegraphics[width=1.0\textwidth]{link_calculations/steps.pdf}
 	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller reproductive number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
+	\cite{Who_did_this_first}
 % {(For calculations, we assumed, generation intervals were fixed.)} 
 	\label{fig:link}}
 \end{figure}
@@ -90,12 +91,12 @@ We are interested in the relationship between $r$, \RR~and the generation-interv
 This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
 
 We define the generation-interval distribution using a renewal-equation approach.
-A wide range of disease models can be described using the model: 
+A wide range of disease models can be described using the model 
+\cite{Hees,ChampInPrep}:
 \begin{equation}
 i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \label{eq:Renewal}
 \end{equation}
-\cite{Hees,ChampInPrep}
 where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
 We then have the basic reproductive number: 
@@ -191,6 +192,7 @@ We then calculate ``exact'' relationships (for our pseudo-realistic distribution
 This relationship is then compared to the approximate relationship based on \eref{gamApp}
 
 \section{Examples}
+\label{Examples}
 
 We investigate this approximation approach using three different examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
@@ -239,6 +241,7 @@ Here, we found surprisingly close agreement between the exact and approximate re
 On examination, this closer agreement is due to the smaller overall variation in generation times in measles: when overall variation is small, differences between distributions have less effect.
 
 \subsection{Rabies}
+\label{Rabies_example}
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/rabies.pdf}
@@ -288,9 +291,9 @@ We discuss the general result that estimates of \RR\ increase with mean generati
 We also provide mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that a larger \RR\ is needed. 
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
-We found that approximation based on observed moments gives good estimates when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies, see \tref{parameters}), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters, and also when data are limited (see Appendix). \jsw{Wishy washy (particularly ``good'')}.
+We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
 
-Our key finding is that summarizing an entire generation interval distribution with its moments can give sensible and robust estimates.
+Our key finding is that summarizing an entire generation interval distribution using two moments can give sensible and robust estimates of the relationship between $r$ and \RR.
 This framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
 For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofg14, 
@@ -300,6 +303,8 @@ Our generation interval framework provides a clear interpretation of this result
 Knowing the exact shape of the generation interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation interval distribution will help researchers better understand and predict the scope of future outbreaks.
 
 \subsection*{Acknowledgments}
+
+We thank every god that anyone has ever thought of. Just in case.
 
 \printbibliography
 
