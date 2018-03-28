@@ -35,7 +35,12 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
 \title{Exploring how generation intervals link strength and speed of epidemics}
-\author{Sang Woo Park \and David Champredon \and Joshua S. Weitz \and Jonathan Dushoff}
+\author{Sang Woo Park
+	\and David Champredon
+	\and Joshua S. Weitz; School of Biological Sciences, School of Physics; 
+		Georgia Institute of Technology
+	\and Jonathan Dushoff
+}
 \date{\today: In preparation for \emph{PRSB}}
 
 \begin{document}
@@ -95,9 +100,6 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 	\includegraphics[width=1.0\textwidth]{link_calculations/steps.pdf}
 	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller reproductive number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
 	\cite{Who_did_this_first}
-	
-\jsw{See FIgure 1 of Weitz/Dushoff Sci REports 2015 for one example (I think it's a good practical example).}
-\jd{Cited sufficiently, IMO.}
 
 % {(For calculations, we assumed, generation intervals were fixed.)} 
 	\label{fig:link}}
@@ -105,6 +107,8 @@ By doing so, we hope to shed light on the underpinnings of the relationship betw
 
 We are interested in the relationship between $r$, \RR~and the generation-interval distribution, which describes the interval between the time an individual becomes \emph{infected} and the time that they \emph{infect} another individual.
 This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then faster disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease~(see \fref{link}).
+\jsw{See FIgure 1 of Weitz/Dushoff Sci REports 2015 for one example (I think it's a good practical example).}
+\jd{Cited sufficiently, IMO.}
 
 We define the generation-interval distribution using a renewal-equation approach.
 A wide range of disease models can be described using the model 
@@ -326,7 +330,7 @@ Relative length of generation interval ($\rho$) & 0.35, 0.45, 0.68 \cite{AylwBar
 Mean generation interval (days) & 16.2 & 15.0 & 26.6 \\
 CV generation interval & 0.58 & 0.21 & 1.09
 \end{tabular}
-\caption{Parameters that were used to obtain theoretical generation distributions for each disease. Reproduction numbers are represented as points in figure \frange{EbolaCurve}{rabiesCurve}. \dc{add $\rho$ and CV used in examples}}
+\caption{Parameters that were used to obtain theoretical generation distributions for each disease. Reproduction numbers are represented as points in figure \frange{EbolaCurve}{rabiesCurve}. Ebola parameters in triples represent Sierra Leone, Liberia, Guinea.}
 \tlab{parameters}
 \end{table}
 
