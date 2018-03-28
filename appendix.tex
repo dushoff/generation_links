@@ -1,12 +1,23 @@
 
-\jd{SWP: Restart figure numbering}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\subsection{Normal approximation}
+
+\begin{figure}[htbp] \centering
+	\includegraphics[width=1.0\textwidth]{link_calculations/ebola_gamma.pdf}
+\caption{
+Fitting the Ebola model to an alternative, gamma-based pseudo-realistic distribution. SWP to add more text.
+}
+	\label{fig:ebolaNormal}
+\end{figure}
 
 \subsection{Normal approximation}
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/ebola_normal.pdf}
 \caption{
-Approximating a generation intervals distribution with a normal distribution has two problems. First, the distribution extends to negative values, which are biologically impossible. Second, as a consequence, the normal approximation predicts a saturating and eventually a decreasing $r-\RR$ relationship for large $r$. Parameters and points as in \fref{EbolaCurve}.
+Approximating generation-interval distributions with a normal distribution has two problems. First, the distribution extends to negative values, which are biologically impossible. Second, as a consequence, the normal approximation predicts a saturating and eventually a decreasing $r-\RR$ relationship for large $r$. Parameters and points as in \fref{EbolaCurve}.
 }
 	\label{fig:ebolaNormal}
 \end{figure}
@@ -28,7 +39,6 @@ The effect of small sample size on approximated relationship between $r$ and \RR
 	\label{fig:ebolaSample}
 \end{figure}
 
-\jd{SWP: Add a rabies figure}
 
 
 
