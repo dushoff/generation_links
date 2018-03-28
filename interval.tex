@@ -111,7 +111,7 @@ This distribution links $r$ and \RR. In particular, if \RR~is known, a shorter g
 
 We define the generation-interval distribution using a renewal-equation approach.
 A wide range of disease models can be described using the model 
-\cite{Hees,ChampInPrep}:
+\cite{heesterbeek1996concept,ChampInPrep}:
 \begin{equation}
 i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \label{eq:Renewal}
@@ -266,7 +266,7 @@ We generated a pseudo-realistic generation-interval distribution for Ebola virus
 We used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation. 
 \dc{I understand why you chose a lognormal. But wouldn't we also want to show that it works (even better?) in the simpler case where we have a gamma distribution for the ``true'' distribution? At least in appendix if not in the main text.}
 \jd{We've been back and forth about this. I kind of think it's as confusing (since readers may think falsely that isn't it trivial. Daniel kind of thinks we might as well. I wonder whether JSW has an opinion.}
-We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported standard deviation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
+We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}. \swp{let's do coefficient of variation rather than standard deviation. It makes more sense in this context}
 
 We then calculated the exact relationship between $r$ and $\RR$ implied by our pseudo-realistic distribution \eref{Euler}, and the approximate relationship \eref{gamApp} based only on the mean and CV (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates, which were done using a different approach. 
 
@@ -328,9 +328,14 @@ Parameter & \multicolumn{3}{c}{Values}\\
 \hline
 Reproduction number & 1.38, 1.51, 1.81 \cite{AylwBarb14} & 12.5-18 \cite{anderson1982directly} & 1.05-1.32 \cite{HampDush09} \\
 Mean incubation period (days) & 11.4 \cite{AylwBarb14} & 12.77 \cite{LessReic09}  & 24.24 \cite{HampDush09} \\
-SD incubation period (days) & 7.5 (see \sref{EbolaEx}) & 2.67 \cite{LessReic09} & 29.49 \cite{HampDush09} \\
+SD incubation period (days) & 8.1 (see \sref{EbolaEx}) & 2.67 \cite{LessReic09} & 29.49 \cite{HampDush09} \\
 Mean infectious period (days) & 5 \cite{AylwBarb14} & 6.5 \cite{anderson1982directly} & 3.57 \cite{HampDush09} \\
-SD infectious period (days) & 4.7 \cite{AylwBarb14} & 2.9 \cite{Lloy01} & 2.26 \cite{HampDush09}
+SD infectious period (days) & 4.7 \cite{AylwBarb14} & 2.9 \cite{Lloy01} & 2.26 \cite{HampDush09}\\
+\hline
+Relative length of generation interval ($\rho$) & 0.35, 0.45, 0.68 \cite{AylwBarb14} & NA & NA \\
+\hline
+Mean generation interval (days) & 16.2 & 15.0 & 26.6 \\
+CV generation interval & 0.58 & 0.21 & 1.09
 \end{tabular}
 \caption{Parameters that were used to obtain theoretical generation distributions for each disease. Reproduction numbers are represented as points in figure \frange{EbolaCurve}{rabiesCurve}. \dc{add $\rho$ and CV used in examples}}
 \tlab{parameters}
