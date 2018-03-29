@@ -242,7 +242,7 @@ This relationship is then compared to the corresponding Gamma-approximated relat
 
 We investigate this approximation approach using three different examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
-Our initial investigation of this question was motivated by our work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD), measles, and canine rabies.
+Our initial investigation of this question was motivated by work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD), measles, and canine rabies.
 
 \dc{for all these examples, do you pay attention to the fact that the observed GIs are \emph{backward} and not intrinsic? Is any adjustment made? If so, we should at least have a short paragraph about it.} \jd{No adjustment, now explained.}
 
@@ -260,10 +260,10 @@ Points indicate estimates for the three focal countries of the West African Ebol
 \end{figure}
 
 We generated a pseudo-realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
-We used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation. 
+\swp{In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation \swp{(see Appendix for results using gamma components)}. 
 \dc{I understand why you chose a lognormal. But wouldn't we also want to show that it works (even better?) in the simpler case where we have a gamma distribution for the ``true'' distribution? At least in appendix if not in the main text.}
 \jd{We've been back and forth about this. I kind of think it's as confusing (since readers may think falsely that isn't it trivial. Daniel kind of thinks we might as well. I wonder whether JSW has an opinion.}
-\swp{I have tried adding this figure.}
+\swp{I have tried adding this figure in appendix.}
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
 We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and Gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates. 
@@ -277,7 +277,7 @@ We then used our pseudo-realistic distribution to calculate both the exact \eref
 		(solid curve) the relationship between growth rate and \RR~using a realistic generation-interval distribution.
 		(dashed curve) the same relationship approximated using the estimated mean and CV (this curve is almost invisible because it overlaps the solid curve)
 		The dotted curves show the approximations based on exponential (lower) and fixed (upper) generation distributions.
-		Gray horizontal lines represent \RR\ ranges: 12.5-18 \cite{anderson1982directly}.
+		Gray horizontal lines represent \RR\ ranges estimated by \cite{anderson1982directly}: 12.5-18.
 	}
 	\label{fig:measlesCurve}
 \end{figure}
@@ -285,8 +285,14 @@ We then used our pseudo-realistic distribution to calculate both the exact \eref
 We also applied the moment approximation to a pseudo-realistic generation-interval distribution based on information about measles from \cite{LessReic09}, \cite{Lloy01}, and \cite{anderson1982directly}. 
 \dc{What is the distribution you chose?? Please insert the values of $\rho$ and CV for $g$ in Table \ref{tab:parameters} and not let the reader figure it out.}
 \jd{Table updated.}
+\swp{
+Incubation periods were assumed to follow a lognormal distribution \cite{LessReic09}. 
+Infectious periods were assumed to follow a gamma distribution with coefficient of variation of 0.2 as it is a more realistic distribution than exponential distribution that have often been used in previous measles models \cite{Lloy01}.
+Given that there is small variation in infectious periods \cite{keeling1997disease}, this is a reasonable assumption.
+}
 Here, we found surprisingly close agreement between the exact and approximate relationships between $r$ and \RR\ across a much wider range of interest (a difference of $<1\%$ for \RR\ up to $>20$) (see \fref{measlesCurve}).
 On examination, this closer agreement is due to the smaller overall variation in generation times in measles: when overall variation is small, differences between distributions have less effect.
+\swp{Comments for other coauthors: Does anyone know how measles infectious period varies? I can't seem to find this information anywhere and it bugs me that we are taking assumptions from a theoretical modeling study.}
 
 \subsection{Rabies}
 \label{Rabies_example}
@@ -305,9 +311,13 @@ On examination, this closer agreement is due to the smaller overall variation in
 	\label{fig:rabiesCurve}
 \end{figure}
 
-We did a similar analysis for rabies, and found that approximation is generally harder for this high-variance case (see \fref{rabiesCurve}). Since estimates of \RR\ for rabies are near 1, results are not very sensitive to any tested assumption about the relationship. But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
+\swp{JSW wants us to be clearer here so I tried adding things}
+We did a similar analysis for rabies by constructing a pseudo-realistic from observed incubation and infectious period distributions (see \fref{rabiefsCurve}).
+Since estimates of \RR\ for rabies are near 1, there is small difference between the naive estimates and the gamma approximated speed-strength relationship. 
+But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
+\JSW{Losing me... so it is not good in the specific case, but it would actually be worse in the general case? So we should be satisfied or unsatisfied? Or is the point that w/ rabies any kind of inference is hard because inferring R when near 1 is generally a hard problem?}
 
-The reason for this can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the pseudo-realistic generation intervals. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
+The reason for \swp{poor predictions of the moment approximation for higher \RR} can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the pseudo-realistic generation intervals. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
 
 
 \begin{table}[h!]
@@ -323,7 +333,7 @@ Reproduction number & 1.38, 1.51, 1.81 \cite{AylwBarb14} & 12.5-18 \cite{anderso
 Mean incubation period (days) & 11.4 \cite{AylwBarb14} & 12.77 \cite{LessReic09}  & 24.24 \cite{HampDush09} \\
 SD incubation period (days) & 8.1 (see \sref{EbolaEx}) & 2.67 \cite{LessReic09} & 29.49 \cite{HampDush09} \\
 Mean infectious period (days) & 5 \cite{AylwBarb14} & 6.5 \cite{anderson1982directly} & 3.57 \cite{HampDush09} \\
-SD infectious period (days) & 4.7 \cite{AylwBarb14} & 2.9 \cite{Lloy01} & 2.26 \cite{HampDush09}\\
+SD infectious period (days) & 4.7 \cite{AylwBarb14} & 2.9 (see \sref{MeaslesEx}) & 2.26 \cite{HampDush09}\\
 \hline
 Relative length of generation interval ($\rho$) & 0.35, 0.45, 0.68 \cite{AylwBarb14} & NA & NA \\
 \hline
