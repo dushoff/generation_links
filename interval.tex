@@ -57,7 +57,6 @@ In contrast, the rate of growth $r$ can be estimated directly from incidence dat
 In practice, it is impossible to obtain the exact shape of a generation-interval distribution and it is not always qualitatively clear how changes in estimates of the distribution translate to changes in the estimate of \RR.
 Here, we show that parameterizing a generation interval distribution using its mean and variance provides a clear biological intuition into how its shape affects the relationship between \RR\ and $r$.
 We explore approximations based on estimates of the mean and variance of an underlying gamma distribution, and find that use of these two moments is often sufficient to capture the \rR\ relationship and provide robust estimates of \RR while an outbreak is ongoing.
-\hotcomment\swp{Need to make sure we deal adequately with temporal bias in the observed GI so as not to mislead.}
 
 \section{Introduction}
 
@@ -261,7 +260,7 @@ Points indicate estimates for the three focal countries of the West African Ebol
 \end{figure}
 
 We generated a pseudo-realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
-\hotcomment\swp{In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation \swp{(see Appendix for results using gamma components)}. 
+In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
 \dc{I understand why you chose a lognormal. But wouldn't we also want to show that it works (even better?) in the simpler case where we have a gamma distribution for the ``true'' distribution? At least in appendix if not in the main text.}
 \jd{We've been back and forth about this. I kind of think it's as confusing (since readers may think falsely that isn't it trivial. Daniel kind of thinks we might as well. I wonder whether JSW has an opinion.}
 \swp{I have tried adding this figure in appendix.}
@@ -286,14 +285,12 @@ We then used our pseudo-realistic distribution to calculate both the exact \eref
 We also applied the moment approximation to a pseudo-realistic generation-interval distribution based on information about measles from \cite{LessReic09}, \cite{Lloy01}, and \cite{anderson1982directly}. 
 \dc{What is the distribution you chose?? Please insert the values of $\rho$ and CV for $g$ in Table \ref{tab:parameters} and not let the reader figure it out.}
 \jd{Table updated.}
-\hotcomment\swp{
 Incubation periods were assumed to follow a lognormal distribution \cite{LessReic09}. 
 Infectious periods were assumed to follow a gamma distribution with coefficient of variation of 0.2 \cite{Hope-Simpson,Lloy01,KeelGren97}. Since variation in infectious period is relatively low \cite{Hope-Simpson,KeelGren97}, and infectious period is short compared to incubation period, this choice is reasonable (and our results are not sensitive to the details).
-}
+
 Here, we found surprisingly close agreement between the exact and approximate relationships between $r$ and \RR\ across a much wider range of interest (a difference of $<1\%$ for \RR\ up to $>20$) (see \fref{measlesCurve}).
 On examination, this closer agreement is due to the smaller overall variation in generation times in measles: when overall variation is small, differences between distributions have less effect.
-\swp{Comments for other coauthors: Does anyone know how measles infectious period varies? I can't seem to find this information anywhere and it bugs me that we are taking assumptions from a theoretical modeling study.}
-\jd{Get Hope-Simpson (or else the summary from Bailey, in which case cite also Bailey)}
+\hotcomment\jd{Get Hope-Simpson (or else the summary from Bailey, in which case cite also Bailey, and fix citations above, then I think we can ship.)}
 
 \subsection{Rabies}
 \label{Rabies_example}
@@ -312,14 +309,14 @@ On examination, this closer agreement is due to the smaller overall variation in
 	\label{fig:rabiesCurve}
 \end{figure}
 
-\swp{JSW wants us to be clearer here so I tried adding things}
 We did a similar analysis for rabies by constructing a pseudo-realistic generation-interval distribution from observed incubation and infectious period distributions (see \fref{rabiefsCurve}).
 Since estimates of \RR\ for rabies are near 1, there is small difference between the naive estimates and the gamma approximated speed-strength relationship. 
 But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
-\hotcomment\jsw{Losing me... so it is not good in the specific case, but it would actually be worse in the general case? So we should be satisfied or unsatisfied? Or is the point that w/ rabies any kind of inference is hard because inferring R when near 1 is generally a hard problem?}
-\jd{The problem is that inference is harder when CV of GI distribution is large.}
 
-The reason for \swp{poor predictions of the moment approximation for higher \RR} can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the pseudo-realistic generation intervals. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
+The reason for poor predictions of the moment approximation for higher \RR can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the pseudo-realistic generation intervals. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
+
+\jsw{Losing me... so it is not good in the specific case, but it would actually be worse in the general case? So we should be satisfied or unsatisfied? Or is the point that w/ rabies any kind of inference is hard because inferring R when near 1 is generally a hard problem?}
+\jd{Better now?}
 
 
 \begin{table}[h!]
