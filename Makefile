@@ -48,6 +48,7 @@ Ignore += refs.bib
 refs.bib: auto.bib manual.bib
 	$(cat)
 
+Ignore += auto.html
 auto.html: auto.rmu
 auto.bib: auto.rmu
 
