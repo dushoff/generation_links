@@ -22,6 +22,7 @@ include sub.mk
 
 Sources += todo.mkd
 
+## https://dushoff.github.io/generation_links/auto.html
 products: interval.pdf.gp auto.html.pages
 
 ## MS
