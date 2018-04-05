@@ -26,6 +26,7 @@ Sources += todo.mkd
 products: interval.pdf.gp auto.html.pages
 
 ## MS
+Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
 
