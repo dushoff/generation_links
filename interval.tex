@@ -73,13 +73,11 @@ Infectious disease research often focuses on estimating the reproductive number,
 This number is termed the reproductive number -- \RR.
 The reproductive number provides information about the disease's potential for spread and the difficulty of control.
 It is described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
-\dc{is there a problem with the formatting of references?}
-\jd{I'm not sure. What makes you ask?}
+
 
 The reproductive number has remained a focal point for research because it provides information about how a disease spreads in a population, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
-Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly \dc{do you really want to use ``robustly''? sounds too strong because of observation error, etc.}
-\jd{I think ``often'' makes it OK .}
+Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly 
 early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to the doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, is often inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
@@ -120,6 +118,7 @@ where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emp
 
 \jsw{No idea why this reference as 'in prep' article, when it's a standard approach. Shouldn't this cite Wallinga/Lipsitch as well?}
 \jd{We should let DC cite himself here, it's an interesting extension. Not feeling the need to cite Wallinga, but don't object.}
+\dc{Which reference? I don't recall wanting to cite myself... probably a glitch with references? Ignore?}
 
 We then have the basic reproductive number: 
 \begin{equation}
@@ -168,8 +167,6 @@ We write:
 	\label{eq:genExp}
 \end{equation}
 where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
-\dc{could we make a table of observed values for $\rho$ from real epidemics? we should take the ones used in Examples later on, i.e. Ebola, Measles and Rabies, but also other epidemics. I would say people (including me) are not too familiar thinking in terms of $\rho$, and that would be helpful to have some numerical values from the real world.}
-\jd{I like the idea of adding this to the table for now.}
 The longer the generation interval is compared to $T_c$, the higher the estimate of $\RR$ (see \fref{link}).
 We then explore the behaviour of the generalized exponential function $X$ defined above (equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}): its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
 
@@ -229,7 +226,6 @@ where $G_i$, $E_i$ and $I_i$ are the sampled intrinsic generation interval, late
 This implicitly assumes that infectiousness is constant across the infectious period \cite{HampDush09}.
 We sample from latent and infectious periods obtained from observations (for empirical distributions), or by using a uniform set of quantiles (for parametric distributions).
 For the purpose of constructing pseudo-realistic distributions, we do \emph{not} attempt to correct for the fact that observed intervals may be sampled in a context more relevant to backward than to intrinsic generation intervals (see \cite{ChamDush15}).
-\jd{DC: I hope you're happy that I had to write this terrible sentence. Feel free to improve it.}
 We sample latent periods at random, and infectious periods by length-weighted resampling (since longer infectious period implies more opportunities to infect).  
 For our examples, we used 10000 quantiles for each parametric distribution and 10000 sampled generation intervals for each disease.
 
@@ -243,7 +239,6 @@ We investigate this approximation approach using three different examples.
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
 Our initial investigation of this question was motivated by work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD), measles, and canine rabies.
 
-\dc{for all these examples, do you pay attention to the fact that the observed GIs are \emph{backward} and not intrinsic? Is any adjustment made? If so, we should at least have a short paragraph about it.} \jd{No adjustment, now explained.}
 
 \subsection{Ebola}
 \label{EbolaEx}
@@ -260,9 +255,6 @@ Points indicate estimates for the three focal countries of the West African Ebol
 
 We generated a pseudo-realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
 In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
-\dc{I understand why you chose a lognormal. But wouldn't we also want to show that it works (even better?) in the simpler case where we have a gamma distribution for the ``true'' distribution? At least in appendix if not in the main text.}
-\jd{We've been back and forth about this. I kind of think it's as confusing (since readers may think falsely that isn't it trivial. Daniel kind of thinks we might as well. I wonder whether JSW has an opinion.}
-\swp{I have tried adding this figure in appendix.}
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
 We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and Gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates. 
@@ -282,8 +274,6 @@ We then used our pseudo-realistic distribution to calculate both the exact \eref
 \end{figure}
 
 We also applied the moment approximation to a pseudo-realistic generation-interval distribution based on information about measles from \cite{LessReic09}, \cite{Lloy01}, and \cite{anderson1982directly}. 
-\dc{What is the distribution you chose?? Please insert the values of $\rho$ and CV for $g$ in Table \ref{tab:parameters} and not let the reader figure it out.}
-\jd{Table updated.}
 Incubation periods were assumed to follow a lognormal distribution \cite{LessReic09}. 
 Infectious periods were assumed to follow a gamma distribution with coefficient of variation of 0.2 \cite{Hope-Simpson,Lloy01,KeelGren97}. Since variation in infectious period is relatively low \cite{Hope-Simpson,KeelGren97}, and infectious period is short compared to incubation period, this choice is reasonable (and our results are not sensitive to the details).
 
@@ -358,6 +348,7 @@ We tested the gamma approximation framework by applying it to parameter regimes 
 We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
 \dc{This is also something I said in earlier comments: the small sample size stuff should not be in Appendix, but deserves to be in the main text, as I think it's the main selling point of this method. Moreover, I suggest making a more thorough analysis on the sample size. In appendix, you only use $n=100$, but what's really interesting is how well  the gamma approx does as $n$ increases (say from 10 to 100 by steps of 10), under various assumption for the ``true'' GI distribution. Once $n$ is large, we can use the empirical GI distribution (again it's backward GI so we must be careful) and we do not really care anymore about the gamma approx.}
 \jd{We've discussed this, but can experiment with one or two alternatives. Daniel is not psyched about a detailed exploration, but maybe you can convince him.}
+\dc{OK, up to you. You have change figure S3 in my direction, so I'm happy enough;)}
 
 Our key finding is that summarizing an entire generation interval distribution using two moments can give sensible and robust estimates of the relationship between $r$ and \RR.
 This framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
