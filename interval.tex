@@ -73,11 +73,11 @@ In contrast, the rate of growth $r$ can be estimated directly from incidence dat
 \RR\ is typically estimated from $r$ by using information about generation intervals -- that is, the amount of time between when an individual is infected by an infector, and when that infector was infected.
 In practice, it is impossible to obtain the exact shape of a generation-interval distribution and it is not always qualitatively clear how changes in estimates of the distribution translate to changes in the estimate of \RR.
 Here, we show that parameterizing a generation interval distribution using its mean and variance provides a clear biological intuition into how its shape affects the relationship between \RR\ and $r$.
-We explore approximations based on estimates of the mean and variance of an underlying gamma distribution, and find that use of these two moments is often sufficient to capture the \rR\ relationship and provide robust estimates of \RR while an outbreak is ongoing.
+We explore approximations based on estimates of the mean and variance of an underlying gamma distribution, and find that use of these two moments is often sufficient to capture the \rR\ relationship and provide robust estimates of \RR\ while an outbreak is ongoing.
 
 \subsection*{Keywords}
 
-Generation interval; serial interval; basic reproductive number
+Infectious disease modeling; Generation interval; basic reproductive number; West African Ebola outbreak; canine rabies; measles
 
 \section{Introduction}
 
@@ -126,12 +126,6 @@ i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \end{equation}
 where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
-\jsw{No idea why this reference as 'in prep' article, when it's a standard approach. Shouldn't this cite Wallinga/Lipsitch as well?}
-\jd{We should let DC cite himself here, it's an interesting extension. Not feeling the need to cite Wallinga, but don't object.}
-\dc{Which reference? I don't recall wanting to cite myself... probably a glitch with references? Ignore?}
-\jsw{If not on arxiv, don't cite.}
-\swp{Removing ChampInPrep}
-
 We then have the basic reproductive number: 
 \begin{equation}
 \Ro = \int{K(s)ds},
@@ -153,7 +147,7 @@ We then solve for the characteristic time $\Tc$ by assuming that the population 
 	1/\RR = \int{g(\tau)\exp(-\tau/\Tc) \,d\tau}.\label{eq:Euler}
 \end{equation}
 
-This fundamental relationship dates back to the work of Euler and Lotka \cite{Euler,Lotka}. We will explore the shape of this relationship using parameters based on some human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
+This fundamental relationship dates back to the work of Euler and Lotka \cite{Lotka}. We will explore the shape of this relationship using parameters based on some human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
 
 \section{Approximation framework}
 
@@ -164,7 +158,7 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 This is a biologically more realistic starting point than the standard normal approximation used in many applications, since the gamma distribution is confined to non-negative values.
 
 For biological interpretability, we describe the distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
-Substituting the gamma distribution into \eref{Euler} then yields the Gamma-approximated speed-strength relationship:
+Substituting the gamma distribution into \eref{Euler} then yields the gamma-approximated speed-strength relationship:
 \begin{equation}
 	\RR \approx (1 + \kappa r \bar G)^{1/\kappa}.
 	\label{eq:gamApp}
@@ -223,7 +217,7 @@ We sample latent periods at random, and infectious periods by length-weighted re
 For our examples, we used 10000 quantiles for each parametric distribution and 10000 sampled generation intervals for each disease.
 
 We then calculate ``exact'' relationships (for our pseudo-realistic distributions) by substituting sampled generation intervals into the exact speed-strength relationship \eref{Euler}.
-This relationship is then compared to the corresponding Gamma-approximated relationship \eref{gamApp}.
+This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
 
 \section{Examples}
 \label{Examples}
@@ -242,7 +236,7 @@ Our initial investigation of this question was motivated by work on the West Afr
 (solid curve) The exact speed-strength relationship \eref{Euler} using a pseudo-realistic generation-interval distribution based on \cite{AylwBarb14}.
 (dashed curve) The Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a pseudo-realistic generation-interval distribution. 
 (dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$). \swp{See caption updates}
+Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$). 
 	\label{fig:EbolaCurve}}
 \end{figure}
 
@@ -250,7 +244,7 @@ We generated a pseudo-realistic generation-interval distribution for Ebola virus
 In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
-We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and Gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates. 
+We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates. 
 
 \subsection{Measles}
 \label{MeaslesEx}
@@ -259,7 +253,7 @@ We then used our pseudo-realistic distribution to calculate both the exact \eref
 	\includegraphics[width=1.0\textwidth]{link_calculations/measles.pdf}
 	\caption{Estimating \RR~for measles.
 		(solid curve) The exact speed-strength relationship \eref{Euler} using a pseudo-realistic generation-interval distribution.
-		(dashed curve) The Gamma-approximated relationship \eref{gamApp} using the mean and CV of a pseudo-realistic generation-interval distribution (this curve is almost invisible because it overlaps the solid curve)
+		(dashed curve) The gamma-approximated relationship \eref{gamApp} using the mean and CV of a pseudo-realistic generation-interval distribution (this curve is almost invisible because it overlaps the solid curve)
 		(dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Gray horizontal lines represent \RR\ ranges estimated by \cite{anderson1982directly}: 12.5-18.
 	}
@@ -286,7 +280,7 @@ On examination, this closer agreement is due to the smaller overall variation in
 		(dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Gray horizontal lines represent \RR\ ranges estimated by \cite{HampDush09}: 1.05 - 1.32.
 		(Right) histogram represents rabies generation interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
-		Dashed curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate speed-strength relationships of the left figure). \swp{check this figure caption as well}
+		Dashed curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate speed-strength relationships of the left figure). 
 	}
 	\label{fig:rabiesCurve}
 \end{figure}
@@ -329,7 +323,6 @@ Estimating the reproductive number \RR\ is a key part of characterizing and cont
 However, detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
 Here we introduced and analyzed a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We used three disease examples to test the robustness of the framework. We also compared estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
-\jsw{Somehow the tense gets weird here talking about the past in the present} \swp{slightly modified}
 The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and  provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
 Here, we present the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 In doing so, we explain the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}.
@@ -337,9 +330,6 @@ We also provide mechanistic interpretations: when generation intervals are longe
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
-\dc{This is also something I said in earlier comments: the small sample size stuff should not be in Appendix, but deserves to be in the main text, as I think it's the main selling point of this method. Moreover, I suggest making a more thorough analysis on the sample size. In appendix, you only use $n=100$, but what's really interesting is how well  the gamma approx does as $n$ increases (say from 10 to 100 by steps of 10), under various assumption for the ``true'' GI distribution. Once $n$ is large, we can use the empirical GI distribution (again it's backward GI so we must be careful) and we do not really care anymore about the gamma approx.}
-\jd{We've discussed this, but can experiment with one or two alternatives. Daniel is not psyched about a detailed exploration, but maybe you can convince him.}
-\dc{OK, up to you. You have change figure S3 in my direction, so I'm happy enough;)}
 
 Our key finding is that summarizing an entire generation interval distribution using two moments can give sensible and robust estimates of the relationship between $r$ and \RR.
 This framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
@@ -352,11 +342,11 @@ Knowing the exact shape of the generation interval distribution is difficult, bu
 
 \subsection*{Authors' Contributions}
 
-SWP ???; DC ???; JSW ???; JD ???.
+JD conceived the study and did the initial simulations and analytic calculations; SWP led the literature review, wrote the first draft of the MS, assisted with analytic calculations, and finalized the simulations and data analysis; all authors contributed to refining study design, literature review, and MS writing. All authors gave final approval for publication.
 
 \subsection*{Competing interests}
 
-No competing interests.
+The authors declare that they have no competing interests.
 
 \subsection*{Acknowledgments}
 
@@ -364,7 +354,7 @@ The authors thank Steve Bellan for helpful comments.
 
 \subsection*{Funding}
 
-J.S.W. is supported by Army Research Office grant W911NF-14-1-0402.
+This work was supported by the Canadian Institutes of Health Research [funding reference number 143486]. J.S.W. is supported by Army Research Office grant W911NF-14-1-0402.
 
 \printbibliography
 
