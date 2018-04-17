@@ -68,6 +68,7 @@ Jonathan Dushoff\textsuperscript{ 2,*}
 
 \section*{Abstract}
 
+
 Infectious-disease outbreaks are often characterized by the reproductive number \RR\ and exponential rate of growth $r$.
 The reproductive number \RR\ is of particular interest, because it provides information about how hard an outbreak will be to control, and about predicted final size.
 However, directly estimating \RR\ is difficult.
@@ -79,7 +80,10 @@ We explore approximations based on estimates of the mean and variance of an unde
 
 \subsection*{Keywords}
 
-Infectious disease modeling; Generation interval; basic reproductive number; West African Ebola outbreak; canine rabies; measles
+Infectious disease modeling; Generation interval; basic reproductive number
+
+%% West African Ebola outbreak; canine rabies
+%% May add these later if we think they will attract good readers
 
 \section{Introduction}
 
@@ -220,6 +224,8 @@ For our examples, we used 10000 quantiles for each parametric distribution and 1
 
 We then calculate ``exact'' relationships (for our pseudo-realistic distributions) by substituting sampled generation intervals into the exact speed-strength relationship \eref{Euler}.
 This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
+
+All calculations, numerical analyses and figures were made with the software platform R \cite{Rproject}. Code is freely available at \url{https://github.com/dushoff/link_calculations}.
 
 \section{Results}
 \label{Examples}
