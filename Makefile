@@ -20,11 +20,18 @@ include sub.mk
 
 ## Content
 
+Sources += todo.mkd
+
+## https://dushoff.github.io/generation_links/auto.html
 products: interval.pdf.gp auto.html.pages
 
 ## MS
+Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
+
+## cover leter
+Sources += letter.txt
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
@@ -32,8 +39,9 @@ interval.pdf: interval.tex
 
 interval.tex.1f6db5.oldfile:
 compare.pdf: compare.tex
+
 compare.tex: interval.tex* makestuff/latexdiff.pl
-	$(PUSH)
+##	$(PUSH)
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
@@ -46,6 +54,7 @@ Ignore += refs.bib
 refs.bib: auto.bib manual.bib
 	$(cat)
 
+Ignore += auto.html
 auto.html: auto.rmu
 auto.bib: auto.rmu
 
@@ -73,8 +82,8 @@ setup:
 
 # Modules
 
-mdirs += Generation_distributions autorefs 
-# mdirs += Generation_distributions autorefs link_calculations
+mdirs += Generation_distributions autorefs link_calculations
+# mdirs += Generation_distributions autorefs
 dirs += $(mdirs)
 
 dfiles: $(dirs:%=%/Makefile)

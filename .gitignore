@@ -6,7 +6,9 @@ make.log
 .gitignore 
 
 ## content from makestuff
+pages
 refs.bib
+auto.html
 auto.rmu
 auto.bib
 *.int
