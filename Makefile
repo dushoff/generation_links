@@ -39,8 +39,9 @@ Sources += letter.txt
 
 interval.tex.1f6db5.oldfile:
 compare.pdf: compare.tex
+
 compare.tex: interval.tex* makestuff/latexdiff.pl
-	$(PUSH)
+##	$(PUSH)
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
