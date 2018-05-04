@@ -11,7 +11,7 @@ target: $(target)
 
 Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
 include sub.mk
-# include $(ms)/perl.def
+include $(ms)/perl.def
 
 ## Why is this here? Where should it be?
 -include $(ms)/repos.def
@@ -25,10 +25,24 @@ Sources += todo.mkd
 ## https://dushoff.github.io/generation_links/auto.html
 products: interval.pdf.gp auto.html.pages
 
+Ignore += abstract.txt
+abstract.txt: interval.tex abstract.pl
+	$(PUSH)
+
 ## MS
 Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
+
+interval.count: interval.tex
+	texcount $< > $@
+
+Ignore += park_main.pdf park_supp_text.pdf
+park_main.pdf: interval.pdf
+	pdfjam -o $@ $< 1-18
+
+park_supp_text.pdf: interval.pdf
+	pdfjam -o $@ $< 19-
 
 ## cover leter
 Sources += letter.txt
