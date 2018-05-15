@@ -46,6 +46,9 @@ park_supp_text.pdf: interval.pdf
 
 ## cover leter
 Sources += letter.txt
+Sources += reviewers.txt
+
+## letter.pdf: letter.tex ## This is in JD correspondence
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday

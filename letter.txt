@@ -1,6 +1,6 @@
 Dear Editor:
 
-Please accept the enclosed MS, "Exploring how generation intervals link strength and speed of epidemics", for consideration for publication in PRSB.
+Please accept the enclosed MS, "Exploring how generation intervals link strength and speed of epidemics", for consideration for publication in Epidemics.
 
 This article addresses what we feel is an important gap. Modelers and policy-makers studying infectious-disease outbreaks are very interested in epidemic speed (r, the rate of exponential growth) and strength (R, the reproductive number). There is an understanding that these are linked by generation intervals and moment-generating functions, but little qualitative (or even quantitative) understanding of how these links operate.
 

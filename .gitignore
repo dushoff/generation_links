@@ -77,8 +77,8 @@ clonedir/
 *.run.xml
 .texdeps/
 appwrap.pdf
-appendix.pdf
 interval.pdf
+appendix.pdf
 appwrap.out
-appendix.out
 interval.out
+appendix.out
