@@ -11,7 +11,7 @@ target: $(target)
 
 Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
 include sub.mk
-# include $(ms)/perl.def
+include $(ms)/perl.def
 
 ## Why is this here? Where should it be?
 -include $(ms)/repos.def
@@ -25,10 +25,30 @@ Sources += todo.mkd
 ## https://dushoff.github.io/generation_links/auto.html
 products: interval.pdf.gp auto.html.pages
 
+Ignore += abstract.txt
+abstract.txt: interval.tex abstract.pl
+	$(PUSH)
+
 ## MS
 Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
+
+interval.count: interval.tex
+	texcount $< > $@
+
+Ignore += park_main.pdf park_supp_text.pdf
+park_main.pdf: interval.pdf
+	pdfjam -o $@ $< 1-18
+
+park_supp_text.pdf: interval.pdf
+	pdfjam -o $@ $< 19-
+
+## cover leter
+Sources += letter.txt
+Sources += reviewers.txt
+
+## letter.pdf: letter.tex ## This is in JD correspondence
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
@@ -36,8 +56,9 @@ interval.pdf: interval.tex
 
 interval.tex.1f6db5.oldfile:
 compare.pdf: compare.tex
+
 compare.tex: interval.tex* makestuff/latexdiff.pl
-	$(PUSH)
+##	$(PUSH)
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
