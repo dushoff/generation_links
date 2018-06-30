@@ -1,0 +1,100 @@
+\documentclass[12pt, landscape]{article}
+
+\usepackage[margin=0.5in]{geometry}
+
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\urlstyle{same}  % don't use monospace font for urls
+\bibliographystyle{vancouver}
+
+\newcommand{\rR}{\mbox{$r$--$\cal R$}}
+\newcommand{\RR}{\ensuremath{{\cal R}}}
+\newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
+\newcommand{\Ro}{\Rx{0}}
+\newcommand{\Reff}{\Rx{\mathit{eff}}}
+\newcommand{\Tc}{\ensuremath{C}}
+
+\newcommand{\eref}[1]{(\ref{eq:#1})}
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\sref}[1]{Sec.~\ref{#1}}
+\newcommand{\frange}[2]{Fig.~\ref{fig:#1}--\ref{fig:#2}}
+\newcommand{\tref}[1]{Table~\ref{tab:#1}}
+\newcommand{\tlab}[1]{\label{tab:#1}}
+
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
+\newcommand{\jsw}[1]{\comment{red}{JSW}{#1}}
+\newcommand{\hotcomment}{}
+
+\usepackage{lscape}
+
+\usepackage{graphicx,grffile}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\tabphant}{\hphantom\tabitem}
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+
+\begin{document}
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{l|l|l|c}
+\hline
+\bf Method & \bf Required information & \bf Assumptions/Notes & \bf References \\
+\hline
+Incidence based & \tabitem Generation interval CDF & \tabitem Uses cumulative incidence directly & \cite{nishiura2010correcting} \\
+ & \tabitem Incidence reports & \tabphant without estimating the initial growth rate  & \\
+ & & \tabitem Entire generation interval distribution is required to obtain CDF & \\
+\hline
+Delta approximation & \tabitem Mean generation interval & \tabitem Assumed fixed generation interval & \cite{wallinga2007generation, roberts2007model} \\
+\hline
+Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Relies on binning generation intervals & \cite{wallinga2007generation} \\
+& & \tabphant into discrete histograms &\\
+\hline
+Empirical (sample-based) & \tabitem Generation interval samples & \tabitem Requires more samples than & \cite{hampson2009transmission}\\
+& & \tabphant the histogram-based method & \\
+\hline
+Euler-Lotka & \tabitem Entire generation interval distribution & \tabitem Uses moment generating function & \cite{Lotka} \\
+\hline
+Normal approximation & \tabitem Mean/SD generation interval & \tabitem Assuems normally distributed generation intervals & \cite{wallinga2007generation}\\
+& & \tabitem Predicts decreasing \rR\ relationship for high $r$ & \\
+\hline
+SIR model & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{anderson1992infectious, pybus2001epidemic, ferguson2005strategies, wallinga2007generation} \\
+& & \tabitem Predicts linear relationship between $r$ and \RR\ & \\
+\hline
+SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent and infectious periods & \cite{anderson1980spread, wearing2005appropriate, wallinga2007generation, roberts2007model} \\
+& \tabitem Mean/SD infectious period & & \\
+\hline
+SEIR (exponential) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed latent and infectious periods & \cite{lipsitch2003transmission, chowell2007comparative, roberts2007model} \\
+& \tabitem Ratio of the infectious period to & \tabitem Predicts quadratic relationship between $r$ and \RR\ & \\
+& \tabphant the generation interval & & \\
+\hline
+Subexponential & \tabitem Generation interval shape & \tabitem Assumes sub-exponential growth rate & \cite{chowell2016characterizing} \\
+& \tabitem Corresponding generation interval parameters & \tabitem Provides examples for uniform, gamma, exponential and delta &\\
+& \tabitem Sub-exponential growth paramete & \tabphant distributed generation intervals & \\
+& \tabitem Disease generation & & \\
+\hline
+Trapezoid approximation & \tabitem Period of no infection after exposure & \tabitem Assumes trapezoid shaped infection kernel & \cite{roberts2007model} \\
+& \tabitem Time until maxium infectivity& & \\
+& \tabitem Duration of maximum infectivity & & \\
+& \tabitem Time until recovery & &\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+\pagebreak
+
+\bibliography{table}
+
+\end{document}
