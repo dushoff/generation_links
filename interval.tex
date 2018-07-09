@@ -232,7 +232,7 @@ One of the simplest epidemic models is the SIR (susceptible-infected-recovered) 
 \begin{aligned}
 \frac{dS}{dt} &= - \beta SI/N\\
 \frac{dI}{dt} &= \beta SI/N - \gamma I\\
-\frac{dR}{dt} &= \gamma I\\
+\frac{dR}{dt} &= \gamma I
 \end{aligned}
 \end{equaion}
 It assumes that an infected inividual becomes infectious immediately and recovers after some period of time.
@@ -252,7 +252,7 @@ The SIR model is often extended to include an exposed ($E$) period.
 \frac{dS}{dt} &= - \beta SI/N\\
 \frac{dE}{dt} &= \beta SI/N - \sigma E\\
 \frac{dI}{dt} &= \sigma E - \gamma I\\
-\frac{dR}{dt} &= \gamma I\\
+\frac{dR}{dt} &= \gamma I
 \end{aligned}
 \end{equaion}
 The SEIR model assumes that an infected individual remains latent (exposed) before becoming infectious.
@@ -260,7 +260,7 @@ It is assume that latent and infectious periods are exponentially distributed wi
 
 For this model, generation interval distribution can be written as follows \cite{Sven07}:
 \begin{equation}
-g{\tau} = \frac{\sigma \gamma}{\sigma - \gamma} \left(\exp (-\gamma \tau) - \exp (- \sigma \tau) \right).
+g({\tau}) = \frac{\sigma \gamma}{\sigma - \gamma} \left(\exp (-\gamma \tau) - \exp (- \sigma \tau) \right).
 \end{equation}
 Hence, the mean generation interval equals
 \begin{equation}
@@ -284,17 +284,17 @@ Reparameterizing, we have
 \end{equation}
 Note that Taylor expansion of \eref{genExp} yields the following:
 \begin{equation}
-\tsup{R}}{gamma} &= 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3) \label{eq:taylor}
+\tsup{R}{gamma} = 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3) \label{eq:taylor}
 \end{equation}
-$\tsup{R}}{gamma}$ approximates $\tsup{R}{exp}$ up to second order.
+$\tsup{R}{gamma}$ approximates $\tsup{R}{exp}$ up to second order.
 $O(\rho^3)$ vanishes when $\sigma = \gamma$ so we expect the gamma approximation to work well when average duration of latent and infectious periods are similar.
 
 \subsection{SEmInR model}
 \label{sub:seminr}
 
 Exposed and infectious stages of the SEIR model can be subdivided into $m$ and $n$ compartments such that average time spent in each comparment is identically $1/(m \sigma)$ and $1/(n \gamma)$, respectively.
-Then, latent period follows a gamma distribution with mean $1/\sigma$ and square coefficient of variation $1/m$;
-likewise, infectious period follows a gamma distribution with mean $1/\gamma$ and square coefficient of variation of $1/n$.
+Latent period follows a gamma distribution with mean $1/\sigma$ and square coefficient of variation $1/m$.
+Likewise, infectious period follows a gamma distribution with mean $1/\gamma$ and square coefficient of variation of $1/n$.
 This extended SEIR model, which we will refer to as the SEmInR model, allows for modeling of more realistic latend and infectious distributions \cite{Lloy01}.
 
 For the SEmInR model, \rR\ relationship is given by \cite{anderson1980spread, wearing2005appropriate, WallLips07, roberts2007model}: 
@@ -304,7 +304,7 @@ For the SEmInR model, \rR\ relationship is given by \cite{anderson1980spread, we
 Although analytical comparison between the above relationship and the gamma approximation is difficult,
 number of results derived from this \rR\ relationship can be generalized under the gamma interpretation.
 
-In particular, \cite{roberts2007model} proved that $\RR$ is an increasing function of $m$ and $n$ given that exponential growth rate, mean generation interval and mean exposed period are fixed.
+\cite{roberts2007model} proved that $\RR$ is an increasing function of $m$ and $n$ given that exponential growth rate, mean generation interval and mean exposed period are fixed.
 % A simple explanation for this result is that increasing $m$ and $n$ decreases overall variation in generation intervals by decreasing variation in exposed and infectious periods (hence resulting in increase in \RR; \sref{approxframe}).
 On the other hand, \cite{wearing2005appropriate} noted that $\RR$ decreases as $n$ increases given that exponential growth rate, mean infectious period (rather than generation interval) and mean exposed period are fixed.
 These two seemingly inconsistent results can be reconciled easily.
@@ -333,12 +333,14 @@ Likewise, decrease in $m$ leads to decrease in variation in exposed periods (and
 
 \subsection{Other generation distributions}
 
-In fact, the second order taylor expansion of \rR\ relationship (\eref{taylor}) can be generalized for any generation interval distributions:
+In fact, the second order taylor expansion of \rR\ relationship (\eref{taylor}) holds for any generation interval distributions:
 \begin{equation}
 \RR \approx 1 + \rho + \frac{(1-\kappa)}{2} \rho^2
 \end{equation}
 Although this relationship leads to a natural estimator for \RR\ based on two moments, it fails to approach the limiting case ($\RR = \exp(\rho)$) as $\kappa \to 0$.
 In \sref{examples}, we compare this approximation with the gamma approximation numerically.
+
+\swp{Maybe add a table here and talk about previous attempts?}
 
 \subsection{Convexity of \rR\ relationship}
 
@@ -370,7 +372,7 @@ Hence, for any generation interval distribution with square coefficient of varia
 \section{Examples}
 \label{Examples}
 
-\swp{I moved this here for now because I didn't know where else to put... If we decide to remove the previous section, we should put this back}
+\swp{I moved this here for now because I didn't know where else to put... If we decide to remove the previous section, we should put this back; I didn't edit this in case we want to revert the changes}
 We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases.
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
