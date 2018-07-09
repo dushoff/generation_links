@@ -161,6 +161,7 @@ We can then solve for the characteristic time $\Tc$ by assuming that the populat
 This fundamental relationship dates back to the work of Euler and Lotka \cite{Lotka}. We will explore the shape of this relationship using parameters based on human infectious diseases, and investigate approximations based on gamma-distributed generation intervals.
 
 \section{Approximation framework}
+\label{approxframe}
 
 We do not expect to know the full distribution $g(\tau)$ -- particularly while an epidemic is ongoing -- so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
@@ -283,37 +284,66 @@ Reparameterizing, we have
 \end{equation}
 Note that Taylor expansion of \eref{genExp} yields the following:
 \begin{equation}
-\tsup{R}}{gamma} &= 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3)
+\tsup{R}}{gamma} &= 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3) \label{eq:taylor}
 \end{equation}
 $\tsup{R}}{gamma}$ approximates $\tsup{R}{exp}$ up to second order.
 $O(\rho^3)$ vanishes when $\sigma = \gamma$ so we expect the gamma approximation to work well when average duration of latent and infectious periods are similar.
 
-\subsection{SEIR differential equations model}
+\subsection{SEmInR model}
 \label{sub:seminr}
 
-Many epidemics can be characterized by SEIR models... [add text later; cite WL, Roberts, Wearing].
-For this model, \rR\ relationship is given by
+Exposed and infectious stages of the SEIR model can be subdivided into $m$ and $n$ compartments such that average time spent in each comparment is identically $1/(m \sigma)$ and $1/(n \gamma)$, respectively.
+Then, latent period follows a gamma distribution with mean $1/\sigma$ and square coefficient of variation $1/m$;
+likewise, infectious period follows a gamma distribution with mean $1/\gamma$ and square coefficient of variation of $1/n$.
+This extended SEIR model, which we will refer to as the SEmInR model, allows for modeling of more realistic latend and infectious distributions \cite{Lloy01}.
+
+For the SEmInR model, \rR\ relationship is given by \cite{anderson1980spread, wearing2005appropriate, WallLips07, roberts2007model}: 
 \begin{equation}
 \RR=\frac{r \gamma^{-1} \left(1 + \frac{r}{m \sigma}\right)^m }{1 - \left(1 + \frac{r}{n\gamma} \right)^{-n}}\label{eq:seminr}
 \end{equation}
+Although analytical comparison between the above relationship and the gamma approximation is difficult,
+number of results derived from this \rR\ relationship can be generalized under the gamma interpretation.
 
-An $n$-th moment of the generation interval distribution given by the model can be obtained using the Laplace transformation of its infectivity Kernel (see Appendix 2, cite Roberts).
-Then, it follows that mean ($\bar{G}$) generation interval is given by
+In particular, \cite{roberts2007model} proved that $\RR$ is an increasing function of $m$ and $n$ given that exponential growth rate, mean generation interval and mean exposed period are fixed.
+% A simple explanation for this result is that increasing $m$ and $n$ decreases overall variation in generation intervals by decreasing variation in exposed and infectious periods (hence resulting in increase in \RR; \sref{approxframe}).
+On the other hand, \cite{wearing2005appropriate} noted that $\RR$ decreases as $n$ increases given that exponential growth rate, mean infectious period (rather than generation interval) and mean exposed period are fixed.
+These two seemingly inconsistent results can be reconciled easily.
+As mean generation interval distribution for the SEmInR model is given by
 \begin{equation}
-\bar{G} = \frac{1}{\sigma} + \frac{n+1}{2n\gamma}
+\bar{G} = \frac{1}{\sigma} + \frac{n+1}{2n\gamma},
 \end{equation}
-This result has also been derived by [CITE].
-Likewise, variance of generation intervals is given by
-\begin{equation}
-\begin{aligned}
-\mathrm{Var}(G) &= \frac{n^2 + 6n + 5}{12 \gamma^2 n^2}+ \frac{1}{\sigma^2 m}\\
-\end{aligned}
-\end{equation}
+increasing $n$ causes both mean and variation of generation intervals to decrease.
+As effect of decrease in mean generation interval (which predicts decrease in \RR) is stronger than decrease in variation in generation intervals (which predicts increase in \RR), 
+we observe overall decrease in \RR.
+Because \cite{roberts2007model} assumed that \emph{mean generation interval} is fixed, increasing $n$ only leads to decrease in variation in generation intervals and consequently, increase in \RR.
+Likewise, decrease in $m$ leads to decrease in variation in exposed periods (and overall variation in generation intervals) and leads to increase in \RR.
 
+%An $n$-th moment of the generation interval distribution given by the model can be obtained using the Laplace transformation of its infectivity Kernel (see Appendix 2, cite Roberts).
+%Then, it follows that mean ($\bar{G}$) generation interval is given by
+%\begin{equation}
+%\bar{G} = \frac{1}{\sigma} + \frac{n+1}{2n\gamma}
+%\end{equation}
+%This result has also been derived by [CITE].
+%Likewise, variance of generation intervals is given by
+%\begin{equation}
+%\begin{aligned}
+%\mathrm{Var}(G) &= \frac{n^2 + 6n + 5}{12 \gamma^2 n^2}+ \frac{1}{\sigma^2 m}\\
+%\end{aligned}
+%\end{equation}
+
+\subsection{Other generation distributions}
+
+In fact, the second order taylor expansion of \rR\ relationship (\eref{taylor}) can be generalized for any generation interval distributions:
+\begin{equation}
+\RR \approx 1 + \rho + \frac{(1-\kappa)}{2} \rho^2
+\end{equation}
+Although this relationship leads to a natural estimator for \RR\ based on two moments, it fails to approach the limiting case ($\RR = \exp(\rho)$) as $\kappa \to 0$.
+In \sref{examples}, we compare this approximation with the gamma approximation numerically.
 
 \subsection{Convexity of \rR\ relationship}
 
-A potential concern for the gamma approximation is that it predicts a convex \rR\ relationship and there may exist generation intervals distribution that predicts a concave \rR\ relationship.
+\swp{Might not fit here... need to go in Appendix or something but added here so you can think about it}
+A potential concern for the gamma approximation is that it predicts a convex \rR\ relationship for $\kappa < 1$ and there may exist generation intervals distribution that predicts a concave \rR\ relationship.
 Taking the reciprocal in both sides of \eref{Euler} and substituting $r = 1/\Tc$, we obtain
 \begin{equation}
 \RR = 1/\int{g(\tau)\exp(-r \tau) \,d\tau}.
@@ -327,7 +357,7 @@ Twice differentiating with respect to $r$, we have
 \end{equation}  
 Hence, \rR\ relationship is convex if and only if
 \begin{equation}
-2 \left(\int{\tau g(\tau) \exp(-r\tau) \,d\tau}\right)^2 > \left(\int{g(\tau)\exp(-r \tau) \,d\tau}\right)\left( \int{\tau^2 g(\tau) \exp(-r\tau) \,d\tau}\right)
+2 \left(\int{\tau g(\tau) \exp(-r\tau) \,d\tau}\right)^2 > \int{g(\tau)\exp(-r \tau) \,d\tau} \int{\tau^2 g(\tau) \exp(-r\tau) \,d\tau}
 \end{equation}
 When $r=0$, this inequality becomes
 \begin{equation}
