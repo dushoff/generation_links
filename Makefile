@@ -54,11 +54,11 @@ Sources += reviewers.txt
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.1f6db5.oldfile:
+interval.tex.ec380689.oldfile:
 compare.pdf: compare.tex
 
 compare.tex: interval.tex* makestuff/latexdiff.pl
-##	$(PUSH)
+	$(PUSH)
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
@@ -83,7 +83,7 @@ interval.bbl: auto.rmu
 
 export autorefs = $(realpath autorefs)
 -include autorefs/inc.mk
--include $(ms)/pandoc.mk
+# -include $(ms)/pandoc.mk
 
 ######################################################################
 
