@@ -1,18 +1,11 @@
-Should we get rid of the measles example? Ask DC and JSW.
+Journal thoughts:
 
-NO
+* PLoS (pathogens or bio)
+* Theoretical Biology and Medical Modelling
+	* https://tbiomed.biomedcentral.com/
+* BMB
 
-To-do
-
-JD:
-
-* Edit the paragraph that blue says is wishy-washy
-
-* Refactor Generation_distributions and understand stuff
-
-* Check on SWP's new comments
-
-SWP:
-
-* Make a rabies version of the sampling picture
+Weitz dreams:
+* Lancet, Lancet ID
+* PNAS (Weitz)
 
