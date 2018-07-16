@@ -3,6 +3,52 @@
 \setcounter{page}{1}
 \renewcommand{\thefigure}{S\arabic{figure}}
 
+\subsection{Comparison with the SEIR model}
+
+The SEIR (susceptible-exposed-infectious-recovered) model is given by
+\begin{equation}
+\begin{aligned}
+\frac{dS}{dt} &= - \beta SI/N\\
+\frac{dE}{dt} &= \beta SI/N - \sigma E\\
+\frac{dI}{dt} &= \sigma E - \gamma I\\
+\frac{dR}{dt} &= \gamma I
+\end{aligned}
+\end{equation}
+It is assume that latent and infectious periods are exponentially distributed with mean $1/\sigma$ and $1/\gamma$, respectively.
+
+For this model, generation interval distribution can be written as follows \cite{Sven07}:
+\begin{equation}
+g({\tau}) = \frac{\sigma \gamma}{\sigma - \gamma} \left(\exp (-\gamma \tau) - \exp (- \sigma \tau) \right).
+\end{equation}
+The mean generation interval is
+\begin{equation}
+\bar{G} = \frac{1}{\sigma} + \frac{1}{\gamma}.
+\end{equation}
+and the square coefficient of variation is
+\begin{equation}
+\kappa = 1 - \frac{2}{\bar{G}^2 \sigma \gamma}
+\end{equation}
+
+\cite{lipsitch2003transmission, roberts2007model} derived the following \rR\ relationship under SEIR model:
+\begin{equation}
+\RR = 1 + r\left(\frac{1}{\sigma} + \frac{1}{\gamma} \right) + \frac{r^2}{\sigma \gamma}.
+\end{equation}
+Reparameterizing, we have 
+\begin{equation}
+\begin{aligned}
+\RR &= 1 + r \bar{G} + \frac{(1-\kappa) r^2 {\bar{G}}^2}{2}\\
+&= 1 + \rho + \frac{(1-\kappa)}{2} \rho^2
+\end{aligned}
+\end{equation}
+Note that Taylor expansion of \eref{genExp} yields the following:
+\begin{equation}
+\tsup{\RR}{gamma} \approx 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3) \label{eq:taylor},
+\end{equation}
+where $\tsup{\RR}{gamma}$ is an \RR\ estimate based on the gamma approximation.
+When $\sigma = \gamma$, $g(\tau)$ follows a gamma distributio and $O(\rho^3)$ vanishes.
+We expect the gamma approximation to work well when average duration of latent and infectious periods are similar.
+
+\pagebreak
 \subsection{Ebola example}
 
 \begin{figure}[htbp] \centering

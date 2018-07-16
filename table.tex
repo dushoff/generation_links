@@ -52,10 +52,6 @@
 \hline
 \bf Method & \bf Required information & \bf Assumptions/Notes & \bf References \\
 \hline
-Incidence based & \tabitem Generation interval CDF & \tabitem Uses cumulative incidence directly & \cite{nishiura2010correcting} \\
- & \tabitem Incidence reports & \tabphant without estimating the initial growth rate  & \\
- & & \tabitem Entire generation interval distribution is required to obtain CDF & \\
-\hline
 Delta approximation & \tabitem Mean generation interval & \tabitem Assumed fixed generation interval & \cite{wallinga2007generation, roberts2007model} \\
 \hline
 Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Relies on binning generation intervals & \cite{wallinga2007generation} \\
@@ -78,11 +74,6 @@ SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distribut
 SEIR (exponential) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed latent and infectious periods & \cite{lipsitch2003transmission, chowell2007comparative, roberts2007model} \\
 & \tabitem Ratio of the infectious period to & \tabitem Predicts quadratic relationship between $r$ and \RR\ & \\
 & \tabphant the generation interval & & \\
-\hline
-Subexponential & \tabitem Generation interval shape & \tabitem Assumes sub-exponential growth rate & \cite{chowell2016characterizing} \\
-& \tabitem Corresponding generation interval parameters & \tabitem Provides examples for uniform, gamma, exponential and delta &\\
-& \tabitem Sub-exponential growth paramete & \tabphant distributed generation intervals & \\
-& \tabitem Disease generation & & \\
 \hline
 Trapezoid approximation & \tabitem Period of no infection after exposure & \tabitem Assumes trapezoid shaped infection kernel & \cite{roberts2007model} \\
 & \tabitem Time until maxium infectivity& & \\

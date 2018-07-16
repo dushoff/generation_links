@@ -107,6 +107,12 @@ While $r$ measures the speed of the disease at the population level, the generat
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
+\swp{
+A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship \cite{wearing2005appropriate, WallLips07, roberts2007model}.
+Their results, although useful, rely mostly on mathematical arguments and assume different conditions.
+What is missing is a general idea that can unify these results and a clear biological interpretation.
+}
+
 Here, we explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
 We discuss generality of the gamma approximation and provide numerical examples using realistic epidemiological parameters from previous outbreaks.
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
@@ -161,13 +167,13 @@ This fundamental relationship dates back to the work of Euler and Lotka \cite{Lo
 \section{Approximation framework}
 \label{approxframe}
 
-\subsection{Theory}
+\subsection{Approximation method, in theory}
 We do not expect to know the full distribution $g(\tau)$ -- particularly while an epidemic is ongoing -- so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
 We prefer the gamma distribution to the standard normal approximation used in many applications for a number of reasons.
 First, it is more biologically realistic, since it is confined to non-negative values.
 Second, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the relationship between $r$ and \RR.
-Third, it generalizes the result obtained from simple SIR models, and approximately matches SEIR, in the case where the latent period and infectious period are similar.
+Third, it generalizes the result obtained from simple SIR models, and approximately matches SEIR, in the case where the latent period and infectious period are similar (see Appendix).
 %% Even though the normal distribution can be parameterized with only two parameters, it predicts decreasing \rR\ relationship for high $r$, which can be problematic for estimation purposes (see Appendix).
 %% Other distributions that have similar shapes and are confined to non-negative values (such as lognormal or Weibull) do not have closed form for their moment generating functions.
 %% In \sref{generality}, we discuss generality of the gamma approximation in detail.
@@ -213,167 +219,26 @@ The straight-line relationship for $\kappa=1$ also has a biological interpretati
 In our approximation, this corresponds to a generation distribution that is approximated by an exponential distribution. 
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of an infectious individual. 
+\swp{This case is also equivalent to the generation interval distribution of an SIR model where infectious period is exponentially distributed \cite{anderson1992infectious, ferguson2005strategies, pybus2001epidemic, WallLips07}}
 
-\subsection{Generality} %% or not
-\label{generality}
+\swp{
+Characterizing the \rR\ relationship with mean and coefficient of variation provides a simple explanation for the results derived from epidemiological models \cite{wearing2005appropriate, roberts2007model}.
+As mean and variance of latent and infectious periods are directly linked to mean and variance of generation intervals, one can easily translate the effect of changes in moments of latent and infectious periods to changes in \RR:
+shorter mean latent and infectious periods are expected to result in smaller \RR\ and tighter latent periods are expcted to result in higher \RR.
+However, as decreasing coefficient of variation of infectious period leads to shorter mean generation interval as well \cite{Sven07}, assuming a tighter infectious period distribution may predict smaller \RR \cite{wearing2005appropriate}.
 
-\swp{Still working on this section. I thought I needed to show you before I proceed further.}
- 
-In this section, we compare the gamma approximation with the exact speed-strength relationship under various scenarios.
-To distinguish the gamma speed-strength relationship with other speed-strength relationships, we write $\tsup{\RR}{gamma}$ to refer to \eref{gamApp}.
-First, we discuss the approximation framework in relation to epidemic models.
-Even though \ref{sub:sir} and  \ref{sub:seir} are special cases of \ref{sub:seminr}, 
-we discuss them separately as they lead to interesting theoretical properties and motivate framework for further generalization.
+This phenomenon explains seemingly inconsistent results by \cite{wearing2005appropriate, roberts2007model} that predicted opposite effects of decreasing coefficient of variation of infectious periods on \RR\ under the same epidemiological models.
+\cite{roberts2007model} showed that decreasing coefficient of variation of infectious period results in higher \RR, assuming that mean generation interval is fixed (hence only affecting variation in generation intervals).
 
-\subsection{SIR model}
-\label{sub:sir}
-
-One of the simplest epidemic models is the SIR (susceptible-infected-recovered) model:
-\begin{equation}
-\begin{aligned}
-\frac{dS}{dt} &= - \beta SI/N\\
-\frac{dI}{dt} &= \beta SI/N - \gamma I\\
-\frac{dR}{dt} &= \gamma I
-\end{aligned}
-\end{equation}
-It assumes that an infected inividual becomes infectious immediately and recovers after some period of time.
-It is assumed that infectious period is exponentially distributed with mean $1/\gamma$.
-This leads to exponentially distributed generation interval with mean $1/\gamma$ \cite{WallLips07}, where the exact speed-strength relationship is given by 
-\begin{equation}
-\RR^{-} = 1 + \frac{r}{\gamma} = 1 + \rho.
-\end{equation}
-This is the limiting case of the gamma speed-strength relationship as $\kappa \to 1$ (see previous section).
-
-\subsection{SEIR model}
-\label{sub:seir}
-
-The SIR model is often extended to include an exposed ($E$) period.
-\begin{equation}
-\begin{aligned}
-\frac{dS}{dt} &= - \beta SI/N\\
-\frac{dE}{dt} &= \beta SI/N - \sigma E\\
-\frac{dI}{dt} &= \sigma E - \gamma I\\
-\frac{dR}{dt} &= \gamma I
-\end{aligned}
-\end{equation}
-The SEIR model assumes that an infected individual remains latent (exposed) before becoming infectious.
-It is assume that latent and infectious periods are exponentially distributed with mean $1/\sigma$ and $1/\gamma$, respectively.
-
-For this model, generation interval distribution can be written as follows \cite{Sven07}:
-\begin{equation}
-g({\tau}) = \frac{\sigma \gamma}{\sigma - \gamma} \left(\exp (-\gamma \tau) - \exp (- \sigma \tau) \right).
-\end{equation}
-Hence, the mean generation interval equals
-\begin{equation}
-\bar{G} = \frac{1}{\sigma} + \frac{1}{\gamma}.
-\end{equation}
-The square coefficient of variation of generation intervals equals
-\begin{equation}
-\kappa = 1 - \frac{2}{\bar{G}^2 \sigma \gamma}
-\end{equation}
-
-\cite{lipsitch2003transmission, roberts2007model} derived the following \rR\ relationship under SEIR model:
-\begin{equation}
-\tsup{R}{exp} = 1 + r\left(\frac{1}{\sigma} + \frac{1}{\gamma} \right) + \frac{r^2}{\sigma \gamma}.
-\end{equation}
-Reparameterizing, we have 
-\begin{equation}
-\begin{aligned}
-\tsup{R}{exp} &= 1 + r \bar{G} + \frac{(1-\kappa) r^2 {\bar{G}}^2}{2}\\
-&= 1 + \rho + \frac{(1-\kappa)}{2} \rho^2
-\end{aligned}
-\end{equation}
-Note that Taylor expansion of \eref{genExp} yields the following:
-\begin{equation}
-\tsup{R}{gamma} = 1 + \rho + \frac{(1-\kappa)}{2} \rho^2 + O(\rho^3) \label{eq:taylor}
-\end{equation}
-$\tsup{R}{gamma}$ approximates $\tsup{R}{exp}$ up to second order.
-$O(\rho^3)$ vanishes when $\sigma = \gamma$ so we expect the gamma approximation to work well when average duration of latent and infectious periods are similar.
-
-\subsection{SEmInR model}
-\label{sub:seminr}
-
-Exposed and infectious stages of the SEIR model can be subdivided into $m$ and $n$ compartments such that average time spent in each comparment is identically $1/(m \sigma)$ and $1/(n \gamma)$, respectively.
-Latent period follows a gamma distribution with mean $1/\sigma$ and square coefficient of variation $1/m$.
-Likewise, infectious period follows a gamma distribution with mean $1/\gamma$ and square coefficient of variation of $1/n$.
-This extended SEIR model, which we will refer to as the SEmInR model, allows for modeling of more realistic latend and infectious distributions \cite{Lloy01}.
-
-For the SEmInR model, \rR\ relationship is given by \cite{anderson1980spread, wearing2005appropriate, WallLips07, roberts2007model}: 
-\begin{equation}
-\RR=\frac{r \gamma^{-1} \left(1 + \frac{r}{m \sigma}\right)^m }{1 - \left(1 + \frac{r}{n\gamma} \right)^{-n}}\label{eq:seminr}
-\end{equation}
-Although analytical comparison between the above relationship and the gamma approximation is difficult,
-number of results derived from this \rR\ relationship can be generalized under the gamma interpretation.
-
-\cite{roberts2007model} proved that $\RR$ is an increasing function of $m$ and $n$ given that exponential growth rate, mean generation interval and mean exposed period are fixed.
-% A simple explanation for this result is that increasing $m$ and $n$ decreases overall variation in generation intervals by decreasing variation in exposed and infectious periods (hence resulting in increase in \RR; \sref{approxframe}).
-On the other hand, \cite{wearing2005appropriate} noted that $\RR$ decreases as $n$ increases given that exponential growth rate, mean infectious period (rather than generation interval) and mean exposed period are fixed.
-These two seemingly inconsistent results can be reconciled easily.
-As mean generation interval distribution for the SEmInR model is given by
-\begin{equation}
-\bar{G} = \frac{1}{\sigma} + \frac{n+1}{2n\gamma},
-\end{equation}
-increasing $n$ causes both mean and variation of generation intervals to decrease.
+As \cite{roberts2007model} assumed that mean generation interval is fixed, decreasing coefficient of variation of infectious period only affects variation in generation intervals and predicts higher \RR.
+As \cite{wearing2005appropriate} assumed that mean infectious period is fixed, decreasing coefficient of variation of infectious period decreases both mean and variation in generation intervls and does not necessarily predict higher \RR.
 As effect of decrease in mean generation interval (which predicts decrease in \RR) is stronger than decrease in variation in generation intervals (which predicts increase in \RR), 
 we observe overall decrease in \RR.
-Because \cite{roberts2007model} assumed that \emph{mean generation interval} is fixed, increasing $n$ only leads to decrease in variation in generation intervals and consequently, increase in \RR.
-Likewise, decrease in $m$ leads to decrease in variation in exposed periods (and overall variation in generation intervals) and leads to increase in \RR.
+}
 
-%An $n$-th moment of the generation interval distribution given by the model can be obtained using the Laplace transformation of its infectivity Kernel (see Appendix 2, cite Roberts).
-%Then, it follows that mean ($\bar{G}$) generation interval is given by
-%\begin{equation}
-%\bar{G} = \frac{1}{\sigma} + \frac{n+1}{2n\gamma}
-%\end{equation}
-%This result has also been derived by [CITE].
-%Likewise, variance of generation intervals is given by
-%\begin{equation}
-%\begin{aligned}
-%\mathrm{Var}(G) &= \frac{n^2 + 6n + 5}{12 \gamma^2 n^2}+ \frac{1}{\sigma^2 m}\\
-%\end{aligned}
-%\end{equation}
-
-\subsection{Other generation distributions}
-
-In fact, the second order taylor expansion of \rR\ relationship (\eref{taylor}) holds for any generation interval distributions:
-\begin{equation}
-\RR \approx 1 + \rho + \frac{(1-\kappa)}{2} \rho^2
-\end{equation}
-Although this relationship leads to a natural estimator for \RR\ based on two moments, it fails to approach the limiting case ($\RR = \exp(\rho)$) as $\kappa \to 0$.
-In \sref{examples}, we compare this approximation with the gamma approximation numerically.
-
-\swp{Maybe add a table here and talk about previous attempts?}
-
-\subsection{Convexity of \rR\ relationship}
-
-\swp{Might not fit here... need to go in Appendix or something but added here so you can think about it}
-A potential concern for the gamma approximation is that it predicts a convex \rR\ relationship for $\kappa < 1$ and there may exist generation intervals distribution that predicts a concave \rR\ relationship.
-Taking the reciprocal in both sides of \eref{Euler} and substituting $r = 1/\Tc$, we obtain
-\begin{equation}
-\RR = 1/\int{g(\tau)\exp(-r \tau) \,d\tau}.
-\end{equation}
-Twice differentiating with respect to $r$, we have
-\begin{equation}
-\begin{aligned}
-\frac{\partial^2 \RR}{\partial r^2} =& 2\left(\int{g(\tau)\exp(-r \tau) \,d\tau}\right)^{-3} \left(\int{\tau g(\tau) \exp(-r\tau) \,d\tau}\right)^2 \\
-&-\left(\int{g(\tau)\exp(-r \tau) \,d\tau}\right)^{-2} \int{\tau^2 g(\tau) \exp(-r\tau) \,d\tau}
-\end{aligned}
-\end{equation}  
-Hence, \rR\ relationship is convex if and only if
-\begin{equation}
-2 \left(\int{\tau g(\tau) \exp(-r\tau) \,d\tau}\right)^2 > \int{g(\tau)\exp(-r \tau) \,d\tau} \int{\tau^2 g(\tau) \exp(-r\tau) \,d\tau}
-\end{equation}
-When $r=0$, this inequality becomes
-\begin{equation}
-2 \left(\int \tau g(\tau) \,d\tau\right)^2 >\int{\tau^2 g(\tau) \,d\tau}
-\end{equation}
-Hence, for any generation interval distribution with square coefficient of variation less than one ($\kappa < 1$), \rR\ relationship is convex for some neighborhood around $r=0$.
-
-\swp{I want to generalize this further...}
-
-\section{Examples}
+\section{Approximation method, in practice}
 \label{Examples}
 
-\swp{I moved this here for now because I didn't know where else to put... If we decide to remove the previous section, we should put this back; I didn't edit this in case we want to revert the changes}
 We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases.
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
@@ -394,7 +259,6 @@ We then calculate ``exact'' relationships (for our pseudo-realistic distribution
 This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
 
 All calculations, numerical analyses and figures were made with the software platform R \cite{Rproject}. Code is freely available at \url{https://github.com/dushoff/link_calculations}.
-\swp{I copied up to this point from the previous version}
 
 We investigate this approximation approach using three different examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
@@ -497,7 +361,7 @@ Estimating the reproductive number \RR\ is a key part of characterizing and cont
 However, detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
 Here we introduced and analyzed a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We used three disease examples to test the robustness of the framework. We also compared estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
-The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and  provides estimates that are simpler, more robust, and more realistic than those from normal approximations.
+The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and  provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
 Here, we presented the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 In doing so, we explained the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}.
 We also provided mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that the outbreak corresponds to a larger \RR. 
