@@ -81,9 +81,7 @@ interval.bbl: auto.rmu
 
 ## Ref machinery
 
-export autorefs = $(realpath autorefs)
--include autorefs/inc.mk
-# -include $(ms)/pandoc.mk
+-include $(ms)/autorefs.mk
 
 ######################################################################
 
@@ -98,13 +96,12 @@ setup:
 ######################################################################
 
 # Modules
+## HOT
 
-mdirs += Generation_distributions autorefs link_calculations
+mdirs += Generation_distributions link_calculations
 # mdirs += Generation_distributions autorefs
-dirs += $(mdirs)
 
-dfiles: $(dirs:%=%/Makefile)
-Sources += $(dirs) $(ms)
+hotdirs += $(mdirs)
 
 -include $(ms)/modules.mk
 
