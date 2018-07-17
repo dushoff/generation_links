@@ -32,6 +32,13 @@
 \newcommand{\jsw}[1]{\comment{red}{JSW}{#1}}
 \newcommand{\hotcomment}{}
 
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\tabphant}{\hphantom\tabitem}
+
 \addbibresource{refs.bib}
 \usepackage{graphicx,grffile}
 
@@ -42,7 +49,7 @@
 \begin{flushleft}
 {
 \Large
-\textbf\newline{Exploring how generation intervals link strength and speed of epidemics}
+\textbf\newline{Clarifying how generation intervals link strength and speed of epidemics}
 }
 \newline
 \\
@@ -110,7 +117,7 @@ Generation interval distributions can be difficult to ascertain empirically, and
 \swp{
 A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship \cite{wearing2005appropriate, WallLips07, roberts2007model}.
 Their results, although useful, rely mostly on mathematical arguments and assume different conditions.
-What is missing is a general idea that can unify these results and a clear biological interpretation.
+What is missing is a general interpretation that can unify these results and a clear biological intution.
 }
 
 Here, we explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
@@ -225,21 +232,21 @@ The rate of exponential growth per generation is then given directly by the net 
 Characterizing the \rR\ relationship with mean and coefficient of variation provides a simple explanation for the results derived from epidemiological models \cite{wearing2005appropriate, roberts2007model}.
 As mean and variance of latent and infectious periods are directly linked to mean and variance of generation intervals, one can easily translate the effect of changes in moments of latent and infectious periods to changes in \RR:
 shorter mean latent and infectious periods are expected to result in smaller \RR\ and tighter latent periods are expcted to result in higher \RR.
-However, as decreasing coefficient of variation of infectious period leads to shorter mean generation interval as well \cite{Sven07}, assuming a tighter infectious period distribution may predict smaller \RR \cite{wearing2005appropriate}.
+However, as decreasing coefficient of variation of infectious period leads to shorter mean generation interval as well \cite{Sven07}, assuming a tighter infectious period distribution does not necessarily result in higher \RR \cite{wearing2005appropriate}.
+}
 
+\swp{
 This phenomenon explains seemingly inconsistent results by \cite{wearing2005appropriate, roberts2007model} that predicted opposite effects of decreasing coefficient of variation of infectious periods on \RR\ under the same epidemiological models.
-\cite{roberts2007model} showed that decreasing coefficient of variation of infectious period results in higher \RR, assuming that mean generation interval is fixed (hence only affecting variation in generation intervals).
-
-As \cite{roberts2007model} assumed that mean generation interval is fixed, decreasing coefficient of variation of infectious period only affects variation in generation intervals and predicts higher \RR.
-As \cite{wearing2005appropriate} assumed that mean infectious period is fixed, decreasing coefficient of variation of infectious period decreases both mean and variation in generation intervls and does not necessarily predict higher \RR.
-As effect of decrease in mean generation interval (which predicts decrease in \RR) is stronger than decrease in variation in generation intervals (which predicts increase in \RR), 
-we observe overall decrease in \RR.
+Decreasing coefficient of variation of infectious period results in higher \RR, assuming that mean generation interval is fixed \cite{roberts2007} (hence only affecting variation in generation intervals).
+On the other hand, decreasing coefficient of variation of infectious period, while keeping infectious period fixed, decreases both mean and variation in generation intervals and lowers \RR\ \cite{wearing2005appropriate}.
+As effect of decrease in mean generation interval (which decreases \RR) is stronger than decrease in variation in generation intervals (which increases in \RR), 
+we observe an overall decrease in \RR.
 }
 
 \section{Approximation method, in practice}
 \label{Examples}
 
-We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases.
+We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
 These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data. 
 
@@ -361,16 +368,78 @@ Estimating the reproductive number \RR\ is a key part of characterizing and cont
 However, detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
 Here we introduced and analyzed a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We used three disease examples to test the robustness of the framework. We also compared estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
-The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and  provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
+The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
 Here, we presented the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
-In doing so, we explained the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07}.
-We also provided mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that the outbreak corresponds to a larger \RR. 
+In doing so, we explained the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07, wearing2005appropriate, roberts2007model}.
+We also provided mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth, also meaning that the outbreak corresponds to a larger \RR. \swp{We should be careful with saying slower exponential growth; this is not the explanation we give in our methods}
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
 
-Our key finding is that summarizing an entire generation interval distribution using two moments can give sensible and robust estimates of the relationship between $r$ and \RR\ (see Appendix).
-This framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
+\swp{
+Many studies have linked $r$ with \RR\ using generation interval distributions under various assumptions (\tref{review}).
+More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates but sufficient amount of data may not be available early in an epidemic.
+On the other hand, simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
+}
+
+\afterpage{
+\clearpage
+\begin{landscape}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{l|l|l|c}
+\hline
+\bf Method & \bf Required information & \bf Assumptions/Notes & \bf References \\
+\hline
+Delta approximation & \tabitem Mean generation interval & \tabitem Assumes fixed generation interval & \cite{wallinga2007generation, roberts2007model, mccallum2009transmission, trichereau2012estimation} \\
+ &  & \tabitem Provides an upper bound for \RR\ estimate & \\
+\hline
+Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Relies on binning generation intervals & \cite{wallinga2007generation} \\
+& & \tabphant into discrete histograms &\\
+\hline
+Empirical (sample-based) & \tabitem Generation interval samples & \tabitem Requires more samples than & \cite{hampson2009transmission}\\
+& & \tabphant the histogram-based method & \\
+\hline
+Euler-Lotka & \tabitem Entire generation interval distribution & \tabitem Uses moment generating function & \cite{Lotka} \\
+\hline
+Exponential approximation (SIR) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{anderson1992infectious, pybus2001epidemic, ferguson2005strategies, wallinga2007generation, trichereau2012estimation} \\
+& & \tabitem Predicts linear relationship between $r$ and \RR\ & \\
+\hline
+Gamma approximation & \tabitem Mean/SD generation interval & \tabitem Assumes gamma distributed generation intervals & \cite{NishCast09, mcbryde2009early, trichereau2012estimation, nishiura2015theoretical} \\
+\hline
+Normal approximation & \tabitem Mean/SD generation interval & \tabitem Assuems normally distributed generation intervals & \cite{wallinga2007generation, trichereau2012estimation}\\
+& & \tabitem Predicts decreasing \rR\ relationship for high $r$ & \\
+\hline
+SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent an & \cite{anderson1980spread, wearing2005appropriate, wallinga2007generation, roberts2007model} \\
+& & \tabphant infectious periods & \\
+& & \tabitem See \cite{yan2008separate} for summary of all special cases & \\
+\hline
+SEIR (generalized) & \tabitem Laplace transformation of & \tabitem Independent latent and infectious periods & \cite{yan2008separate} \\
+ & \tabphant latent period distribution & \tabitem Generalizes gamma distributed latent and & \\
+ & \tabitem Laplace transformation of & \tabphant infectious periods & \\
+ & \tabphant infectious period distribution & & \\
+\hline
+Trapezoid approximation & \tabitem Period of no infection after exposure & \tabitem Assumes trapezoid shaped infection kernel & \cite{roberts2007model} \\
+& \tabitem Time until maxium infectivity& & \\
+& \tabitem Duration of maximum infectivity & & \\
+& \tabitem Time until recovery & &\\
+\hline
+\end{tabular}
+\caption{
+Summary of previous studies that relate growth rate, $r$, with reproductive number, $\RR$, using generation interval distributions.
+}
+\tlab{review}
+\end{table}
+\end{landscape}
+}
+
+\swp{I also edited this paragraph:}
+Summarizing an entire generation interval distributions using two moments requires intermediate amount of data and can give sensible and robust estimates of the relationship between $r$ and \RR\ that lie between extreme estimates (see Appendix).
+While other studies have applied the gamma approximation to infer \RR\ in real outbreak settings (\tref{review}), its validity and biological implications has not been explored previously;
+our study provides support for using the approximation.
+We suggest using more realistic methods when sufficient data is available but the gamma approximation can be easily used in preliminary analyses.
+In particular, this framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
 For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofg14, 
 KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
