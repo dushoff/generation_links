@@ -80,24 +80,10 @@ interval.bbl: auto.rmu
 
 ######################################################################
 
-## Ref machinery
-
--include $(ms)/autorefs.mk
-
-######################################################################
-
-## Set up
-
-setup:
-	$(MAKE)
-	$(MAKE) dfiles
-	$(MAKE) interval.pdf
-	$(MAKE) interval.pdf.go
-
-######################################################################
-
 # Modules
 ## HOT
+## Need to think about constructing modules from makestuff
+## also stuff about hotdirs and colddirs, and what-all else
 
 mdirs += Generation_distributions link_calculations
 # mdirs += Generation_distributions autorefs
@@ -112,5 +98,9 @@ hotdirs += $(mdirs)
 -include $(ms)/visual.mk
 -include $(ms)/texdeps.mk
 -include $(ms)/hybrid.mk
+-include $(ms)/autorefs.mk
+-include $(ms)/pandoc.mk
+
+######################################################################
 
 # -include $(ms)/wrapR.mk

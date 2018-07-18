@@ -224,12 +224,13 @@ This case corresponds to the classic SIR model, where the infectious period is e
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of the initial infectious individual. 
 
-\swp{
-Characterizing the \rR\ relationship with mean and coefficient of variation provides a simple explanation for the results derived from epidemiological models \cite{wearing2005appropriate, roberts2007model}.
-As mean and variance of latent and infectious periods are directly linked to mean and variance of generation intervals, one can easily translate the effect of changes in moments of latent and infectious periods to changes in \RR:
-shorter mean latent and infectious periods are expected to result in smaller \RR\ and less-variable latent periods are expected to result in higher \RR.
-Less-variable infectious periods have However, as decreasing coefficient of variation of infectious period leads to shorter mean generation interval as well \cite{Sven07}, assuming a tighter infectious period distribution does not necessarily result in higher \RR \cite{wearing2005appropriate}.
-}
+Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
+Shorter mean latent and infectious periods result in shorter generation intervals, and thus smaller \RR\ estimates.
+Less-variable latent periods result in less-variable generation intervals, and thus higher \RR\ estimates.
+Less-variable infectious periods have more complicated effects. While they reduce variation in generation interval (which would be expected to increase \RR\ estimates), they also reduce the mean generation interval \cite{Sven07} (which would lead to a decrease). 
+This explains the apparent anomaly between earlier results: when mean generation interval is held constant, the effect of less-variable infectious periods is to reduce variation, leading to lower \RR\ for a given $r$ \cite{roberts2007model}; when mean infectious period is held constant the effect of reducing generation interval will be stronger, leading to higher \RR\ \cite{wearing2005appropriate}.
+
+There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR, or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
 
 \swp{
 This phenomenon explains seemingly inconsistent results by \cite{wearing2005appropriate, roberts2007model} that predicted opposite effects of decreasing coefficient of variation of infectious periods on \RR\ under the same epidemiological models.
