@@ -33,6 +33,7 @@ abstract.txt: interval.tex abstract.pl
 Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
 interval.pdf: interval.tex
+interval.deps:
 
 interval.count: interval.tex
 	texcount $< > $@
