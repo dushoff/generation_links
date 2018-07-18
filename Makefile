@@ -76,6 +76,8 @@ Ignore += auto.html
 auto.html: auto.rmu
 auto.bib: auto.rmu
 
+nish.html: nish.rmu
+
 interval.bbl: auto.rmu
 
 ######################################################################
