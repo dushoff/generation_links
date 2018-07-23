@@ -114,11 +114,19 @@ While $r$ measures the speed of the disease at the population level, the generat
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
-A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship \cite{wearing2005appropriate, WallLips07, roberts2007model}.
+A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship.
+\cite{WallLips07} explored the \rR\ relationship under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationsip.
+On the other hand, \cite{wearing2005appropriate, roberts2007model} mainly focused on \rR\ relationship derived from compartmental models.
+They studied consequences of changes in incubation and infectious period distributions and difference between \RR\ estimates under different assumptions.
+However, \cite{wearing2005appropriate, roberts2007model} presented a seemingly contradictory result that more variable infectious period distribution leads to opposite effect in \RR.
 \jd{Brief summary of main things done by these three papers. Don't stress much about what's missing from their work at this stage. Do mention the thing that's apparently contradictory.}
+\swp{How is that?}
 
-Here, we explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
-We discuss generality of the gamma approximation and provide numerical examples using realistic epidemiological parameters from previous outbreaks.
+\swp{Tried editing a bit here as well:}
+The primary goal of this paper is to provide intuitive understanding behind the \rR\ relationship for wider audience.
+We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
+We give simple, biological explanations for previous findings by relating them to means and variance measures of generation interval distributions.
+We further discuss generality of the gamma approximation and provide numerical examples using realistic epidemiological parameters from previous outbreaks.
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
 
@@ -233,7 +241,9 @@ This explains the apparent anomaly between earlier results: when mean generation
 There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR, or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
 
 \jd{Daniel: Find all of the notes we ever did together! LMK if there's anything about this.}
+\swp{I think I did this last week.}
 \jd{Do we think that the effect on mean is always stronger? Why or why not?}
+\swp{No. I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it doesn't matter when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
 
 \section{Approximation method, in practice}
 \label{Examples}
@@ -363,7 +373,12 @@ Here we introduced and analyzed a simple framework for \emph{estimating} the rel
 The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
 Here, we presented the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 In doing so, we explained the general result that estimates of \RR\ increase with mean generation, but decrease with \emph{variation} in generation times \cite{WallLips07, wearing2005appropriate, roberts2007model}.
-We also provided mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. Similarly, when variance in generation time is low, there is less early infection, and thus slower exponential growth for a given value of \RR; thus a higher value of \RR\ will be needed to match a given value of $r$. \jd{Let's think a bit about this recent clarification attempt.}
+We also provided mechanistic interpretations: when generation intervals are longer, more infection is needed per generation (larger \RR)  in order to produce a given rate of increase $r$. 
+Similarly, when variance in generation time is large, there is more early infection.
+As early infections contribute most to growth of an epidemic, faster exponential growth is expected for a given value of \RR.
+Thus a higher value of \RR\ will be needed to match a given value of $r$. 
+\jd{Let's think a bit about this recent clarification attempt.}
+\swp{How about this?}
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
@@ -371,6 +386,8 @@ We found that approximations based on observed moments closely match true answer
 Many studies have linked $r$ with \RR\ using generation interval distributions under various assumptions (\tref{review}).
 Simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
 More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates, but are harder to interpret and require more data to implement. 
+Making wrong biological assumptions, such as failing to account for latent periods, can even lead to biased conclusions \cite{wearing2005appropriate}.
+\swp{Added the last sentence.}
 
 \afterpage{
 \clearpage
@@ -432,7 +449,7 @@ In particular, this framework has potential advantages for understanding the lik
 
 For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofg14, 
 KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
-During the outbreak, \cite{WeitDush15} used a generation-interval argument to  show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
+During the outbreak, \cite{WeitDush15} used a generation-interval argument to show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.
 Knowing the exact shape of the generation interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation interval distribution will help researchers better understand and predict the scope of future outbreaks.
 
