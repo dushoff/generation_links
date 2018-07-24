@@ -117,10 +117,9 @@ Generation interval distributions are typically inferred from contact tracing, s
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
 A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship.
-\cite{WallLips07} explored the \rR\ relationship under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationsip.
-On the other hand, \cite{wearing2005appropriate, roberts2007model} mainly focused on \rR\ relationship derived from compartmental models.
-They studied consequences of changes in incubation and infectious period distributions and difference between \RR\ estimates under different assumptions.
-However, \cite{wearing2005appropriate, roberts2007model} presented a seemingly contradictory result that more variable infectious period distribution leads to opposite effect in \RR.
+\cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationsip.
+On the other hand, \cite{wearing2005appropriate, roberts2007model} mainly focused on \rR\ relationship derived from compartmental models and studied consequences of changes in incubation and infectious period distributions.
+However, \cite{wearing2005appropriate, roberts2007model} presented seemingly contradictory results that more variable infectious period distribution leads to opposite effect in \RR.
 \jd{Brief summary of main things done by these three papers. Don't stress much about what's missing from their work at this stage. Do mention the thing that's apparently contradictory.}
 \swp{How is that?}
 
@@ -130,7 +129,6 @@ We explore the qualitative relationship between generation time, initial rate of
 We give simple, biological explanations for previous findings by relating them to means and variance measures of generation interval distributions.
 We further discuss generality of the gamma approximation and provide numerical examples using realistic epidemiological parameters from previous outbreaks.
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
-
 
 \section{Relating \RR\ and $r$}
 
@@ -245,7 +243,7 @@ There is a simple intuition for this latter result. In an exponentially growing 
 \jd{Daniel: Find all of the notes we ever did together! LMK if there's anything about this.}
 \swp{I think I did this last week.}
 \jd{Do we think that the effect on mean is always stronger? Why or why not?}
-\swp{No. I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it doesn't matter when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
+\swp{No. I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it matters less when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
 
 \section{Approximation method, in practice}
 \label{Examples}
