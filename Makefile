@@ -55,10 +55,10 @@ Sources += reviewers.txt
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.ec380689.oldfile:
+interval.tex.d5ee28.oldfile:
 compare.pdf: compare.tex
 
-compare.tex: interval.tex* makestuff/latexdiff.pl
+compare.tex: interval.tex.* interval.tex makestuff/latexdiff.pl
 	$(PUSH)
 
 ## This should not be necessary, but don't waste Daniel's time!

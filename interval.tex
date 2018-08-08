@@ -96,6 +96,7 @@ Infectious disease modeling; Generation interval; basic reproductive number
 \section{Introduction}
 
 \swp{Can you take a look at the reviewer 2's comments and let me know what else you think we might need to address before submitting to another journal?}
+\jd{Where do I find these?}
 
 Infectious disease research often focuses on estimating the reproductive number, i.e., the number of new infections caused on average by a single infection.
 This number is termed the reproductive number -- \RR.
@@ -116,9 +117,7 @@ While $r$ measures the speed of the disease at the population level, the generat
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
-A few studies have explored how changes in certain features of the generation interval distributions translates to changes in the \rR\ relationship.
-\cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationsip.
-On the other hand, \cite{wearing2005appropriate, roberts2007model} mainly focused on \rR\ relationship derived from compartmental models and studied consequences of changes in incubation and infectious period distributions.
+A few studies have explored the relationship between generation-interval distributions and the \rR\ relationship: \cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationship, while  \cite{wearing2005appropriate, roberts2007model} investigated \rR\ relationship dserived from compartmental models.
 However, \cite{wearing2005appropriate, roberts2007model} presented seemingly contradictory results that more variable infectious period distribution leads to opposite effect in \RR.
 \jd{Brief summary of main things done by these three papers. Don't stress much about what's missing from their work at this stage. Do mention the thing that's apparently contradictory.}
 \swp{How is that?}
@@ -202,7 +201,7 @@ We write:
 	\RR \approx (1 + \kappa \rho)^{1/\kappa} \equiv X(\rho; 1/\kappa),
 	\label{eq:genExp}
 \end{equation}
-where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
+where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or, equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
 The longer the generation interval is compared to $T_c$, the higher the estimate of $\RR$ (see \fref{link}).
 We then explore the behaviour of the generalized exponential function $X$ defined above (equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}): its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
 
@@ -238,12 +237,10 @@ Less-variable latent periods result in less-variable generation intervals, and t
 Less-variable infectious periods have more complicated effects. While they reduce variation in generation interval (which would be expected to increase \RR\ estimates), they also reduce the mean generation interval \cite{Sven07} (which would lead to a decrease). 
 This explains the apparent anomaly between earlier results: when mean generation interval is held constant, the effect of less-variable infectious periods is to reduce variation, leading to lower \RR\ for a given $r$ \cite{roberts2007model}; when mean infectious period is held constant the effect of reducing generation interval will be stronger, leading to higher \RR\ \cite{wearing2005appropriate}.
 
-There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR, or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
+There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR -- or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
 
-\jd{Daniel: Find all of the notes we ever did together! LMK if there's anything about this.}
-\swp{I think I did this last week.}
-\jd{Do we think that the effect on mean is always stronger? Why or why not?}
-\swp{No. I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it matters less when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
+\swp{I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it matters less when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
+\jd{Daniel: Can you send me the notes as links or docs one more time? Are you fine with the current text, or worried about the possibility that increasing variance in in IP can cut both ways?}
 
 \section{Approximation method, in practice}
 \label{Examples}
