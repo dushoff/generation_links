@@ -96,7 +96,6 @@ Infectious disease modeling; Generation interval; basic reproductive number
 \section{Introduction}
 
 \swp{Can you take a look at the reviewer 2's comments and let me know what else you think we might need to address before submitting to another journal?}
-\jd{Where do I find these?}
 
 Infectious disease research often focuses on estimating the reproductive number, i.e., the number of new infections caused on average by a single infection.
 This number is termed the reproductive number -- \RR.
@@ -117,15 +116,14 @@ While $r$ measures the speed of the disease at the population level, the generat
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
-A few studies have explored the relationship between generation-interval distributions and the \rR\ relationship: \cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationship, while  \cite{wearing2005appropriate, roberts2007model} investigated \rR\ relationship dserived from compartmental models.
-However, \cite{wearing2005appropriate, roberts2007model} presented seemingly contradictory results that more variable infectious period distribution leads to opposite effect in \RR.
-\jd{Brief summary of main things done by these three papers. Don't stress much about what's missing from their work at this stage. Do mention the thing that's apparently contradictory.}
-\swp{How is that?}
+A few studies have explored how generation-interval distributions affect the \rR\ relationship: \cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationship, while  \cite{wearing2005appropriate, roberts2007model} investigated \rR\ relationship derived from compartmental models.
+The compartmental models presented seemingly contradictory results: both agree that increasing variation in latent period decreases \RR, but \cite{wearing2005appropriate} found increasing variation in the infectious period increases \RR, while \cite{roberts2007model} found the opposite. This is not actually a contradiction, but results from different assumptions; we discuss this point below.
 
 \swp{Tried editing a bit here as well:}
-The primary goal of this paper is to provide intuitive understanding behind the \rR\ relationship for wider audience.
+\jd{We should discuss. What are the innovations of this paper? Sampling, examples, so on?}
+The primary goal of this paper is to further explore and explain the \rR\ relationship.
 We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
-We give simple, biological explanations for previous findings by relating them to means and variance measures of generation interval distributions.
+We provide biological explanations for previous findings by relating them to means and variance measures of generation-interval distributions.
 We further discuss generality of the gamma approximation and provide numerical examples using realistic epidemiological parameters from previous outbreaks.
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
@@ -385,6 +383,7 @@ Simple methods, such as delta and exponential approximations, require minimal in
 More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates, but are harder to interpret and require more data to implement. 
 Making wrong biological assumptions, such as failing to account for latent periods, can even lead to biased conclusions \cite{wearing2005appropriate}.
 \swp{Added the last sentence.}
+\jd{What are you trying to do with that sentence? Everything is biased in some sense; I would say that attempts to deal with variation are generally less biased than the extreme assumptions you're implicitly contrasting with here.}
 
 \afterpage{
 \clearpage
