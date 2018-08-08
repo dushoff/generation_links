@@ -58,6 +58,7 @@ Sources += reviewers.txt
 interval.tex.d5ee28.oldfile:
 compare.pdf: compare.tex
 
+Ignore += compare.tex
 compare.tex: interval.tex.* interval.tex makestuff/latexdiff.pl
 	$(PUSH)
 
