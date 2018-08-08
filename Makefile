@@ -97,6 +97,8 @@ hotdirs += $(mdirs)
 
 ######################################################################
 
+Drop = ~/Dropbox
+
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 -include $(ms)/texdeps.mk
