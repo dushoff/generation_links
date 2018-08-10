@@ -1,0 +1,80 @@
+---
+title: "Variation in infectious period"
+output: html_document
+---
+
+First, let's define a function that draws $r-R$ curve given shape and scale parameters of latent and infectious periods.
+
+```{r}
+genfun <- function(lat.shape=2,
+                   lat.scale=1,
+                   inf.shape=1,
+                   inf.scale=1,
+                   n=10000,
+                   r=seq(0, 2, by=0.1),
+                   add=FALSE,
+                   ...
+                   ) {
+    set.seed(101)
+    lat <- rgamma(n, lat.shape, lat.scale)
+    inf <- rgamma(n, inf.shape, inf.scale)
+    inf <- sample(inf, n, replace=TRUE, prob=inf)
+
+    gen <- lat + runif(n, 0, inf)
+    
+    if (!add) {
+        plot(sapply(r, function(x) 1/mean(exp(-x*gen))), type="l", ...)
+    } else{
+        lines(sapply(r, function(x) 1/mean(exp(-x*gen))), ...)
+    }
+    
+    invisible(gen)
+}
+```
+
+As we decrease variation in infectious period, while keeping mean fixed, we see increase in $R$ given $r$.
+
+```{r}
+genfun()
+genfun(inf.shape=2, inf.scale=2, add=TRUE, lty=2)
+genfun(inf.shape=3, inf.scale=3, add=TRUE, lty=3)
+```
+
+What happens if contacts are concentrated in the early-phase of infectious period?
+Here's another function:
+
+```{r}
+genfun2 <- function(lat.shape=2,
+                   lat.scale=1,
+                   inf.shape=1,
+                   inf.scale=1,
+                   n=10000,
+                   r=seq(0, 2, by=0.1),
+                   add=FALSE,
+                   ...
+                   ) {
+    set.seed(101)
+    lat <- rgamma(n, lat.shape, lat.scale)
+    inf <- rgamma(n, inf.shape, inf.scale)
+    inf <- sample(inf, n, replace=TRUE, prob=inf)
+
+    gen <- lat + rbeta(n, 1, 9) * inf
+    
+    if (!add) {
+        plot(sapply(r, function(x) 1/mean(exp(-x*gen))), type="l", ...)
+    } else{
+        lines(sapply(r, function(x) 1/mean(exp(-x*gen))), ...)
+    }
+    
+    invisible(gen)
+}
+```
+
+As we decrease variation in infectious period, while keeping mean fixed, we see increase in $R$ given $r$.
+
+```{r}
+genfun2()
+genfun2(inf.shape=2, inf.scale=2, add=TRUE, lty=2)
+genfun2(inf.shape=3, inf.scale=3, add=TRUE, lty=3)
+```
+
