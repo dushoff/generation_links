@@ -23,10 +23,12 @@ all.time
 *.oldfile
 *.olddiff
 .texdeps/
+compare.pdf
 table.pdf
 appwrap.pdf
 interval.pdf
 appendix.pdf
+compare.out
 table.out
 appwrap.out
 interval.out
