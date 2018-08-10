@@ -241,8 +241,7 @@ There is a simple intuition for this latter result. In an exponentially growing 
 \swp{I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it matters less when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
 \jd{Daniel: Can you send me the notes as links or docs one more time? Are you fine with the current text, or worried about the possibility that increasing variance in in IP can cut both ways?}
 
-\section{Approximation method, in practice}
-\label{Examples}
+\subsection{Approximation method, in practice}
 
 We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
@@ -265,6 +264,8 @@ We then calculate ``exact'' relationships (for our pseudo-realistic distribution
 This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
 
 All calculations, numerical analyses and figures were made with the software platform R \cite{Rproject}. Code is freely available at \url{https://github.com/dushoff/link_calculations}.
+
+\section{Results}\label{Results}
 
 We investigate this approximation approach using three different examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
@@ -378,7 +379,7 @@ Thus a higher value of \RR\ will be needed to match a given value of $r$.
 \swp{How about this?}
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
-We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Examples} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
+We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Results} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
 
 Many studies have linked $r$ with \RR\ using generation interval distributions under various assumptions (\tref{review}).
 Simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
