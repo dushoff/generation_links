@@ -238,9 +238,6 @@ This explains the apparent anomaly between earlier results: when mean generation
 
 There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR -- or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
 
-\swp{I think there's something about constant contact rate. If we relax that assumption, we might see a difference. For example, if infections are concentrated during early phase (due to control measures such as hospitalization or characteristic of a disease such as HIV), it matters less when they recover and effect on mean might be small. On the other hand, if infections are concentrated near the end of infectious periods, effect on mean will be large.}
-\jd{Daniel: Can you send me the notes as links or docs one more time? Are you fine with the current text, or worried about the possibility that increasing variance in in IP can cut both ways?}
-
 \subsection{Approximation method, in practice}
 
 We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
@@ -376,7 +373,6 @@ Similarly, when variance in generation time is large, there is more early infect
 As early infections contribute most to growth of an epidemic, faster exponential growth is expected for a given value of \RR.
 Thus a higher value of \RR\ will be needed to match a given value of $r$. 
 \jd{Let's think a bit about this recent clarification attempt.}
-\swp{How about this?}
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximations based on observed moments closely match true answers (based on known, pseudo-realistic distributions, see \sref{Results} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
