@@ -29,8 +29,8 @@
 \newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
 \newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
 \newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
-\newcommand{\jsw}[1]{\comment{red}{JSW}{#1}}
-\newcommand{\hotcomment}{}
+\newcommand{\jsw}[1]{\comment{green}{JSW}{#1}}
+\newcommand{\hotcomment}[1]{\comment{red}{HOT}{#1}}
 
 \usepackage{afterpage}
 \usepackage{pdflscape}
@@ -258,8 +258,8 @@ This implicitly assumes that infectiousness is constant across the infectious pe
 We sample from latent and infectious periods obtained from observations (for empirical distributions), or by using a uniform set of quantiles (for parametric distributions).
 For the purpose of constructing pseudo-realistic distributions, we do \emph{not} attempt to correct for the fact that observed intervals may be sampled in a context more relevant to backward than to intrinsic generation intervals (see \cite{ChamDush15}).
 We sample latent periods at random, and infectious periods by length-weighted resampling (since longer infectious period implies more opportunities to infect).
-For our examples, we used 10000 quantiles for each parametric distribution and 10000 sampled generation intervals for each disease.
-\hotcomment{Note that this is an exact method for sampling from the intrinsic generation interval given infectious and latent period! I can probably give a formal proof for it as well; is this unnecessary? Do we want to let people know that this is an available method that they can use?}
+For our examples, we used 10000 quantiles for each parametric distribution and 10000 sampled generation intervals for each disease (see Appendix).
+\jd{DSW to add Appendix text, straighten this part if he wants to.}
 
 We then calculate ``exact'' relationships (for our pseudo-realistic distributions) by substituting sampled generation intervals into the exact speed-strength relationship \eref{Euler}.
 This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
@@ -471,7 +471,7 @@ This work was supported by the Canadian Institutes of Health Research [funding r
 
 \clearpage
 
-\section{Supplementary material}
+\section{Appendix}
 
 \input{appendix.tex}
 
