@@ -9,6 +9,7 @@
 
 \newcommand{\rR}{\mbox{$r$--$\cal R$}}
 \newcommand{\RR}{\ensuremath{{\cal R}}}
+\newcommand{\RRhat}{\ensuremath{{\hat \cal R}}}
 \newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
 \newcommand{\Ro}{\Rx{0}}
 \newcommand{\Reff}{\Rx{\mathit{eff}}}
@@ -25,7 +26,7 @@
 \newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
 \newcommand{\tsup}[2]{#1^{{\textrm{\tiny #2}}}}
 
-\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textit{#3}\textbf{]}}}
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textsl{#3}\textbf{]}}}
 \newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
 \newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
 \newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
@@ -106,7 +107,7 @@ It is described in terms of an average \cite{AndeMay91} or an appropriate sort o
 The reproductive number has remained a focal point for research because it provides information about how a disease spreads in a population, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly 
-early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to the doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).\dc{maybe we should say why using one ($C$) vs. the other ($T_2$) is better/more convenient here?}
+early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to, and simpler mathematically than, the more commonly used doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, can be inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
 Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the disease to esimate the initial reproductive number, \RR.
@@ -115,7 +116,7 @@ In particular, $\RR$ can be calculated from $r$ and the generation-interval dist
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
 While $r$ measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
-Generation interval distributions can be difficult to ascertain empirically \dc{Cite Champredon,Dushoff RSPB 2015: where we show the difficulty of such estimation}, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
+Generation interval distributions can be difficult to ascertain empirically \dc{Cite Champredon,Dushoff RSPB 2015: where we show the difficulty of such estimation} \jd{Our paper is somewhat relevant, but it feels weird to cite just that.}, and the generation-function approach depends on an entire distribution -- which makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 
 A few studies have explored how generation-interval distributions affect the \rR\ relationship: \cite{WallLips07} looked at \rR\ relationships under various distributional assumptions (e.g., exponential, delta, and normal) and explored how their underlying parameters affect the \rR\ relationship, while  \cite{wearing2005appropriate, roberts2007model} investigated \rR\ relationship derived from compartmental models.
 The compartmental models presented seemingly contradictory results: both agree that increasing variation in latent period decreases \RR, but \cite{wearing2005appropriate} found increasing variation in the infectious period increases \RR, while \cite{roberts2007model} found the opposite. This is not actually a contradiction, but results from different assumptions; we discuss this point below.
@@ -162,7 +163,7 @@ g(s) = \frac{K(s)}{\Ro}.
 The ``intrinsic'' interval can be distinguished from ``realized'' intervals, which can look ``forward'' or ``backward'' in time \cite{ChamDush15} (see also earlier work \cite{Sven07,Nish10}). 
 In particular, it is important to correct for biases that shorten the intrinsic interval when generation intervals are observed through contact tracing during an outbreak.
 
-Disease growth is predicted \dc{``assumed'' rather than ``predicted''? See Chowell's work on how often sub-exponential growth occurs in real-life epidemics} to be approximately exponential in the early phase of an epidemic, because the depletion in the effective number of susceptibles is relatively small.
+In this model, disease growth is predicted to be approximately exponential in the early phase of an epidemic, because the depletion in the effective number of susceptibles is relatively small.
 Thus, for the exponential phase, we write:
 \begin{equation}
 i(t) = \RR\int{g(\tau)i(t-\tau) \,d\tau},
@@ -201,7 +202,7 @@ We write:
 	\label{eq:genExp}
 \end{equation}
 where $\rho = \bar G/\Tc = r\bar G$ measures how fast the epidemic is growing (on the time scale of the mean generation interval) -- or, equivalently, the length of the mean generation interval (in units of the characteristic time of exponential growth).
-The longer the generation interval is compared to $T_c$ \dc{you mean $\Tc$, right?}, the higher the estimate of $\RR$ (see \fref{link}).
+The longer the generation interval is compared to $\Tc$, the higher the estimate of $\RR$ (see \fref{link}).
 We then explore the behaviour of the generalized exponential function $X$ defined above (equivalent to the Tsallis ``q-exponential'', with $q=1-\kappa$ \cite{tsallis1994numbers}): its shape determines how the estimate of $\RR$ changes with the estimate of normalized generation length $\rho$.
 
 \begin{figure}[htbp]
@@ -221,7 +222,7 @@ For small $\rho$, $X$ always looks like $1+\rho$, regardless of the shape parame
 For large values of $1/\kappa$, $X$ converges toward $\exp(\rho)$.
 
 \dc{I think we could do without the $X$ function. It's not so well known that it provides help for the reader... I'd even say it's slightly annoying. It's just used here and doesn't bring much. Just talk in terms of \R, I think it will be clearer, straight to the point. }
-
+\jd{Not sure how to talk about it without a name. We can't quite call it \RR, because $X$ is an approximation of that. We could call it \RRhat (if we can figure out how to put the hat on top), but I'm not sure why that's better.}
 
 The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If $\kappa=0$, the generation interval is fixed, so the average case must cause exactly $\RR = \exp(\rho)$ new cases.
 If variation in the generation time (i.e., $\kappa$) increases, then some new cases will be produced before, and some after, the mean generation time.
@@ -229,11 +230,12 @@ Since we assume the disease is increasing exponentially, infections that occur e
 (as shown by \cite{WallLips07}).
 
 The straight-line relationship for $\kappa=1$ also has a biological interpretation. 
-This case corresponds to the classic SIR model, where the infectious period is exponentially distributed \cite{anderson1992infectious, ferguson2005strategies, pybus2001epidemic, WallLips07}\dc{do we need that many cites?!}
+This case corresponds to the classic SIR model, where the infectious period is exponentially distributed \cite{anderson1992infectious}\dc{do we need that many cites?!}\jd{Sort of, but they're already in the table, so I removed most of them here.}
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of the initial infectious individual. 
 
 \dc{I like this new paragraph below. It's very clear and a strong part of the paper.}
+\jd{Your kind words are much appreciated.}
 
 Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
 Shorter mean latent and infectious periods result in shorter generation intervals, and thus smaller \RR\ estimates.
@@ -247,7 +249,7 @@ There is a simple intuition for this latter result. In an exponentially growing 
 
 We test our approximation method by generating a pseudo-realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
 For each pseudo-realistic distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
-These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data \dc{explain why: to assess how our method can perform in a more realistic framework, where data availability if often challenging}. 
+These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data to assess how well methods perform when data is limited. 
 
 Estimating generation intervals is complex; our goal with pseudo-realistic distributions is not to precisely match real diseases, but to generate distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
 We construct pseudo-realistic intervals from sampled latent and infectious periods by adding the sampled latent period to a an infection delay chosen uniformly from the sampled infectious period:

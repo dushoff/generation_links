@@ -29,6 +29,8 @@ Ignore += abstract.txt
 abstract.txt: interval.tex abstract.pl
 	$(PUSH)
 
+Ignore += *synctex*
+
 ## MS
 Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
@@ -56,6 +58,7 @@ Sources += reviewers.txt
 ## appendix.pdf: appendix.tex
 
 interval.tex.d5ee28.oldfile:
+## make interval.tex.HEAD~1.oldfile ##
 compare.pdf: compare.tex
 
 Ignore += compare.tex
