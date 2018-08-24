@@ -48,7 +48,7 @@ park_supp_text.pdf: interval.pdf
 	pdfjam -o $@ $< 19-
 
 ## cover leter
-## git rm letter.txt ##
+Sources += letter.tex
 letter.pdf: letter.tex
 Sources += reviewers.txt
 
