@@ -57,7 +57,7 @@ Sources += reviewers.txt
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.d5ee28.oldfile:
+interval.tex.899946.oldfile:
 ## make interval.tex.HEAD~1.oldfile ##
 compare.pdf: compare.tex
 

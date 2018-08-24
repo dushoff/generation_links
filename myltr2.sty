@@ -1,0 +1,31 @@
+% This is where the material for the default letterhead is defined.
+% Overridden by user with \leftaddress and \rightaddress.  These
+% defaults are for STATISTICS of course.
+%
+\long\def\leftaddress#1{\def\fromleftaddress{#1}}
+\def\fromleftaddress{\bf Jonathan Dushoff\\
+    Department of Biology}
+\long\def\rightaddress#1{\def\fromrightaddress{#1}}
+\def\fromrightaddress{1280 Main Street West\\
+    Hamilton, ON L8S 4K1 Canada\\
+\emph{phone} (905) 525-9140 x26313\\
+\emph{e-mail} \tt dushoff@mcmaster.ca}
+
+% A personal preference:
+    \renewcommand{\enclname}{Enclosures}
+
+% Input the main driver file.
+%
+\input{macltr.tex}
+% Try changing the space left for the signature.
+%\long\def\closing#1{\par\nobreak\vspace{\parskip}%
+    %  \stopbreaks%
+    %  \noindent%
+    %  \hspace*{\longindentation}%
+    %  \parbox{\indentedwidth}{\raggedright%
+    %       \ignorespaces #1\\[4\medskipamount]%% changed 20 Jan 88
+%       \ifx\@empty\fromsig%
+    %           \fromname%
+    %       \else \fromsig \fi\strut}%
+    %   \par}
+\endinput
