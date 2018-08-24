@@ -48,7 +48,8 @@ park_supp_text.pdf: interval.pdf
 	pdfjam -o $@ $< 19-
 
 ## cover leter
-Sources += letter.txt
+## git rm letter.txt ##
+letter.pdf: letter.tex
 Sources += reviewers.txt
 
 ## letter.pdf: letter.tex ## This is in JD correspondence
