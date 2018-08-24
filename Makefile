@@ -52,8 +52,6 @@ Sources += letter.tex
 letter.pdf: letter.tex
 Sources += reviewers.txt
 
-## letter.pdf: letter.tex ## This is in JD correspondence
-
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
