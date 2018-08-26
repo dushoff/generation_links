@@ -116,7 +116,7 @@ While $r$ measures the speed of the disease at the population level, the generat
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically \cite{NishCast09,ChamDush15}, and the generation-function approach depends on an entire distribution.
 Multiple studies have explored how general-interval distributions affect the \rR\ relationship (summarized in \tref{review}).
-However, the use of entire distribution makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
+However, the use of an entire distribution makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
 Moreover,  different assumptions about the shape of generation interval distributions have led to seemingly contradictory results \cite{wearing2005appropriate, roberts2007model}.
 
 \afterpage{
@@ -173,7 +173,7 @@ Summary of previous studies that relate growth rate, $r$, with reproductive numb
 The primary goal of this paper is to further explore and explain the \rR\ relationship.
 We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
 We show that summarizing generation-interval distributions using moments provides biological explanations that unify previous findings.
-We further discuss generality of the gamma approximation and provide numerical examples in using realistic epidemiological parameters from previous outbreaks.
+We further discuss the generality of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks.
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
 \section{Relating \RR\ and $r$}
@@ -231,8 +231,9 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 We prefer the gamma distribution to the standard normal approximation used in many applications for a number of reasons.
 First, it is more biologically realistic, since it is confined to non-negative values.
 Second, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
-Third, it generalizes the result obtained from simple SIR models, and approximately matches SEIR, in the case where the latent period and infectious period are similar (see Appendix).
-The gamma approximation has been applied to infer \RR\ in real outbreak settings (\tref{review}). Here we discuss biological intuitions and importants behind the approximation, and conduct a more thorough exploration of how well the approximation works, and questions related to fitting from finite data. 
+Third, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
+While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
+its theoretical properties and practical importance has not yet been explored in depth.
 
 For biological interpretability, we describe the gamma distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields the gamma-approximated speed-strength relationship:
@@ -332,7 +333,7 @@ We generated a pseudo-realistic generation-interval distribution for Ebola virus
 In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
-We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the WHO estimates. 
+We then used our pseudo-realistic distribution to calculate both the exact \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the pseudo-realistic distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the World Health Organization (WHO) estimates derived from the observed time series assuming a poisson process with a known serial interval distribution. 
 
 \subsection{Measles}
 \label{MeaslesEx}
