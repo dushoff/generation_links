@@ -1,4 +1,4 @@
-# generation_links
+
 # This is a working repo, not yet converted in any way for the hybrid paradigm
 # It has the first generation links paper
 
