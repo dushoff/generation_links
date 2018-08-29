@@ -99,8 +99,6 @@ hotdirs += $(mdirs)
 
 ######################################################################
 
-bibtex = bibtex
-
 Drop = ~/Dropbox
 
 -include $(ms)/git.mk
