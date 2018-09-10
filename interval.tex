@@ -5,7 +5,11 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{biblatex}
+\usepackage[
+    backend=biber,
+    style=numeric,
+	 maxnames=7
+]{biblatex}
 
 \newcommand{\rR}{\mbox{$r$--$\cal R$}}
 \newcommand{\RR}{\ensuremath{{\cal R}}}
@@ -48,10 +52,14 @@
 
 \begin{document}
 
-\begin{flushleft}
-{
-\Large
-\textbf\newline{Inferring the strength of epidemics from their speed: a practical generation interval-based approach}
+\begin{flushleft}{
+	\Large
+	\textbf\newline{
+		A practical generation interval-based approach to 
+		inferring the strength of epidemics from their speed
+		%% Inferring the strength of epidemics from their speed:
+		%% a practical generation interval-based approach
+	}
 }
 \newline
 \\
@@ -80,13 +88,13 @@ Jonathan Dushoff\textsuperscript{ 2,*}
 \section*{Abstract}
 
 Infectious-disease outbreaks are often characterized by the reproductive number \RR\ and exponential rate of growth $r$.
-The reproductive number \RR\ is of particular interest, because it provides information about how hard an outbreak will be to control, and about predicted final size.
-However, directly estimating \RR\ is difficult.
-In contrast, the rate of growth $r$ can be estimated directly from incidence data while an outbreak is ongoing.
-\RR\ is typically estimated from $r$ by using information about generation intervals -- that is, the amount of time between when an individual is infected by an infector, and when that infector was infected.
-In practice, it is infeasible to obtain the exact shape of a generation-interval distribution and it is not always qualitatively clear how changes in estimates of the distribution translate to changes in the estimate of \RR.
-Here, we show that parameterizing a generation interval distribution using its mean and variance provides a insight into how the distribution affects the relationship between \RR\ and $r$.
-We explore approximations based on estimates of the mean and variance of an underlying gamma distribution, and find that use of these two moments -- which can be often be estimated in practice -- can be sufficient to capture the \rR\ relationship and provide robust estimates of \RR\ while an outbreak is ongoing.
+\RR\ provides information about outbreak control and predicted final size, but
+estimating \RR\ is difficult, while $r$ can often be estimated directly from incidence data.
+These quantities are linked by the generation interval -- the time between when an individual is infected by an infector, and when that infector was infected.
+It is often infeasible to obtain the exact shape of a generation-interval distribution,
+and to understand how this shape affects estimates of \RR.
+We show that estimating generation interval mean and variance provides insight into the relationship between \RR\ and $r$.
+We use examples based on Ebola, rabies and measles to explore approximations based on gamma-distributed generation intervals, and find that use of these simple approximations are often sufficient to capture the \rR\ relationship and provide robust estimates of \RR.
 
 \subsection*{Keywords}
 
@@ -431,7 +439,7 @@ Summarizing an entire generation interval distributions using two moments is a p
 More detailed methods will often be preferred when data are abundant but the gamma approximation can be easily used in preliminary analyses.
 In particular, this framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
-For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofg14, 
+For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofgren14, 
 KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
 During the outbreak, \cite{WeitDush15} used a generation-interval argument to show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.

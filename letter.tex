@@ -41,32 +41,32 @@
 
 \date{\today}
 
-\signature{Sang Woo Park, David Champredon, Joshua S. Weitz, and Jonathan Dushoff (corresponding author)}
+\signature{\vspace{-6ex}
+Sang Woo Park, David Champredon, Joshua S. Weitz, and Jonathan Dushoff (corresponding author)}
 
 \begin{letter}{
 }
 
 \opening{Dear Editor:}
 
-Please accept the enclosed manuscript, ``NEW TITLE'', for consideration for publication in \emph{eLife}.
+Please accept the enclosed manuscript, ``A practical generation interval-based approach to inferring the strength of epidemics from their speed'', for consideration for publication in \emph{eLife}.
 
-Disease scientists, modelers, and public health officials studying infectious-disease outbreaks are very interested in both how fast an epidemic spreads (as measured by $r$, the rate of exponential growth) and how many new infections tend to arise from each infected individual (as measured by \RR, the reproductive number). 
-The rate of disease growth is known as the disease speed and the number of new infections per new infectious individual is known as the disease strength.  
-Critically, the strength provides critical information on the expected size of the outbreak and the necessary control measures needed to stop disease spread.  
-In practice, the speed can be measured directly in terms of new case counts, however mathematical models must nearly always be utilized to estimate the harder-to-measure strength.
+Disease scientists, modelers, and public health officials studying infectious-disease outbreaks are very interested in both the speed of epidemic spread (as measured by $r$, the rate of exponential growth) and how many new infections tend to arise from each infected individual (as measured by \RR, the reproductive number, the disease strength). 
+The strength provides critical information on the expected size of the outbreak and the necessary control measures needed to stop disease spread.  
+In practice, the speed can be measured directly in terms of new case counts, but strength is harder to measure, particularly in the context of new outbreaks. 
 
-The field has advanced, in part, via a growing understanding that strength and speed are linked by details of the spreading process at the individual level. These details can be encapsulated in terms of generation interval distributions, i.e., the distribution of times between when an individual is infected and the expected intervals at which they infect susceptible individuals \cite{wallinga2007generation}.
-This generation interval approach was widely used during the Ebola outbreak in West Africa \cite{chowell2014transmission, weitz2015modeling, krauer2016heterogeneity}, but little quantitative understanding of the link between strength and speed resulted in strong assumptions about generation interval distributions and overconfident results \cite{taylor2016stochasticity}.
-While some studies have sought to clarify the role of generation interval distributions in linking strength and speed under particular scenarios \cite{wearing2005appropriate, wallinga2007generation, roberts2007model}, significant confusion remains on how best to leverage what can be measured (the disease case count) and what is meant to be inferred (the disease strength). 
+The field has advanced, in part, via a growing understanding that strength and speed are linked by details of the spreading process at the individual level. These details can be encapsulated in terms of generation interval distributions -- i.e., the distribution of times between when an individual is infected and the expected intervals at which they infect susceptible individuals \cite{wallinga2007generation}.
+This generation interval approach was widely used during the Ebola outbreak in West Africa \cite{chowell2014transmission, weitz2015modeling, krauer2016heterogeneity}. In some cases, lack of understanding of the link between strength and speed resulted in strong assumptions about generation interval distributions and overconfident results \cite{taylor2016stochasticity}.
+While some studies have sought to clarify the role of generation interval distributions in linking strength and speed under particular scenarios \cite{wearing2005appropriate, wallinga2007generation, roberts2007model}, there is as yet no clear consensus on how best to leverage disease-incidence data, and how to propagate uncertainty when inferring disease strength. 
 
-This article proposes what we believe is both a significant conceptual and practical advance in understanding speed-strength (\rR) relationships. Specifically, in this article, we propose to approximate the \rR\ relationship using estimates of the mean and coefficient of variation of the generation interval. The key innovation here is twofold. First, this approximation is feasible, given limited data. Hence, it provides a practical route to estimate the strength of an emerging outbreak near its start when data is limited. Second, by approximating a complex distribution, we reveal mechanistic links between $r$ and \RR. Using our approximation, we explain qualitative reasons why longer, and less variable, generation intervals lead to higher estimates of the strength, \RR, for a given value of its speed, $r$.
-Our framework is able to not only provide biological explanation for previously derived results with purely mathematical arguments but also resolve seemingly contradictory results that were presented by two studies with similar assumptions \cite{wearing2005appropriate, roberts2007model}.
+This article proposes what we believe is both a significant conceptual and practical advance in understanding speed-strength (\rR) relationships. Specifically, in this article, we propose to approximate the \rR\ relationship using estimates of the mean and coefficient of variation of the generation interval. The key innovation here is twofold. First, this approximation is feasible, given limited data. Hence, it provides a practical route to estimate the strength of an emerging outbreak near its start when data is limited. Second, by using a simple approximation to the distribution, we reveal mechanistic links between $r$ and \RR, and provide qualitative explanations for why longer, and less variable, generation intervals lead to higher estimates of the strength, \RR, for a given value of its speed, $r$.
+Our framework is able to not only provide biological explanation for previously derived mathematical results, but also resolve seemingly contradictory results that were presented by two studies with similar assumptions \cite{wearing2005appropriate, roberts2007model}.
 Finally, we discuss and apply a range of simple approximations to three examples based on infectious disease outbreaks: Ebola virus disease, measles, and rabies. 
-As we show, not only is the approximation accurate, it requires far less data or distributional assumptions than alternative methods.
+We show that our approach can make accurate approximations even when data are limited. 
 
 The ideas and explications in this article have the potential to provide intuitive understanding to help scientists and policy-makers navigate difficult questions around predicting and controlling infectious diseases.
 We note that a 2015 \emph{eLife} editorial by Shou and colleagues \cite{shou2015theory} called for ``theoretical and modeling papers in all areas of biology, epecially papers that report new biological insights, make substantial predictions that can be tested, or help to resolve contradictory empirical findings.''
-In our view, our paper does all three while addressing a timely and health-relevant problem.
+In our view, this paper does all three while addressing a timely and health-relevant problem.
 
 Thank you for your consideration of our submission.
 
