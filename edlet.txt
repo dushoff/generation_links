@@ -7,3 +7,5 @@ In fact, the core of the paper involves techniques that are routinely applied to
 We have slightly edited the paper, focusing on the figures, to highlight the data that are already present. We can also do a larger revision to address your concerns, if you think you might be interested in reviewing the submission.
 
 Thank you very much,
+
+Jonathan Dushoff (for the authors)

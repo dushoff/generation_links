@@ -312,7 +312,7 @@ We sample latent periods at random, and infectious periods by length-weighted re
 For our examples, we used 10,000 quantiles for each parametric distribution and 10,000 sampled generation intervals for each disease (see Appendix).
 
 
-We then calculate ``exact'' relationships (for our realistic distributions) by substituting sampled generation intervals into the exact speed-strength relationship \eref{Euler}.
+We then calculate ``empirical'' relationships (for our realistic distributions) by substituting sampled generation intervals into the exact speed-strength relationship \eref{Euler}.
 This relationship is then compared to the corresponding gamma-approximated relationship \eref{gamApp}.
 
 All calculations, numerical analyses and figures were made with the software platform R \cite{Rproject}. Code is freely available at \url{https://github.com/dushoff/link_calculations}.
@@ -329,11 +329,12 @@ Our initial investigation of this question was motivated by work on the West Afr
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/ebola.pdf}
-	\caption{Estimating \RR~for the West African Ebola Outbreak.
-(solid curve) The exact speed-strength relationship \eref{Euler} using a realistic generation-interval distribution based on \cite{AylwBarb14}.
-(dashed curve) The Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
+	\caption{
+		Estimating \RR~for the West African Ebola Outbreak.
+		(solid curve) The empirical speed-strength relationship \eref{Euler} using a realistic generation-interval distribution based on \cite{AylwBarb14}.
+	(dashed curve) The Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
 (dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
-Points indicate estimates for the three focal countries of the West African Ebola Outbreak calculated by \cite{AylwBarb14}: {Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$).} Initial growth rate for each outbreak was inferred from doubling periods reported by \cite{AylwBarb14} ($r = \ln(2)/T_2$). 
+Point estimates for the three focal countries of the West African Ebola Outbreak  \cite{AylwBarb14}: Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$) are closely matched by the moment-based approximation. 
 	\label{fig:EbolaCurve}}
 \end{figure}
 
@@ -341,7 +342,7 @@ We generated a realistic generation-interval distribution for Ebola virus diseas
 In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
 We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
 
-We then used our simulated generation-interval distribution to calculate both the exact \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the true distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the World Health Organization (WHO) estimates derived from the observed time series assuming a poisson process with a known serial interval distribution. 
+We then used our simulated generation-interval distribution to calculate both the empirical \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the true distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the World Health Organization (WHO) estimates derived from the observed time series assuming a poisson process with a known serial interval distribution. 
 
 \subsection{Measles}
 \label{MeaslesEx}
@@ -349,10 +350,9 @@ We then used our simulated generation-interval distribution to calculate both th
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/measles.pdf}
 	\caption{Estimating \RR~for measles.
-		(solid curve) The exact speed-strength relationship \eref{Euler} using a realistic generation-interval distribution.
-		(dashed curve) The gamma-approximated relationship \eref{gamApp} using the mean and CV of a realistic generation-interval distribution (this curve is almost invisible because it overlaps the solid curve)
+		(solid curve) The empirical speed-strength relationship \eref{Euler} using a realistic generation-interval distribution.
+		(dashed curve) The gamma-approximated relationship \eref{gamApp} using the mean and CV of a realistic generation-interval distribution matches the empirical relationship almost exactly across the range of \RR\ estimates (gray lines; \cite{anderson1982directly}).
 		(dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
-		Gray horizontal lines represent \RR\ ranges estimated by \cite{anderson1982directly}: 12.5-18.
 	}
 	\label{fig:measlesCurve}
 \end{figure}
@@ -361,7 +361,7 @@ We also applied the moment approximation to a realistic generation-interval dist
 Incubation periods were assumed to follow a lognormal distribution \cite{LessReic09}. 
 Infectious periods were assumed to follow a gamma distribution with coefficient of variation of 0.2 \cite{simpson1952infectiousness,Lloy01,KeelGren97}. Since variation in infectious period is relatively low \cite{simpson1952infectiousness,KeelGren97}, and infectious period is short compared to incubation period, this choice is reasonable (and our results are not sensitive to the details).
 
-Here, we found surprisingly close agreement between the exact and approximate relationships between $r$ and \RR\ across a much wider range of interest (a difference of $<1\%$ for \RR\ up to $>20$) (see \fref{measlesCurve}).
+Here, we found surprisingly close agreement between the empirical and approximate relationships between $r$ and \RR\ across a much wider range of interest (a difference of $<1\%$ for \RR\ up to $>20$) (see \fref{measlesCurve}).
 On examination, this closer agreement is due to the smaller overall variation in generation times in measles: when overall variation is small, differences between distributions have less effect.
 
 \subsection{Rabies}
@@ -371,11 +371,11 @@ On examination, this closer agreement is due to the smaller overall variation in
 	\includegraphics[width=1.0\textwidth]{link_calculations/rabies.pdf}
 	\caption{Estimating \RR~for the Rabies.
 	    (Left) estimating \RR~from rabies infectious case data.
-		(solid curve) The exact speed-strength relationship \eref{Euler} using a realistic generation-interval distribution.
+		(solid curve) The empirical speed-strength relationship \eref{Euler} using a realistic generation-interval distribution.
 (dashed curve) The Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
         ``moment'' approximation is based on the observed mean and CV of the distribution whereas ``MLE'' approximation uses the mean and CV calculated from a maximum-likelihood fit.
 		(dotted curves) Naive approximations based on exponential (lower) and fixed (upper) generation distributions.
-		Points indicate estimates for the two countries calculated by \cite{HampDusho09}: {Ngorongoro (square, $\RR=1.14$), and Serengeti (triangle, $\RR=1.19$).}
+		Points indicate estimates for the two countries from \cite{HampDusho09}: {Ngorongoro (square, $\RR=1.14$), and Serengeti (triangle, $\RR=1.19$). By assumption, these points fall on the empirical speed-strength relationship}
 		(Right) histogram represents rabies generation interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
 		Dashed curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate speed-strength relationships of the left figure). 
 	}
