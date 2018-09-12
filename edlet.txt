@@ -1,0 +1,9 @@
+Dear Editor:
+
+We were invited to comment on our submission 27-08-2018-ISRA-eLife-41495, which was not sent for review on the grounds of being too theoretical.
+
+In fact, the core of the paper involves techniques that are routinely applied to disease data, and an attempt to make the implications and interpretation of such results more clear. Figures 3 and 5 show examples of how the model fits data from Ebola and rabies outbreaks. Figure 4 (measles) is also based on data from outbreaks, but given the wide range of data available, it wasn't completely clear how to presentably show it in the graph.
+
+We have slightly edited the paper, focusing on the figures, to highlight the data that are already present. We can also do a larger revision to address your concerns, if you think you might be interested in reviewing the submission.
+
+Thank you very much,
