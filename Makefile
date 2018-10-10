@@ -53,20 +53,24 @@ letter.pdf: letter.tex
 Sources += reviewers.txt
 
 ## Requested by Goldstein
-## editor letter
+## editor letter to eLife
 Sources += edlet.txt
+
+## Draft response to Epidemics
+Sources += epiResponse.tex
+epiResponse.pdf: epiResponse.tex
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.af190e7d.oldfile:
+interval.tex.ec380689.oldfile:
 ## make interval.tex.HEAD~1.oldfile ##
 compare.pdf: compare.tex
 
 Ignore += compare.tex
-compare.tex: interval.tex.* interval.tex makestuff/latexdiff.pl
-	$(PUSH)
+compare.tex: interval.tex.* interval.tex
+	latexdiff $^ > $@
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:

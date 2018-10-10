@@ -236,10 +236,10 @@ This fundamental relationship dates back to the work of Euler and Lotka \cite{Lo
 \subsection{Approximation method, in theory}
 We do not expect to know the full distribution $g(\tau)$ -- particularly while an epidemic is ongoing -- so we are interested in approximations to \RR\ based on limited information.
 We follow the approach of \cite{NishCast09} and approximate the generation interval with a gamma distribution.
-We prefer the gamma distribution to the standard normal approximation used in many applications for a number of reasons.
-First, it is more biologically realistic, since it is confined to non-negative values.
-Second, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
-Third, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
+We prefer the gamma distribution to other choices -- including the commonly used normal approximation, and its positively valued cousin the lognormal -- for a number of reasons.
+First, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
+Second, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
+Finally, taking only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
 While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
 its theoretical properties and practical importance has not yet been explored in depth.
 
