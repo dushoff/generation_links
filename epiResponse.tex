@@ -19,6 +19,10 @@
 
 \begin{document}
 
+\rev{To do}
+
+A paragraph like ``The Gamma approximation may not work well when: (itemize)''? 
+
 \rev{Reviewer 1}
 
 \revtext{Most of this material can be found in Roberts and Heesterbeek, 2007.}
@@ -31,6 +35,8 @@ We should not have missed this citation. We now discuss how it relates to the cu
 
 \revtext{The estimator has not been proposed earlier, and it seems a good addition to the existing toolbox of estimators for reproduction numbers.}
 
+Thanks for these comments.
+
 \revtext{The claim of this manuscript is, in technical terms, that the Laplace transform of the gamma distribution gives a sufficient approximation to the Laplace transform of generation intervals for realistic values of growth rate, the mean and the variance of the generation interval. The manuscript does not provide a clear description of what `sufficient’ actually. Any Laplace transform of a probability distribution will remain within the dotted lines drawn in Figures 3,4, and any Laplace transform of a probability distribution will remain close to the actual (empirical) relationship for low values of rho. It would be very helpful to include explicit criteria for acceptable errors in reproduction numbers, to ensure there is scientific value in making the claim that the approximation is sufficient.}
 
 We are not sure how we would come up with explicit criteria. The key point we try to convey with these figures is that the variance-based approximations are much better than the naive approximations. We thought of quantifying the errors from naive estimates (similar to what we do for the gamma estimates), but it seems silly. \jd{reword?}
@@ -41,21 +47,18 @@ We agree with all of this, and have tried to improve the text accordingly. We di
 
 \revtext{The manuscript does not provide any guidance on the generality of the findings. One can think of shapes for an actual generation interval distribution where the empirical relation between growth rate and reproductive number is concave rather than convex, such that the approximation based on the Taylor expansion of the Laplace transform will be better than assuming a gamma distribution. This will provide a counterexample for Figure S2. Similarly, one can think of shapes for an actual generation interval distribution where the direct use of the mean and variance will be better than using the MLE. This will provide a counterexample for Figure 5. It would be very useful to include counterexamples and criteria when to use which estimator. Alternatively, the conclusion should be that the findings apply to ebola, measles and rabies without any suggestion that it may hold in general.}
 
-What the \verb|$#@!| are you talking about?
+These are difficult points. It is certainly true that the empirical relationship could be concave down, but this is also true of the gamma distribution (in constrast, it is hard to make Taylor expansions that are concave down but remain positive). Similarly, we imagine it's true that there are cases where mean and variance would work better than the MLE, but we haven't encountered any examples.
 
-\dc{I have difficulties picturing a concave $\mathcal{R}-r$ relationship, but let's not be stuck on that detail. I think the reviewer wants to \emph{clearly} see when the Gamma approximation breaks down. I think the text is now clear when that can happen: broad GI distribution and (probably) when we have ample observed data. 
-Maybe, that should be made even more obvious to the reader with a paragraph like ``The Gamma approximation may not work well when: (itemize)''? 
-We do not want to upset any reviewers by sounding too bullish on this method, so it may be worth the (small) effort?}
+Our evidence for ``generality'' is roughly that our approximations usually work pretty well where we've tried them, so we have tried to follow the last suggestion here and be more careful about describing the scope of our results. In particular, we don't talk about generality at all now.
 
 \revtext{Minor issues:}
 
 \revtext{The title suggests quite a bit more than what actually is delivered. I would suggest rephrasing the title such that it accurately reflects the main contribution of this manuscript.}
 
-\dc{I think the new title is going in that direction. } 
-
-
+We have rephrased the title.
 
 \revtext{Section 2 recapitulates existing work, but lacks the detail of previous publications. Please make the objective of this section explicit (recapitulation and introduction of notation).}
 
+We have followed this suggestion.
 
 \end{document}
