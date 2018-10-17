@@ -180,7 +180,7 @@ Summary of previous studies that relate growth rate, $r$, with reproductive numb
 The primary goal of this paper is to further explore and explain the \rR\ relationship.
 We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
 We show that summarizing generation-interval distributions using moments provides biological explanations that unify previous findings.
-We further discuss the generality of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks. \jd{Fix or delete?}
+We further discuss the applicability of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks. 
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
 \section{Relating \RR\ and $r$}
@@ -429,6 +429,10 @@ Thus a higher value of \RR\ will be needed to match a given value of $r$.
 
 We tested the gamma approximation framework by applying it to parameter regimes based on three diseases: Ebola, measles, and rabies. 
 We found that approximations based on observed moments closely match true answers (based on known, realistic distributions, see \sref{Results} for details) when the generation-interval distribution is not too broad (as is the case for Ebola and measles, but not for rabies), but that using maximum likelihood to estimate the moments provides better estimates for a broader range of parameters \sref{Rabies_example}, and also when data are limited (see Appendix).
+
+Although the gamma approximation worked better than we expected for these three examples, it is important to note that other diseases may have dramatically different generation-interval distribution shapes. 
+In such cases the gamma approximation might be less suitable. 
+Likely examples include diseases with two distinct phases of transmission (e.g., acute and chronic phases in HIV) or two distinct routes of pathogenesis (e.g., fast and slow progression in tuberculosis).
 
 Many studies have linked $r$ with \RR\ using generation interval distributions under various assumptions (\tref{review}).
 Simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
