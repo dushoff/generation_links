@@ -23,7 +23,7 @@ include $(ms)/perl.def
 Sources += todo.mkd
 
 ## https://dushoff.github.io/generation_links/auto.html
-products: interval.pdf.gp auto.html.pages
+products: interval.pdf.gp epiResponse.pdf.gp auto.html.pages
 
 Ignore += abstract.txt
 abstract.txt: interval.tex abstract.pl

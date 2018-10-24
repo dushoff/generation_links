@@ -1,9 +1,6 @@
 \documentclass[12pt]{article}
 
-
-% - - - DC added this in order to TeX compile:
 \usepackage{color}
-% - - -
 
 \newcommand{\rev}{\subsection*}
 \newcommand{\revtext}{\textsf}
@@ -27,8 +24,9 @@ We should not have missed this citation. We do not agree, however, that most of 
 
 Our paper is based mostly on existing theory, but offers new intuitions about underlying patterns, as well as explicit examples (and comparisons to a range of specific diseases). We have explained this perspective in the revised MS.
 
-The revised MS cites this paper, and overall does an improved job. 
-We now discuss how it relates to the current work. Although most of the \emph{theory} in this paper is not new, we feel that we offer both new applications and additional intuitions about the underlying patterns. 
+The revised MS cites this paper, and overall does an improved job of literature review, including a new table which summarizes relevant prior work.
+
+Additionally, we have highlighted the outbreak data already present along with approximations in our figures, and emphasized the novel contributions in terms of practicality of inference, and inference from limited information, in particular with the expanded text in Sec 3, and the experiments in Sec S2.4 (in the supplement).
 
 \rev{Reviewer 2}
 
@@ -36,7 +34,7 @@ We now discuss how it relates to the current work. Although most of the \emph{th
 
 \revtext{The estimator has not been proposed earlier, and it seems a good addition to the existing toolbox of estimators for reproduction numbers.}
 
-Thanks for these comments.
+Thanks for this comment. As we pointed out, this is not a brand-new estimator, but this comment does highlight the fact that the underlying intuition and applications are under-appreciated.
 
 \revtext{The claim of this manuscript is, in technical terms, that the Laplace transform of the gamma distribution gives a sufficient approximation to the Laplace transform of generation intervals for realistic values of growth rate, the mean and the variance of the generation interval. The manuscript does not provide a clear description of what `sufficient’ actually. Any Laplace transform of a probability distribution will remain within the dotted lines drawn in Figures 3,4, and any Laplace transform of a probability distribution will remain close to the actual (empirical) relationship for low values of rho. It would be very helpful to include explicit criteria for acceptable errors in reproduction numbers, to ensure there is scientific value in making the claim that the approximation is sufficient.}
 
@@ -44,7 +42,7 @@ We are not sure how we would come up with explicit criteria. The key point we tr
 
 \revtext{The gamma distribution is chosen because it is confined to non-negative values. This is not a very convincing motivation for the proposed estimator. First, the actual shape of the assumed probability distribution does not need to be similar to the actual probability distribution in order for its Laplace transform to approximate the Laplace transform of the actual probability distribution. Second, there are other probability distributions that are confined to non-negative values, and these are not considered. I would strongly suggest expanding the text to better motivate the gamma distribution. (Because of mathematical convenience; because the gamma distribution has a simpler Laplace transform than other probability distributions that are confined to non-negative values; because the gamma distribution can be characterized by just two parameters).}
 
-We agree with all of this, and have tried to improve the text accordingly. We did not add the point about two parameters, since most of the candidates we would consider have this property.
+We agree with these points, and have tried to improve the text accordingly. We did not add the point about two parameters, since most of the candidates we would consider have this property.
 
 \revtext{The manuscript does not provide any guidance on the generality of the findings. One can think of shapes for an actual generation interval distribution where the empirical relation between growth rate and reproductive number is concave rather than convex, such that the approximation based on the Taylor expansion of the Laplace transform will be better than assuming a gamma distribution. This will provide a counterexample for Figure S2. Similarly, one can think of shapes for an actual generation interval distribution where the direct use of the mean and variance will be better than using the MLE. This will provide a counterexample for Figure 5. It would be very useful to include counterexamples and criteria when to use which estimator. Alternatively, the conclusion should be that the findings apply to ebola, measles and rabies without any suggestion that it may hold in general.}
 
