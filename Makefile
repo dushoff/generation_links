@@ -10,10 +10,11 @@ target: $(target)
 
 Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
 include sub.mk
+
+Sources += $(ms)
 include $(ms)/perl.def
 
-## Why is this here? Where should it be?
--include $(ms)/repos.def
+## -include $(ms)/repos.def
 
 ##################################################################
 
