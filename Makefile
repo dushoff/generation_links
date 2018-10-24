@@ -1,6 +1,5 @@
 
-# This is a working repo, not yet converted in any way for the hybrid paradigm
-# It has the first generation links paper
+# Park et al. generation links
 
 ### Hooks for the editor to set the default target
 current: target
