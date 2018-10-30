@@ -6,6 +6,7 @@ make.log
 .gitignore 
 
 ## content from makestuff
+<<<<<<< HEAD
 local.mk
 dushoff_repos.mk
 friends.mk
@@ -88,6 +89,20 @@ networkSEIR
 contact_trace
 commit.time
 commit.default
+=======
+abstract.txt
+*synctex*
+pages
+park_main.pdf
+park_supp_text.pdf
+compare.tex
+refs.bib
+auto.html
+commit.time
+commit.default
+dotdir/
+clonedir/
+>>>>>>> 9a7fca2c84d91f07708130ae182e7e8aaed98d1a
 up.time
 all.time
 .clean_dir
@@ -95,6 +110,41 @@ dotdir/
 clonedir/
 *.oldfile
 *.olddiff
+.texdeps/
+letter.pdf
+appwrap.pdf
+table.pdf
+macltr.pdf
+interval.pdf
+epiResponse.pdf
+appendix.pdf
+letter.out
+appwrap.out
+table.out
+macltr.out
+interval.out
+epiResponse.out
+appendix.out
+*.log
+*.aux
+.*.aux
+*.blg
+*.bbl
+*.bcf
+*.nav
+*.snm
+*.toc
+*.run.xml
+bibdir
+auto.bib
+auto.md
+auto.html
+*.bibmk
+*.point
+*.int
+*.ref
+*.refmk
+*.mdmk
 abstract.txt
 *synctex*
 pages
@@ -114,18 +164,35 @@ all.time
 *.olddiff
 .texdeps/
 letter.pdf
+<<<<<<< HEAD
 compare.pdf
+=======
+appwrap.pdf
+table.pdf
+>>>>>>> 9a7fca2c84d91f07708130ae182e7e8aaed98d1a
 macltr.pdf
 table.pdf
 appwrap.pdf
 interval.pdf
+<<<<<<< HEAD
 appendix.pdf
 letter.out
 compare.out
+=======
+epiResponse.pdf
+appendix.pdf
+letter.out
+appwrap.out
+table.out
+>>>>>>> 9a7fca2c84d91f07708130ae182e7e8aaed98d1a
 macltr.out
 table.out
 appwrap.out
 interval.out
+<<<<<<< HEAD
+=======
+epiResponse.out
+>>>>>>> 9a7fca2c84d91f07708130ae182e7e8aaed98d1a
 appendix.out
 *.log
 *.aux

@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+
+\usepackage{color}
+
+\newcommand{\rev}{\subsection*}
+\newcommand{\revtext}{\textsf}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0em}
+
+\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textsl{#3}\textbf{]}}}
+\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
+\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
+\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
+\newcommand{\jsw}[1]{\comment{green}{JSW}{#1}}
+\newcommand{\hotcomment}[1]{\comment{red}{HOT}{#1}}
+
+\begin{document}
+
+\noindent Dear Editor:
+
+Thank you for the chance to revise this submission. Below please find our responses from the previous round.
+
+\rev{Reviewer 1}
+
+\revtext{Most of this material can be found in Roberts and Heesterbeek, 2007.}
+
+We should not have missed this citation. We do not agree, however, that most of our material is found there.
+
+Our paper is based mostly on existing theory, but offers new intuitions about underlying patterns, as well as explicit examples (and comparisons to a range of specific diseases). We have explained this perspective in the revised MS.
+
+The revised MS cites this paper, and has a significantly expanded review of the relevant literature, including a new table which summarizes relevant prior work.
+
+Additionally, we have highlighted the outbreak data already present along with approximations in our figures, and emphasized the novel contributions in terms of practicality of inference, and inference from limited information, in particular with the expanded text in Sec 3, and the experiments in Sec S2.4 (in the supplement).
+
+\rev{Reviewer 2}
+
+\revtext{This manuscript proposes an estimator of the reproduction number, using the observed exponential growth rate, the mean and variance of the generation interval distribution, and assuming a gamma distributed generation interval. The estimator comes in two flavors, one using observed mean and variance, one using gamma MLE estimators of the mean and variance. The estimator is tested using various simulated distributions typical for ebola, measles and rabies, and informally compared against naive estimators that assume a fixed generation interval and an exponentially distributed generation interval.}
+
+\revtext{The estimator has not been proposed earlier, and it seems a good addition to the existing toolbox of estimators for reproduction numbers.}
+
+Thanks for this comment. As we pointed out, this is not a brand-new estimator. Our expanded literature review should make this point more obvious. This comment does highlight the fact that the underlying intuition and applications are under-appreciated, however.
+
+\revtext{The claim of this manuscript is, in technical terms, that the Laplace transform of the gamma distribution gives a sufficient approximation to the Laplace transform of generation intervals for realistic values of growth rate, the mean and the variance of the generation interval. The manuscript does not provide a clear description of what `sufficient’ actually. Any Laplace transform of a probability distribution will remain within the dotted lines drawn in Figures 3,4, and any Laplace transform of a probability distribution will remain close to the actual (empirical) relationship for low values of rho. It would be very helpful to include explicit criteria for acceptable errors in reproduction numbers, to ensure there is scientific value in making the claim that the approximation is sufficient.}
+
+We are not sure how we would come up with explicit criteria. The key point we try to convey with these figures is that the variance-based approximations are much better than the naive approximations. We thought of quantifying the errors from naive estimates (similar to what we do for the gamma estimates), but to us the difference seems clear. We hope that in the current context, the evident improvement of the gamma distribution over the naive approaches (including outside the range of small rho) will mitigate this concern. We have also scaled back our claims to generality (see below).
+
+\revtext{The gamma distribution is chosen because it is confined to non-negative values. This is not a very convincing motivation for the proposed estimator. First, the actual shape of the assumed probability distribution does not need to be similar to the actual probability distribution in order for its Laplace transform to approximate the Laplace transform of the actual probability distribution. Second, there are other probability distributions that are confined to non-negative values, and these are not considered. I would strongly suggest expanding the text to better motivate the gamma distribution. (Because of mathematical convenience; because the gamma distribution has a simpler Laplace transform than other probability distributions that are confined to non-negative values; because the gamma distribution can be characterized by just two parameters).}
+
+We agree with these points, and have tried to improve the text accordingly. We did not add the point about two parameters, since most of the candidates we would consider have this property.
+
+\revtext{The manuscript does not provide any guidance on the generality of the findings. One can think of shapes for an actual generation interval distribution where the empirical relation between growth rate and reproductive number is concave rather than convex, such that the approximation based on the Taylor expansion of the Laplace transform will be better than assuming a gamma distribution. This will provide a counterexample for Figure S2. Similarly, one can think of shapes for an actual generation interval distribution where the direct use of the mean and variance will be better than using the MLE. This will provide a counterexample for Figure 5. It would be very useful to include counterexamples and criteria when to use which estimator. Alternatively, the conclusion should be that the findings apply to ebola, measles and rabies without any suggestion that it may hold in general.}
+
+These are difficult points. It is certainly true that the empirical relationship could be concave down, but this is also true of the gamma distribution (in constrast, second-order Taylor expansions that are concave down do not remain positive). Similarly, we imagine it's true that there are cases where mean and variance would work better than the MLE, but we haven't encountered any examples.
+
+Our evidence for ``generality'' is roughly that our approximations usually work pretty well where we've tried them, so we have tried to follow the last suggestion here and be more careful about describing the scope of our results. In particular, we don't talk about generality at all now. We have also added an explicit caveat to the Discussion, with examples of diseases that are less likely to work well.
+
+\revtext{Minor issues:}
+
+\revtext{The title suggests quite a bit more than what actually is delivered. I would suggest rephrasing the title such that it accurately reflects the main contribution of this manuscript.}
+
+We have rephrased the title.
+
+\revtext{Section 2 recapitulates existing work, but lacks the detail of previous publications. Please make the objective of this section explicit (recapitulation and introduction of notation).}
+
+We have followed this suggestion.
+
+\end{document}

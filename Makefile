@@ -1,6 +1,5 @@
 
-# This is a working repo, not yet converted in any way for the hybrid paradigm
-# It has the first generation links paper
+# Park et al. generation links
 
 ### Hooks for the editor to set the default target
 current: target
@@ -11,10 +10,11 @@ target: $(target)
 
 Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
 include sub.mk
+
+Sources += $(ms)
 include $(ms)/perl.def
 
-## Why is this here? Where should it be?
--include $(ms)/repos.def
+## -include $(ms)/repos.def
 
 ##################################################################
 
@@ -23,9 +23,10 @@ include $(ms)/perl.def
 Sources += todo.mkd
 
 ## https://dushoff.github.io/generation_links/auto.html
-products: interval.pdf.gp auto.html.pages
+products: interval.pdf.gp epiResponse.pdf.gp auto.html.pages
 
 Ignore += abstract.txt
+Sources += abstract.pl
 abstract.txt: interval.tex abstract.pl
 	$(PUSH)
 
@@ -42,10 +43,10 @@ interval.count: interval.tex
 
 Ignore += park_main.pdf park_supp_text.pdf
 park_main.pdf: interval.pdf
-	pdfjam -o $@ $< 1-18
+	pdfjam -o $@ $< 1-22
 
 park_supp_text.pdf: interval.pdf
-	pdfjam -o $@ $< 19-
+	pdfjam -o $@ $< 23-
 
 ## cover leter
 Sources += letter.tex
@@ -53,20 +54,24 @@ letter.pdf: letter.tex
 Sources += reviewers.txt
 
 ## Requested by Goldstein
-## editor letter
+## editor letter to eLife
 Sources += edlet.txt
+
+## Draft response to Epidemics
+Sources += epiResponse.tex
+epiResponse.pdf: epiResponse.tex
 
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.af190e7d.oldfile:
+interval.tex.ec380689.oldfile:
 ## make interval.tex.HEAD~1.oldfile ##
 compare.pdf: compare.tex
 
 Ignore += compare.tex
-compare.tex: interval.tex.* interval.tex makestuff/latexdiff.pl
-	$(PUSH)
+compare.tex: interval.tex.* interval.tex
+	latexdiff $^ > $@
 
 ## This should not be necessary, but don't waste Daniel's time!
 Generation_distributions/%:
