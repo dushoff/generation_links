@@ -55,7 +55,8 @@ Sources += reviewers.txt
 
 ## Requested by Goldstein
 ## editor letter to eLife
-Sources += edlet.txt
+## Now edited for Epidemics
+Sources += edlet.txt highlights.txt
 
 ## Draft response to Epidemics
 Sources += epiResponse.tex
