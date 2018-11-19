@@ -12,7 +12,7 @@ The SEIR (susceptible-exposed-infectious-recovered) model is given by
 \end{equation}
 It is assume that latent and infectious periods are exponentially distributed with mean $1/\sigma$ and $1/\gamma$, respectively.
 
-For this model, generation interval distribution can be written as follows \cite{Sven07}:
+For this model, the generation interval distribution can be written as follows \cite{Sven07}:
 \begin{equation}
 g({\tau}) = \frac{\sigma \gamma}{\sigma - \gamma} \left(\exp (-\gamma \tau) - \exp (- \sigma \tau) \right).
 \end{equation}
@@ -20,12 +20,12 @@ The mean generation interval is
 \begin{equation}
 \bar{G} = \frac{1}{\sigma} + \frac{1}{\gamma}.
 \end{equation}
-and the square coefficient of variation is
+and the squared coefficient of variation is
 \begin{equation}
 \kappa = 1 - \frac{2}{\bar{G}^2 \sigma \gamma}
 \end{equation}
 
-\cite{lipsitch2003transmission, roberts2007model} derived the following \rR\ relationship under SEIR model:
+\cite{lipsitch2003transmission, roberts2007model} derived the following \rR\ relationship for the SEIR model:
 \begin{equation}
 \RR = 1 + r\left(\frac{1}{\sigma} + \frac{1}{\gamma} \right) + \frac{r^2}{\sigma \gamma}.
 \end{equation}
@@ -75,7 +75,7 @@ The moment-matching method (approximating $\RR$ based on estimated mean and vari
 As we increase sample size, our estimates become narrower. 
 We also find that using the gamma approximated speed-strength relationship gives narrower estimates than the two naive estimates even when the sample size is extremely small ($n = 10$).
 It is important to note that \fref{ebolaSample} only conveys uncertainty in the estimate of coefficient of variation of generation interval distributions.
-Estimation of mean generation interval will introduce additional uncertainty into estimates of the reproductive number. 
+Estimation of mean generation interval will introduce additional uncertainty into estimates of the reproduction number. 
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/ebola_sample.pdf}
