@@ -84,7 +84,7 @@ Jonathan Dushoff\textsuperscript{ 2,*}
 \bigskip
 
 *dushoff@mcmaster.ca
-\end{flushleft}
+\end{flushleft} 
 
 \section*{Abstract}
 
@@ -106,18 +106,18 @@ Infectious disease modeling; Generation interval; basic reproduction number
 
 \section{Introduction}
 
-Infectious disease research often focuses on estimating the reproduction number, i.e., the number of new infections caused on average by a single infection.
-This number is termed the reproduction number -- \RR.
-The reproduction number provides information about the disease's potential for spread and the difficulty of control.
+\swp{Starting with basic reproduction number? Reviewer 2 wants us to use Ro instead of R. I think we have to make a distinction.}
+Infectious disease research often focuses on estimating the basic reproduction number \Ro, i.e., the number of new infections caused on average by a single primary infection in a fully susceptible population.
+The basic reproduction number provides information about the disease's potential for spread and the difficulty of control.
 It is described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
 
-The reproduction number has remained a focal point for research because it provides information about how an infection spreads in a population, on the scale of disease generations.
+The basic reproduction number has remained a focal point for research because it provides information about how an infection spreads in a population, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly 
 early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to, and simpler mathematically than, the more commonly used doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, can be inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
-Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the initial reproduction number, \RR.
+Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the \swp{effective} reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
 In particular, $\RR$ can be calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
@@ -194,7 +194,7 @@ By doing so, we shed light on the underpinnings of the relationship between $r$ 
 	\label{fig:link}}
 \end{figure}
 
-In this section, we introduce an analytical framewok, and recapitulate previous work relating growth rate $r$ and reproduction number \RR.
+In this section, we introduce an analytical framework, and recapitulate previous work relating growth rate $r$ and reproduction number \RR.
 These two quantities are linked by the generation-interval distribution, which describes the interval between the time an individual becomes \emph{infected} and the time that they \emph{infect} another individual.
 In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then shorter disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of infection \cite{EatoHall14,PoweKret14}~(see \fref{link}).
 
@@ -239,13 +239,11 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 We prefer the gamma distribution to other choices -- including the commonly used normal approximation, and its positively valued cousin the lognormal -- for a number of reasons.
 First, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
 Second, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
-Finally, taking only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
-\revcomment{What does this mean? The normal only takes positive values too.}
-\swp{Not sure what the reviewer means here...}
+Finally, restricting the domain to only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
 While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
-its theoretical properties and practical importance has not yet been explored in depth.
+its theoretical and practical importance in explaining the \rR\ relationship has not yet been explored in depth.
 \revcomment{This is nonsense. There are whole books about the gamma function and its properties are taught to undergraduates.}
-\swp{Maybe we should clarify...}
+\swp{Changed the last sentence to clarify}
 
 For biological interpretability, we describe the gamma distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields the gamma-approximated speed-strength relationship:
