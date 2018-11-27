@@ -65,6 +65,22 @@ We have followed the reviewer's comment in changing the text.
 
 \revtext{Page 8, paragraph “Characterizing . . . higher R” could be a lot clearer. So could the next paragraph.}
 
+We have followed the reviewer's comment to make the paragraphs clearer:
+
+``
+Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models [46, 37], because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
+For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals [39].
+This explains the apparent anomaly between earlier results: 
+when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
+when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ [46].
+
+There is a simple intuition for this result.
+Initial exponential growth of an epidemic is largely driven by shorter infections.
+Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
+Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
+''
+
+
 \revtext{Page 9 typos. ‘generating a realistic’, ‘data is are limited.’, ‘latent period to a an’}
 
 We have followed the reviewer's comment in changing the text.
@@ -72,6 +88,8 @@ We have followed the reviewer's comment in changing the text.
 \revtext{Page 10 Suggest “We investigated this our approximation approach using three different examples.”}
 
 \revtext{Figure 3. What is the justification for including $\rho$ > 1?}
+
+While $\rho < 1$ is the relevant range for the Ebola outbreaks, we chose higher $\rho$ to illustrate that the gamma approximation works over a broad range of growth rates in this example.
 
 \revtext{Page 13 “there is small little difference”}
 
@@ -90,6 +108,8 @@ We have followed the reviewer's comment in changing the text.
 [37] approximates latent and infectious period with gamma distributions; this is different from approximating genertaion-interval distribution with a gamma distribution.
 
 \revtext{The bibliography style should be consistent. A lot of work is needed here}
+
+JD: can you answer this?
 
 \revtext{S1.1 ‘For this model, the generation interval distribution’, ‘the squared coefficient of variation’, ‘relationship under for the SEIR’}
 
@@ -110,12 +130,12 @@ is known about the topic.}
 stating the approach works well for the examples that are studied.
 This is made clear in the revisions.}
 
-We appreciate your comments. We tried to make the novelty of our paper clear in our previous revision.
+We appreciate your comments. We tried to make the contribution of our paper clear in our previous revision.
 
 \rev{Reviewer 3}
 
 \revtext{In this paper authors explore the relationship between R and the
-intrinsic growth rate “r” under the premises of exponential growth of
+intrinsic growth rate ``r'' under the premises of exponential growth of
 epidemics with examples for Ebola, rabies, and measles. While the
 theoretical parts of the paper are sound, the practical parts are not
 well connected to empirical observations. In particular, the behavior
@@ -140,6 +160,8 @@ than exponential growth as recently noted in several publications
 (see e.g.,  Viboud et al. Epidemics 2016; Chowell et al. J Roy Soc
 Interface 2016).}
 
+JD: can you answer this?
+
 \revtext{After time 0, any systematic changes in the growth rate r will
 affect the effective reproduction number R(t), and R0 no longer
 applies.  Hence, assuming that epidemics grow with a sustained R0
@@ -149,6 +171,6 @@ approximation for the very few generations under strong assumption
 that R0 is the same for all individuals including the individuals
 seeded at generation 0.}
 
-
+JD: can you answer this?
 
 \end{document}

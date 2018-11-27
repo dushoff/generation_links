@@ -242,8 +242,6 @@ Second, it generalizes the result obtained from simple Susceptible-Infectious-Re
 Finally, restricting the domain to only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
 While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
 its theoretical and practical importance in explaining the \rR\ relationship has not yet been explored in depth.
-\revcomment{This is nonsense. There are whole books about the gamma function and its properties are taught to undergraduates.}
-\swp{Changed the last sentence to clarify}
 
 For biological interpretability, we describe the gamma distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields the gamma-approximated speed-strength relationship:
@@ -273,7 +271,6 @@ We then explore the behaviour of the gamma-approximated speed-strength relations
 		distribution. 
 	} \label{fig:genExp} 
 \end{figure}
-\revcomment{What is the justification for including $\rho > 1$?}
 
 For small $\rho$, $\qexp$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
 For large values of $1/\kappa$, $\qexp$ converges to $\exp(\rho)$.
@@ -289,14 +286,19 @@ In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of the initial infectious individual. 
 
 \revcomment{Make this paragraph clearer:}
+\swp{JD: I tried.}
 Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
-Shorter mean latent and infectious periods result in shorter generation intervals, and thus smaller \RR\ estimates.
-Less-variable latent periods result in less-variable generation intervals, and thus higher \RR\ estimates.
-Less-variable infectious periods have more complicated effects. While they reduce variation in generation interval (which would be expected to increase \RR\ estimates), they also reduce the mean generation interval \cite{Sven07} (which would lead to a decrease). 
-This explains the apparent anomaly between earlier results: when mean generation interval is held constant, the effect of less-variable infectious periods is to reduce variation, leading to lower \RR\ for a given $r$ \cite{roberts2007model}; when mean infectious period is held constant the effect of reducing generation interval will be stronger, leading to higher \RR\ \cite{wearing2005appropriate}.
+For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals \cite{Sven07}.
+This explains the apparent anomaly between earlier results: 
+when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
+when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ \cite{wearing2005appropriate}.
 
 \revcomment{Make this paragraph clearer:}
-There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR\ -- or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
+\swp{JD: I also tried}
+There is a simple intuition for this result.
+Initial exponential growth of an epidemic is largely driven by shorter infections.
+Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
+Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
 
 \subsection{Approximation method, in practice}
 
