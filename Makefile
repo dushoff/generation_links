@@ -1,4 +1,3 @@
-
 # Park et al. generation links
 
 ### Hooks for the editor to set the default target
@@ -8,13 +7,21 @@ target: $(target)
 
 ##################################################################
 
-Sources = Makefile .gitignore .ignore README.md sub.mk LICENSE.md
-include sub.mk
+Sources = Makefile README.md LICENSE.md
+
+ms = makestuff
+-include local.mk
+-include $(ms)/os.mk
 
 Sources += $(ms)
-include $(ms)/perl.def
 
-## -include $(ms)/repos.def
+$(ms)/%.mk: $(ms)/Makefile
+	touch $@
+
+$(ms)/Makefile:
+	git submodule init $(ms) 
+	git submodule update $(ms) 
+	touch $@
 
 ##################################################################
 
