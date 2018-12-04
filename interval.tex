@@ -37,6 +37,7 @@
 \newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
 \newcommand{\jsw}[1]{\comment{green}{JSW}{#1}}
 \newcommand{\hotcomment}[1]{\comment{red}{HOT}{#1}}
+\newcommand{\revcomment}[1]{\comment{red}{Reviewer}{#1}}
 
 \usepackage{afterpage}
 \usepackage{pdflscape}
@@ -83,11 +84,11 @@ Jonathan Dushoff\textsuperscript{ 2,*}
 \bigskip
 
 *dushoff@mcmaster.ca
-\end{flushleft}
+\end{flushleft} 
 
 \section*{Abstract}
 
-Infectious-disease outbreaks are often characterized by the reproductive number \RR\ and exponential rate of growth $r$.
+Infectious-disease outbreaks are often characterized by the reproduction number \RR\ and exponential rate of growth $r$.
 \RR\ provides information about outbreak control and predicted final size, but
 estimating \RR\ is difficult, while $r$ can often be estimated directly from incidence data.
 These quantities are linked by the generation interval -- the time between when an individual is infected by an infector, and when that infector was infected.
@@ -98,33 +99,33 @@ We use examples based on Ebola, rabies and measles to explore approximations bas
 
 \subsection*{Keywords}
 
-Infectious disease modeling; Generation interval; basic reproductive number
+Infectious disease modeling; Generation interval; basic reproduction number
 
 %% West African Ebola outbreak; canine rabies
 %% May add these later if we think they will attract good readers
 
 \section{Introduction}
 
-Infectious disease research often focuses on estimating the reproductive number, i.e., the number of new infections caused on average by a single infection.
-This number is termed the reproductive number -- \RR.
-The reproductive number provides information about the disease's potential for spread and the difficulty of control.
+\swp{Starting with basic reproduction number? Reviewer 2 wants us to use Ro instead of R. I think we have to make a distinction.}
+Infectious disease research often focuses on estimating the basic reproduction number \Ro, i.e., the number of new infections caused on average by a single primary infection in a fully susceptible population.
+The basic reproduction number provides information about the disease's potential for spread and the difficulty of control.
 It is described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
 
-The reproductive number has remained a focal point for research because it provides information about how a disease spreads in a population, on the scale of disease generations.
+The basic reproduction number has remained a focal point for research because it provides information about how an infection spreads in a population, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly 
 early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to, and simpler mathematically than, the more commonly used doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, can be inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
-Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the disease to esimate the initial reproductive number, \RR.
+Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the \swp{effective} reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
 In particular, $\RR$ can be calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
-While $r$ measures the speed of the disease at the population level, the generation interval measures speed at the individual level.
+While $r$ measures the speed of the infection at the population level, the generation interval measures speed at the individual level.
 Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
 Generation interval distributions can be difficult to ascertain empirically \cite{NishCast09,ChamDush15}, and the generation-function approach depends on an entire distribution.
 Multiple studies have explored how generation-interval distributions affect the \rR\ relationship (summarized in \tref{review}).
-However, the use of an entire distribution makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproductive number, \RR.
+However, the use of an entire distribution makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproduction number, \RR.
 Moreover,  different assumptions about the shape of generation interval distributions have led to seemingly contradictory results \cite{wearing2005appropriate, roberts2007model}.
 
 \afterpage{
@@ -150,12 +151,12 @@ Euler-Lotka & \tabitem Entire generation interval distribution & \tabitem Uses m
 Exponential approximation (SIR) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{anderson1992infectious, pybus2001epidemic, ferguson2005strategies, wallinga2007generation, trichereau2012estimation} \\
 & & \tabitem Predicts linear relationship between $r$ and \RR\ & \\
 \hline
-Gamma approximation & \tabitem Mean/SD generation interval & \tabitem Assumes gamma distributed generation intervals & \cite{NishCast09, mcbryde2009early, trichereau2012estimation, nishiura2015theoretical} \\
+Gamma approximation & \tabitem Mean/SD generation interval & \tabitem Assumes gamma distributed generation intervals & \cite{NishCast09, mcbryde2009early, roberts2011early, trichereau2012estimation, nishiura2015theoretical} \\
 \hline
 Normal approximation & \tabitem Mean/SD generation interval & \tabitem Assumes normally distributed generation intervals & \cite{wallinga2007generation, trichereau2012estimation}\\
 & & \tabitem Predicts decreasing \rR\ relationship for high $r$ & \\
 \hline
-SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent an & \cite{anderson1980spread, wearing2005appropriate, wallinga2007generation, roberts2007model} \\
+SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent and & \cite{anderson1980spread, wearing2005appropriate, wallinga2007generation, roberts2007model} \\
 & \tabitem Mean/SD infectious period & \tabphant infectious periods & \\
 & & \tabitem See \cite{yan2008separate} for summary of all special cases & \\
 \hline
@@ -170,7 +171,7 @@ Trapezoid approximation & \tabitem Period of no infection after exposure & \tabi
 \hline
 \end{tabular}
 \caption{
-Summary of previous studies that relate growth rate, $r$, with reproductive number, $\RR$, using generation interval distributions.
+Summary of previous studies that relate growth rate, $r$, with reproduction number, $\RR$, using generation interval distributions.
 }
 \tlab{review}
 \end{table}
@@ -178,7 +179,7 @@ Summary of previous studies that relate growth rate, $r$, with reproductive numb
 }
 
 The primary goal of this paper is to further explore and explain the \rR\ relationship.
-We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproductive number \RR\ using means, variance measures and gamma approximations.
+We explore the qualitative relationship between generation time, initial rate of spread $r$, and initial reproduction number \RR\ using means, variance measures and gamma approximations.
 We show that summarizing generation-interval distributions using moments provides biological explanations that unify previous findings.
 We further discuss the applicability of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks. 
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
@@ -188,14 +189,14 @@ By doing so, we shed light on the underpinnings of the relationship between $r$ 
 \begin{figure}[htbp] \centering
 	% 
 	\includegraphics[width=1.0\textwidth]{link_calculations/steps.pdf}
-	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller reproductive number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
+	\caption{Two hypothetical epidemics with the same growth rate ($r=0.25/\mathrm{week}$) and fixed generation intervals.  Assuming a short generation interval (fast transmission at the individual level) implies a smaller reproduction number $\Ro$ (panel A) when compared to a longer generation interval (slow transmission at the individual level, panel B). 
 % {(For calculations, we assumed, generation intervals were fixed.)} 
 	\label{fig:link}}
 \end{figure}
 
-In this section, we introduce an analytical framewok, and recapitulate previous work relating growth rate $r$ and reproductive number \RR.
+In this section, we introduce an analytical framework, and recapitulate previous work relating growth rate $r$ and reproduction number \RR.
 These two quantities are linked by the generation-interval distribution, which describes the interval between the time an individual becomes \emph{infected} and the time that they \emph{infect} another individual.
-In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then shorter disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of disease \cite{EatoHall14,PoweKret14}~(see \fref{link}).
+In particular, if \RR~is known, a shorter generation interval means a faster epidemic (larger $r$). Conversely (and perhaps counter-intuitively), if $r$ is known, then shorter disease generations imply a \emph{lower} value of \RR, because more \emph{individual} generations are required to realize the same \emph{population} spread of infection \cite{EatoHall14,PoweKret14}~(see \fref{link}).
 
 The generation-interval distribution can be defined using a renewal-equation approach.
 A wide range of disease models can be described using the model 
@@ -206,7 +207,7 @@ i(t) = S(t)\int{K(s)i(t-s) \,ds},
 \end{equation}
 where $t$ is time, $i(t)$ is the incidence of new infections, $S(t)$ is the \emph{proportion} of the population susceptible, and $K(s)$ is the intrinsic infectiousness of individuals who have been infected for a length of time $s$.
 
-The \emph{basic} reproductive number, defined as the average number of secondary cases generated by a primary case in a fully susceptible population \cite{AndeMay91, DiekHees90}, is
+The \emph{basic} reproduction number, defined as the average number of secondary cases generated by a primary case in a fully susceptible population \cite{AndeMay91, DiekHees90}, is
 \begin{equation}
 \Ro = \int{K(s)ds},
 \end{equation}
@@ -222,7 +223,7 @@ Thus, for the exponential phase, we write:
 \begin{equation}
 i(t) = \RR\int{g(\tau)i(t-\tau) \,d\tau},
 \end{equation}
-where $\RR = \Ro S$ is the \emph{effective} reproductive number.
+where $\RR = \Ro S$ is the \emph{effective} reproduction number.
 We can then solve for the characteristic time $\Tc$ by assuming that the population is growing exponentially: i.e., substitute $i(t) = i(0) \exp(t/\Tc)$ to obtain the exact speed-strength relationship \cite{diekmann2000mathematical}:
 \begin{equation}
 	1/\RR = \int{g(\tau)\exp(-\tau/\Tc) \,d\tau}.\label{eq:Euler}
@@ -238,9 +239,9 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 We prefer the gamma distribution to other choices -- including the commonly used normal approximation, and its positively valued cousin the lognormal -- for a number of reasons.
 First, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
 Second, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
-Finally, taking only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
+Finally, restricting the domain to only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
 While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
-its theoretical properties and practical importance has not yet been explored in depth.
+its theoretical and practical importance in explaining the \rR\ relationship has not yet been explored in depth.
 
 For biological interpretability, we describe the gamma distribution using the mean $\bar G$ and the squared coefficient of variation $\kappa$ (thus $\kappa = 1/a$, and $\bar G = a\theta$, where $a$ and $\theta$ are the shape and scale parameters under the standard parameterization of the gamma distribution).
 Substituting the gamma distribution into \eref{Euler} then yields the gamma-approximated speed-strength relationship:
@@ -264,7 +265,7 @@ We then explore the behaviour of the gamma-approximated speed-strength relations
 		The approximate relationship \eref{gamApp} between mean
 		generation time (relative to the characteristic time of
 		exponential growth, $\rho = r \bar G = \bar G/\Tc$)
-		and reproductive number.
+		and reproduction number.
 		The curves correspond to different
 		amounts of variation in the generation-interval
 		distribution. 
@@ -272,11 +273,11 @@ We then explore the behaviour of the gamma-approximated speed-strength relations
 \end{figure}
 
 For small $\rho$, $\qexp$ always looks like $1+\rho$, regardless of the shape parameter $1/\kappa$, which determines the curvature: if $1/\kappa = 1$, we get a straight line, for $1/\kappa=2$ the curve is quadratic, and so on (see \fref{genExp}).
-For large values of $1/\kappa$, $\qexp$ converges toward $\exp(\rho)$.
+For large values of $1/\kappa$, $\qexp$ converges to $\exp(\rho)$.
 
 The limit as $\kappa\to 0$ is reasonably easy to interpret. The incidence is increasing by a factor of $\exp(\rho)$ in the time it takes for an average disease generation. If $\kappa=0$, the generation interval is fixed, so the average case must cause exactly $\RR = \exp(\rho)$ new cases.
 If variation in the generation time (i.e., $\kappa$) increases, then some new cases will be produced before, and some after, the mean generation time.
-Since we assume the disease is increasing exponentially, infections that occur early on represent a larger proportion of the population, and thus will have a disproportionate effect: individuals don't have to produce as many lifetime infections to sustain the growth rate, and thus we expect  $\RR < \exp(\rho)$
+Since we assume the epidemic is growing exponentially, infections that occur early on represent a larger proportion of the population, and thus will have a disproportionate effect: individuals don't have to produce as many lifetime infections to sustain the growth rate, and thus we expect  $\RR < \exp(\rho)$
 (as shown by \cite{WallLips07}).
 
 The straight-line relationship for $\kappa=1$ also has a biological interpretation. 
@@ -284,22 +285,29 @@ This case corresponds to the classic SIR model, where the infectious period is e
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of the initial infectious individual. 
 
+\revcomment{Make this paragraph clearer:}
+\swp{JD: I tried.}
 Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
-Shorter mean latent and infectious periods result in shorter generation intervals, and thus smaller \RR\ estimates.
-Less-variable latent periods result in less-variable generation intervals, and thus higher \RR\ estimates.
-Less-variable infectious periods have more complicated effects. While they reduce variation in generation interval (which would be expected to increase \RR\ estimates), they also reduce the mean generation interval \cite{Sven07} (which would lead to a decrease). 
-This explains the apparent anomaly between earlier results: when mean generation interval is held constant, the effect of less-variable infectious periods is to reduce variation, leading to lower \RR\ for a given $r$ \cite{roberts2007model}; when mean infectious period is held constant the effect of reducing generation interval will be stronger, leading to higher \RR\ \cite{wearing2005appropriate}.
+For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals \cite{Sven07}.
+This explains the apparent anomaly between earlier results: 
+when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
+when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ \cite{wearing2005appropriate}.
 
-There is a simple intuition for this latter result. In an exponentially growing epidemic, things that happen earlier have the largest effect. If we increase the variation in latent period while holding \RR\ constant, we have more early progression and more late progression to infectiousness. The former effect will be more important, and thus increasing variation should increase $r$ for a given value of \RR\ -- or, equivalently, decrease \RR\ for a given value of $r$. Increasing variation in infectious period has the opposite effect: it increases the amount of both early and late recovery, and thus leads to smaller $r$ for a given value of \RR\ (and conversely).
+\revcomment{Make this paragraph clearer:}
+\swp{JD: I also tried}
+There is a simple intuition for this result.
+Initial exponential growth of an epidemic is largely driven by shorter infections.
+Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
+Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
 
 \subsection{Approximation method, in practice}
 
-We test our approximation method by generating a realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
+We test our approximation method by generating realistic generation-interval distributions using previously estimated/observed latent and infectious period distributions for different diseases (\tref{parameters}).
 For each generation-interval distribution, we calculate the ``true'' relationship between $r$ and \RR\ and compare it with a relationship inferred based on gamma distribution approximations. 
-These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data to assess how well methods perform when data is limited. 
+These approximations are first done with large amounts of data, allowing us to evaluate how well the approximations describe the \rR\ relationship under ideal conditions, and then tested with smaller amounts of data to assess how well methods perform when data are limited. 
 
 Estimating generation intervals is complex; our goal with realistic distributions is not to precisely match real diseases, but to generate distributions that are likely to be roughly as challenging for our approximation methods as real distributions would be.
-We construct realistic intervals from sampled latent and infectious periods by adding the sampled latent period to a an infection delay chosen uniformly from the sampled infectious period:
+We construct realistic intervals from sampled latent and infectious periods by adding the sampled latent period to an infection delay chosen uniformly from the sampled infectious period:
 \begin{equation}
 	G_i = E_i + \mathrm{U}(0, I_i),
 \end{equation}
@@ -318,9 +326,9 @@ All calculations, numerical analyses and figures were made with the software pla
 
 \section{Results}\label{Results}
 
-We investigate this approximation approach using three different examples. 
+We investigate our approximation approach using three examples. 
 These examples also serve to demonstrate that robust estimates could be made with less data and potentially earlier in an outbreak -- a point we revisit in the Discussion.
-Our initial investigation of this question was motivated by work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproductive number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD), measles, and canine rabies.
+Our initial investigation of this question was motivated by work on the West African Ebola Outbreak \cite{WeitDush15}, so we start with that example. To probe the approximation more thoroughly, we also chose one disease with high variation in generation interval (canine rabies), and one with a high reproduction number (measles). For simplicity, we assumed that latent and infectious periods are equivalent to incubation and symptomatic periods for Ebola virus disease (EVD), measles, and canine rabies.
 
 
 \subsection{Ebola}
@@ -331,7 +339,7 @@ Our initial investigation of this question was motivated by work on the West Afr
 	\caption{
 		Estimating \RR~for the West African Ebola Outbreak.
 		Solid curve: the empirical speed-strength relationship \eref{Euler} using a realistic generation-interval distribution based on \cite{AylwBarb14}.
-	Dashed curve: the Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
+	Dashed curve: the gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
 Dotted curves: naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 Point estimates for the three focal countries of the West African Ebola Outbreak  \cite{AylwBarb14}: Sierra Leone (square, $\RR=1.38$), Liberia (triangle, $\RR=1.51$), and Guinea (circle, $\RR=1.81$) are closely matched by the moment-based approximation. 
 	\label{fig:EbolaCurve}}
@@ -368,10 +376,10 @@ On examination, this closer agreement is due to the smaller overall variation in
 
 \begin{figure}[htbp] \centering
 	\includegraphics[width=1.0\textwidth]{link_calculations/rabies.pdf}
-	\caption{Estimating \RR~for the Rabies.
+	\caption{Estimating \RR~for rabies.
 	    (Left) estimating \RR~from rabies infectious case data.
 		Solid curve: the empirical speed-strength relationship \eref{Euler} using a realistic generation-interval distribution.
-Dashed curve: the Gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
+Dashed curve: the gamma approximated speed-strength relationship \eref{gamApp}, using the mean and CV of a realistic generation-interval distribution. 
         ``moment'' approximation is based on the observed mean and CV of the distribution whereas ``MLE'' approximation uses the mean and CV calculated from a maximum-likelihood fit.
 		Dotted curves: naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points indicate estimates for two districts of Tanzania from \cite{HampDush09}: {Ngorongoro (square, $\RR=1.14$), and Serengeti (triangle, $\RR=1.19$). By assumption, these points fall on the empirical speed-strength relationship}
@@ -382,7 +390,7 @@ Dashed curve: the Gamma approximated speed-strength relationship \eref{gamApp}, 
 \end{figure}
 
 We did a similar analysis for rabies by constructing a realistic generation-interval distribution from observed incubation and infectious period distributions (see \fref{rabiesCurve}).
-Since estimates of \RR\ for rabies are near 1, there is small difference between the naive estimates and the gamma approximated speed-strength relationship. 
+Since estimates of \RR\ for rabies are near 1, there is little difference between the naive estimates and the gamma approximated speed-strength relationship. 
 But, looking at the relationship more broadly, we see that the moment-based approximation would do a poor job of predicting the relationship for intermediate or large values of \RR\ -- in fact, a poorer job than if we use the approximation based on exponentially distributed generation times. 
 
 The reason for poor predictions of the moment approximation for higher \RR\ can be seen in the histogram shown in \fref{rabiesCurve}. The moment approximation is strongly influenced by rare, very long generation intervals, and does a poor job of matching the observed pattern of short generation intervals (in particular, the moment approximation misses the fact that the distribution has a density peak at a finite value). We expect short intervals to be particularly important in driving the speed of the epidemic, and therefore in determining the relationship between $r$ and \RR. We can address this problem by estimating gamma parameters formally using a maximum-likelihood fit to the generation-interval distributions. This fit does a better job of matching the observed pattern of short generation intervals and of predicting the simulated relationship between $r$ and \RR\ across a broad range (\fref{rabiesCurve}).
@@ -415,10 +423,11 @@ CV generation interval & 0.58 & 0.21 & 1.09
 
 \section{Discussion}
 
-Estimating the reproductive number \RR\ is a key part of characterizing and controlling infectious disease spread. The initial value of \RR\ for an outbreak is often estimated by estimating the initial exponential rate of growth, and then using a generation-interval distribution to relate the two quantities \cite{WallLips07,Sven07,Nish10,Sven15}.
+Estimating the reproduction number \RR\ is a key part of characterizing and controlling infectious disease spread. The initial value of \RR\ for an outbreak is often estimated by estimating the initial exponential rate of growth, and then using a generation-interval distribution to relate the two quantities \cite{WallLips07,Sven07,Nish10,Sven15}.
 However, detailed estimates of the full generation interval are difficult to obtain, and the link between uncertainty in the generation interval and uncertainty in estimates of \RR\ are often unclear.
-Here we introduced and analyzed a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We used three disease examples to test the robustness of the framework. We also compared estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
+Here we introduce and analyze a simple framework for \emph{estimating} the relationship between \RR\ and $r$, using only the estimated mean and CV of the generation interval. The framework is based on the gamma distribution. We use three disease examples to test the robustness of the framework. We also compare estimates based directly on estimated mean and variance of of the generation interval to estimates based on maximum-likelihood fits.
 
+\swp{Reviewer 1 claims that Roberts predates Nishiura. This is not true. We can explain this to the reviewer.}
 The gamma approximation for calculating \RR\ from $r$ was introduced by \cite{NishCast09}, and provides estimates that are simpler, more robust, and more realistic than those from normal approximations (see Appendix).
 Here, we presented the gamma approximation in a form conducive to intuitive understanding of the relationship between speed, $r$, and strength, \RR\ (See~\fref{genExp}).
 In doing so, we explained the general result that estimates of \RR\ increase with mean generation time, but decrease with \emph{variation} in generation times \cite{WallLips07, wearing2005appropriate, roberts2007model}.
@@ -464,11 +473,20 @@ The authors thank Steve Bellan for helpful comments, and Katie Hampson for makin
 
 This work was supported by the Canadian Institutes of Health Research [funding reference number 143486]. J.S.W. is supported by Army Research Office grant W911NF-14-1-0402.
 
+\revcomment{Bibliogrphy style is inconsistent}
+
 \printbibliography
 
 \clearpage
 
-\section{Appendix}
+\setcounter{figure}{0}
+\setcounter{page}{1}
+\setcounter{section}{0}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thesection}{S\arabic{section}}
+
+\section{Supplement}
 
 \input{appendix.tex}
 

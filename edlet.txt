@@ -1,13 +1,7 @@
-Dear Editor:
+Dear Editors:
 
-We were invited to comment on our submission 27-08-2018-ISRA-eLife-41495, which was not sent for review. The decline letter noted that "[T]his a strong paper but too theoretical for eLife".
+We were advised by Dr.~Heesterbeek to not submit a cover letter with this resubmission, but the electronic system is not OK with that.
 
-This is a disappointment for two reasons. First, we had hoped to have our submission evaluated based on results, rigor and significance. It is hard to imagine a paper being rejected for being "too empirical". Further, we believe that the evaluation of our paper as 'too theoretical' misreads its core methodology and findings.
+We are also not sure why the submission system will not let us submit our article without a "highlights" file. Somewhere on the Elsevier site we found instructions for optional highlights, but we are not sure whether these apply in this case, or whether highlights are really required (we did not need them for our previous submission of this manuscript).
 
-In fact, the core of our submitted paper involves techniques that are routinely applied to disease data. The theoretical approximation method we develop, analyze, and apply helps to robustly estimate the strength of an outbreak. The method has a key advantage when compared to other approaches: it enables estimates from less data (and from earlier in an outbreak) than has been recognized in the field of epidemiology. Figures 3 and 5 show examples of how our moment approximation method fits data on the speed and strength of Ebola virus disease and rabies outbreaks, respectively. Figure 4 (measles) also fits outbreak data, but given the range of data available, we show how our method then constrains estimates of the speed of outbreaks given observed strengths.
-
-We have slightly edited the paper, focusing on the figures, to highlight the data that are already present in our analysis. We welcome your feedback and are grateful for your consideration.
-
-Thank you very much,
-
-Jonathan Dushoff (for the authors)
+We have uploaded a placeholder file. Please let us know if this is a problem.

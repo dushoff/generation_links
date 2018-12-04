@@ -33,6 +33,7 @@ Sources += todo.mkd
 products: interval.pdf.gp epiResponse.pdf.gp auto.html.pages
 
 Ignore += abstract.txt
+Sources += abstract.pl
 abstract.txt: interval.tex abstract.pl
 	$(PUSH)
 
@@ -49,10 +50,10 @@ interval.count: interval.tex
 
 Ignore += park_main.pdf park_supp_text.pdf
 park_main.pdf: interval.pdf
-	pdfjam -o $@ $< 1-18
+	pdfjam -o $@ $< 1-22
 
 park_supp_text.pdf: interval.pdf
-	pdfjam -o $@ $< 19-
+	pdfjam -o $@ $< 23-
 
 ## cover leter
 Sources += letter.tex
@@ -61,7 +62,8 @@ Sources += reviewers.txt
 
 ## Requested by Goldstein
 ## editor letter to eLife
-Sources += edlet.txt
+## Now edited for Epidemics
+Sources += edlet.txt highlights.txt
 
 ## Draft response to Epidemics
 Sources += epiResponse.tex
