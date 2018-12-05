@@ -70,6 +70,8 @@ Sources += edlet.txt highlights.txt
 Sources += epiResponse.tex
 epiResponse.pdf: epiResponse.tex
 epiDiff.pdf: epiResponse.tex
+
+Ignore += epiDiff.tex
 epiDiff.tex: epiResponse.??.tex epiResponse_rev.tex
 	$(latexdiff)
 
