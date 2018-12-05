@@ -66,9 +66,11 @@ Sources += reviewers.txt
 Sources += edlet.txt highlights.txt
 
 ## Draft response to Epidemics
+## Deleting previous round response 2018 Dec 04 (Tue)
 Sources += epiResponse.tex
 epiResponse.pdf: epiResponse.tex
-epiDiff.tex: epiResponse.tex epiResponse_rev.tex
+epiDiff.pdf: epiResponse.tex
+epiDiff.tex: epiResponse.??.tex epiResponse_rev.tex
 	$(latexdiff)
 
 ## appendix.pdf is no longer a thing … rolled it into the MS

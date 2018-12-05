@@ -1,6 +1,18 @@
 \documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
 
 \usepackage{color}
+
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+\newcommand{\rR}{\mbox{$r$--$\cal R$}}
+\newcommand{\RR}{\ensuremath{{\cal R}}}
+\newcommand{\RRhat}{\ensuremath{{\hat \cal R}}}
+\newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
+\newcommand{\Ro}{\Rx{0}}
+\newcommand{\Reff}{\Rx{\mathit{eff}}}
+\newcommand{\Tc}{\ensuremath{C}}
 
 \newcommand{\rev}{\subsection*}
 \newcommand{\revtext}{\textsf}
@@ -22,46 +34,149 @@ Thank you for the chance to revise this submission. Below please find our respon
 
 \rev{Reviewer 1}
 
-\revtext{Most of this material can be found in Roberts and Heesterbeek, 2007.}
+\revtext{This revision is substantial, being approximately four pages longer than the
+original, and with seventeen more references. The title has changed on the
+manuscript but remains the same on the cover sheet. The authors should
+standardise on ‘reproduction number’, which is correct, instead of ‘reproductive
+number’, or at least be consistent. See Figure 1. They should also use ‘infection’
+rather than ‘disease’ in many places.}
 
-We should not have missed this citation. We do not agree, however, that most of our material is found there.
+Sorry about the cover sheet. The revision was substantial largely in response to good criticisms in the previous round.
+We have changed `reproductive number' to `reproduction number' and replaced `disease' with `infection' in appropriate places.
 
-Our paper is based mostly on existing theory, but offers new intuitions about underlying patterns, as well as explicit examples (and comparisons to a range of specific diseases). We have explained this perspective in the revised MS.
+\revtext{Table 1. Suggested additional reference Roberts \& Nishiura 2011. PLoS One 6: e17835.}
 
-The revised MS cites this paper, and has a significantly expanded review of the relevant literature, including a new table which summarizes relevant prior work.
+We have added the reference to the table.
 
-Additionally, we have highlighted the outbreak data already present along with approximations in our figures, and emphasized the novel contributions in terms of practicality of inference, and inference from limited information, in particular with the expanded text in Sec 3, and the experiments in Sec S2.4 (in the supplement).
+\revtext{Table 1. typo row 8 column 3.}
+
+Fixed.
+
+\revtext{Page 6 “taking only non-negative values makes it more biologically realistic than the normal”. What does this mean? The normal only takes positive values too.}
+
+We mean that the domain of a normal distribution extends from negative infinity to positive infinity.
+We have made this clearer in the current text: ``restricting the domain to only non-negative values makes it more biologically realistic than the normal.''
+
+\revtext{Page 6 “its theoretical properties and practical importance have not yet been explored in depth.” This is nonsense. There are whole books about the gamma function and its properties are taught to undergraduates.}
+
+We have changed the text to clarify this point: ``its theoretical and practical importance in explaining the \rR\ relationship has not yet been explored in depth''
+
+\revtext{Page 8, line 4. “converges to exp”}
+
+We have followed the reviewer's comment in changing the text.
+
+\revtext{Page 8, paragraph “Characterizing . . . higher R” could be a lot clearer. So could the next paragraph.}
+
+We have clarified these paragraphs as follows:
+
+``
+Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models [46, 37], because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
+For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals [39].
+This explains the apparent anomaly between earlier results: 
+when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
+when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ [46].
+
+There is a simple intuition for this result.
+Initial exponential growth of an epidemic is largely driven by shorter infections.
+Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
+Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
+''
+
+
+\revtext{Page 9 typos. ‘generating a realistic’, ‘data is are limited.’, ‘latent period to a an’}
+
+Fixed
+
+\revtext{Page 10 Suggest “We investigated this our approximation approach using three different examples.”}
+
+\revtext{Figure 3. What is the justification for including $\rho$ > 1?}
+
+While $\rho < 1$ is the relevant range for the Ebola outbreaks, we chose higher $\rho$ to illustrate that the gamma approximation works over a broad range of growth rates in this example.
+
+\revtext{Page 13 “there is small little difference”}
+
+Fixed.
+
+\revtext{Page 14 ‘for rabies’ not ‘for the Rabies’, gamma lower case}
+
+Fixed.
+
+\revtext{Page 15, first paragraph of discussion change to present tense.}
+
+We have followed the reviewer's comment in changing the text.
+
+\revtext{Claim the gamma approximation was introduced in [29] is incorrect as [37] predates it.}
+
+[37] approximates latent and infectious period with gamma distributions; this is different from approximating genertaion-interval distribution with a gamma distribution.
+
+\revtext{The bibliography style should be consistent. A lot of work is needed here}
+
+JD TODO
+
+\revtext{S1.1 ‘For this model, the generation interval distribution’, ‘the squared coefficient of variation’, ‘relationship under for the SEIR’}
+
+We have followed the reviewer's comment in changing the text. 
+
+JD: I can't follow here.
 
 \rev{Reviewer 2}
 
-\revtext{This manuscript proposes an estimator of the reproduction number, using the observed exponential growth rate, the mean and variance of the generation interval distribution, and assuming a gamma distributed generation interval. The estimator comes in two flavors, one using observed mean and variance, one using gamma MLE estimators of the mean and variance. The estimator is tested using various simulated distributions typical for ebola, measles and rabies, and informally compared against naive estimators that assume a fixed generation interval and an exponentially distributed generation interval.}
+\revtext{The revised manuscript addresses some of the issues that were raised.}
 
-\revtext{The estimator has not been proposed earlier, and it seems a good addition to the existing toolbox of estimators for reproduction numbers.}
+\revtext{For the original paper, I thought that the main novelty was the
+proposal of an estimator of R based on the gamma distribution. This
+was incorrect, there were several earlier publications that have
+introduced this paper. The authors have now included a literature
+review and a useful table (Table 1) to guide the reader through what
+is known about the topic.}
 
-Thanks for this comment. As we pointed out, this is not a brand-new estimator. Our expanded literature review should make this point more obvious. This comment does highlight the fact that the underlying intuition and applications are under-appreciated, however.
+\revtext{The authors do not provide any guidance on the generality, other than
+stating the approach works well for the examples that are studied.
+This is made clear in the revisions.}
 
-\revtext{The claim of this manuscript is, in technical terms, that the Laplace transform of the gamma distribution gives a sufficient approximation to the Laplace transform of generation intervals for realistic values of growth rate, the mean and the variance of the generation interval. The manuscript does not provide a clear description of what `sufficient’ actually. Any Laplace transform of a probability distribution will remain within the dotted lines drawn in Figures 3,4, and any Laplace transform of a probability distribution will remain close to the actual (empirical) relationship for low values of rho. It would be very helpful to include explicit criteria for acceptable errors in reproduction numbers, to ensure there is scientific value in making the claim that the approximation is sufficient.}
+We appreciate your comments. We tried to make the contribution of our paper clear in our previous revision.
 
-We are not sure how we would come up with explicit criteria. The key point we try to convey with these figures is that the variance-based approximations are much better than the naive approximations. We thought of quantifying the errors from naive estimates (similar to what we do for the gamma estimates), but to us the difference seems clear. We hope that in the current context, the evident improvement of the gamma distribution over the naive approaches (including outside the range of small rho) will mitigate this concern. We have also scaled back our claims to generality (see below).
+\rev{Reviewer 3}
 
-\revtext{The gamma distribution is chosen because it is confined to non-negative values. This is not a very convincing motivation for the proposed estimator. First, the actual shape of the assumed probability distribution does not need to be similar to the actual probability distribution in order for its Laplace transform to approximate the Laplace transform of the actual probability distribution. Second, there are other probability distributions that are confined to non-negative values, and these are not considered. I would strongly suggest expanding the text to better motivate the gamma distribution. (Because of mathematical convenience; because the gamma distribution has a simpler Laplace transform than other probability distributions that are confined to non-negative values; because the gamma distribution can be characterized by just two parameters).}
+\revtext{In this paper authors explore the relationship between R and the
+intrinsic growth rate ``r'' under the premises of exponential growth of
+epidemics with examples for Ebola, rabies, and measles. While the
+theoretical parts of the paper are sound, the practical parts are not
+well connected to empirical observations. In particular, the behavior
+of an outbreak during the initial phase is an approximation based on a
+list of assumptions and conditions.}
 
-We agree with these points, and have tried to improve the text accordingly. We did not add the point about two parameters, since most of the candidates we would consider have this property.
+\revtext{Notation: Authors denote the basic reproduction number as R while it should be denoted as \Ro.}
 
-\revtext{The manuscript does not provide any guidance on the generality of the findings. One can think of shapes for an actual generation interval distribution where the empirical relation between growth rate and reproductive number is concave rather than convex, such that the approximation based on the Taylor expansion of the Laplace transform will be better than assuming a gamma distribution. This will provide a counterexample for Figure S2. Similarly, one can think of shapes for an actual generation interval distribution where the direct use of the mean and variance will be better than using the MLE. This will provide a counterexample for Figure 5. It would be very useful to include counterexamples and criteria when to use which estimator. Alternatively, the conclusion should be that the findings apply to ebola, measles and rabies without any suggestion that it may hold in general.}
+Fixed.
 
-These are difficult points. It is certainly true that the empirical relationship could be concave down, but this is also true of the gamma distribution (in constrast, second-order Taylor expansions that are concave down do not remain positive). Similarly, we imagine it's true that there are cases where mean and variance would work better than the MLE, but we haven't encountered any examples.
+TODO Check that we still use R when we mean R.
 
-Our evidence for ``generality'' is roughly that our approximations usually work pretty well where we've tried them, so we have tried to follow the last suggestion here and be more careful about describing the scope of our results. In particular, we don't talk about generality at all now. We have also added an explicit caveat to the Discussion, with examples of diseases that are less likely to work well.
+\revtext{It should be noted that R0 only applies at time 0 when the epidemic takes off.}
 
-\revtext{Minor issues:}
+We made this clearer by changing the first sentence of the first paragraph: ``Infectious disease research often focuses on estimating the basic reproduction number \Ro, i.e., the number of new infections caused on average by a single primary infection in a fully susceptible population.''
 
-\revtext{The title suggests quite a bit more than what actually is delivered. I would suggest rephrasing the title such that it accurately reflects the main contribution of this manuscript.}
+\revtext{Assuming exponential growth is a strong assumption as it
+implies that the growth rate r is constant in order to maintain an
+unchanged R0 over generations during the initial growth phase (all
+individuals carry the same intrinsic growth rate and r is independent
+of time). Yet, the ascending growth phase of many outbreaks for
+different infectious diseases follow sub-exponential growth rather
+than exponential growth as recently noted in several publications
+(see e.g.,  Viboud et al. Epidemics 2016; Chowell et al. J Roy Soc
+Interface 2016).}
 
-We have rephrased the title.
+\revtext{After time 0, any systematic changes in the growth rate r will
+affect the effective reproduction number R(t), and R0 no longer
+applies.  Hence, assuming that epidemics grow with a sustained R0
+beyond a couple of generation intervals may be unrealistic. That is,
+one has to keep in mind that exponential growth may only be a good
+approximation for the very few generations under strong assumption
+that R0 is the same for all individuals including the individuals
+seeded at generation 0.}
 
-\revtext{Section 2 recapitulates existing work, but lacks the detail of previous publications. Please make the objective of this section explicit (recapitulation and introduction of notation).}
+This is a good point. There are strong theoretical reasons to expect early exponential growth, and a long history of studying exponential growth in this context. Nonetheless, recent work has called this approach into question. We now address both sides of this point (the justification and the caveats) in our Introduction and in our Discussion.
 
-We have followed this suggestion.
+TODO
 
 \end{document}
