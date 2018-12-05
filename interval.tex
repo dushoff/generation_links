@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 
@@ -106,18 +107,17 @@ Infectious disease modeling; Generation interval; basic reproduction number
 
 \section{Introduction}
 
-\swp{Starting with basic reproduction number? Reviewer 2 wants us to use Ro instead of R. I think we have to make a distinction.}
-Infectious disease research often focuses on estimating the basic reproduction number \Ro, i.e., the number of new infections caused on average by a single primary infection in a fully susceptible population.
-The basic reproduction number provides information about the disease's potential for spread and the difficulty of control.
-It is described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
+Infectious disease research often focuses on estimating the reproduction number \RR, i.e., the number of new infections caused on average by a single infection, and the related basic reproduction number \Ro, the value of \RR\ in for a single primary infection in a fully susceptible population.
+These reproduction numbers provide information about a disease's potential for spread and the difficulty of control.
+They are described in terms of an average \cite{AndeMay91} or an appropriate sort of weighted average \cite{DiekHees90}.
 
-The basic reproduction number has remained a focal point for research because it provides information about how an infection spreads in a population, on the scale of disease generations.
+The reproduction number has remained a focal point for research because it provides information about how an infection spreads in a population, on the scale of disease generations.
 As it is a unitless quantity, it does not, however, contain information about \emph{time}.
 Hence, another important quantity is the population-level \emph{rate of spread}, $r$. The initial rate of spread can often be measured robustly 
 early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to, and simpler mathematically than, the more commonly used doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, can be inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
-Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the \swp{effective} reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
+Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the {effective} reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
 In particular, $\RR$ can be calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
@@ -183,6 +183,8 @@ We explore the qualitative relationship between generation time, initial rate of
 We show that summarizing generation-interval distributions using moments provides biological explanations that unify previous findings.
 We further discuss the applicability of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks. 
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
+
+Approaches based on $r$, including the approach taken in this paper, implicitly assume that \RR\ (and the generation distribution) remain roughly constant as an outbreak takes off, for at least long enough that it makes sense to estimate a rate of exponential growth. This is indeed what would be expected from simple models, but there are concerns about how long this exponential period is, how best to fit the ``initial'' rate of growth \cite{MaJDush14} and whether outbreak data might better be fitted using ``sub-exponential'' models \cite{Chowell}. TODO
 
 \section{Relating \RR\ and $r$}
 

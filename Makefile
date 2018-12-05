@@ -39,6 +39,8 @@ abstract.txt: interval.tex abstract.pl
 
 Ignore += *synctex*
 
+######################################################################
+
 ## MS
 Ignore += pages
 Sources += interval.tex appendix.tex appwrap.tex
@@ -54,6 +56,8 @@ park_main.pdf: interval.pdf
 
 park_supp_text.pdf: interval.pdf
 	pdfjam -o $@ $< 23-
+
+######################################################################
 
 ## cover leter
 Sources += letter.tex
@@ -79,8 +83,8 @@ epiDiff.tex: epiResponse.??.tex epiResponse_rev.tex
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
-interval.tex.ec380689.oldfile:
 ## make interval.tex.HEAD~1.oldfile ##
+interval.tex.ec380689.oldfile:
 compare.pdf: compare.tex
 
 Ignore += compare.tex
