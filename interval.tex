@@ -122,11 +122,11 @@ In particular, $\RR$ can be calculated from $r$ and the generation-interval dist
 
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
 While $r$ measures the speed of the infection at the population level, the generation interval measures speed at the individual level.
-Generation interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
-Generation interval distributions can be difficult to ascertain empirically \cite{NishCast09,ChamDush15}, and the generation-function approach depends on an entire distribution.
+Generation-interval distributions are typically inferred from contact tracing, sometimes in combination with clinical data \cite{AylwBarb14,LessOtt16,HubeJohn16}.
+Generation-interval distributions can be difficult to ascertain empirically \cite{NishCast09,ChamDush15}, and the generation-function approach depends on an entire distribution.
 Multiple studies have explored how generation-interval distributions affect the \rR\ relationship (summarized in \tref{review}).
 However, the use of an entire distribution makes it difficult to determine which features of the distributions are essential to connect measurements of the rate of spread $r$, with the reproduction number, \RR.
-Moreover,  different assumptions about the shape of generation interval distributions have led to seemingly contradictory results \cite{wearing2005appropriate, roberts2007model}.
+Moreover,  different assumptions about the shape of generation-interval distributions have led to seemingly contradictory results \cite{wearing2005appropriate, roberts2007model}.
 
 \afterpage{
 \clearpage
@@ -146,7 +146,7 @@ Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Re
 \hline
 Empirical (sample-based) & \tabitem Generation interval samples & \tabitem Uses discretized Euler-Lotka equation & \cite{hampson2009transmission}\\
 \hline
-Euler-Lotka & \tabitem Entire generation interval distribution & \tabitem Uses moment generating function & \cite{Lotka} \\
+Euler-Lotka & \tabitem Entire generation-interval distribution & \tabitem Uses moment generating function & \cite{Lotka} \\
 \hline
 Exponential approximation (SIR) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{AndeMay91, pybus2001epidemic, ferguson2005strategies, wallinga2007generation, trichereau2012estimation} \\
 & & \tabitem Predicts linear relationship between $r$ and \RR\ & \\
@@ -171,7 +171,7 @@ Trapezoid approximation & \tabitem Period of no infection after exposure & \tabi
 \hline
 \end{tabular}
 \caption{
-Summary of previous studies that relate growth rate, $r$, with reproduction number, $\RR$, using generation interval distributions.
+Summary of previous studies that relate growth rate, $r$, with reproduction number, $\RR$, using generation-interval distributions.
 }
 \tlab{review}
 \end{table}
@@ -349,7 +349,7 @@ Point estimates for the three focal countries of the West African Ebola Outbreak
 
 We generated a realistic generation-interval distribution for Ebola virus disease (EVD) using information from \cite{AylwBarb14} and a lognormal assumption for both the incubation and infectious periods.
 In contrast to gamma distributed incubation and infectious periods assumed by \cite{AylwBarb14}, we used a lognormal assumption for our components because it is straightforward and should provide a challenging test of our gamma approximation (see Appendix for results using gamma components). 
-We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation interval distribution for EVD \cite{AylwBarb14}.
+We used the reported standard deviation for the infectious period, and chose the standard deviation for the incubation period to match the reported coefficient of variation for the serial interval distribution, since this value is available and is expected to be similar to the generation-interval distribution for EVD \cite{AylwBarb14}.
 
 We then used our simulated generation-interval distribution to calculate both the empirical \eref{Euler} and gamma-approximated \eref{gamApp} speed-strength relationships (see \fref{EbolaCurve}). The approximation is within 1\% of the true distribution it is approximating across the range of country estimates, and within 5\% across the range shown. It is also within 2\% of the World Health Organization (WHO) estimates derived from the observed time series assuming a Poisson process with a known serial interval distribution. 
 
@@ -385,7 +385,7 @@ Dashed curve: the gamma approximated speed-strength relationship \eref{gamApp}, 
         ``moment'' approximation is based on the observed mean and CV of the distribution whereas ``MLE'' approximation uses the mean and CV calculated from a maximum-likelihood fit.
 		Dotted curves: naive approximations based on exponential (lower) and fixed (upper) generation distributions.
 		Points indicate estimates for two districts of Tanzania from \cite{HampDush09}: {Ngorongoro (square, $\RR=1.14$), and Serengeti (triangle, $\RR=1.19$). By assumption, these points fall on the empirical speed-strength relationship}
-		(Right) histogram represents rabies generation interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
+		(Right) histogram represents rabies generation-interval distributions simulated from incubation and infectious periods observed by \cite{HampDush09}.
 		Dashed curves represent estimated distribution of generation intervals using method of moments and MLE (corresponding to approximate speed-strength relationships of the left figure). 
 	}
 	\label{fig:rabiesCurve}
@@ -444,7 +444,7 @@ Although the gamma approximation worked better than we expected for these three 
 In such cases the gamma approximation might be less suitable. 
 Likely examples include diseases with two distinct phases of transmission (e.g., acute and chronic phases in HIV) or two distinct routes of pathogenesis (e.g., fast and slow progression in tuberculosis).
 
-Many studies have linked $r$ with \RR\ using generation interval distributions under various assumptions (\tref{review}).
+Many studies have linked $r$ with \RR\ using generation-interval distributions under various assumptions (\tref{review}).
 Simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
 More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates, but are harder to interpret and require more data. 
 
@@ -464,7 +464,7 @@ For example, during the Ebola outbreak in West Africa, many researchers tried to
 KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
 During the outbreak, \cite{WeitDush15} used a generation-interval argument to show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.
-Knowing the exact shape of the generation interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation interval distribution will help researchers better understand and predict the scope of future outbreaks.
+Knowing the exact shape of the generation-interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation-interval distribution will help researchers better understand and predict the scope of future outbreaks.
 
 \subsection*{Authors' Contributions}
 
