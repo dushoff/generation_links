@@ -99,8 +99,11 @@ Generation_distributions/%:
 
 Sources += manual.bib auto.rmu
 Ignore += refs.bib
-refs.bib: auto.bib manual.bib
+refs.bib: patch.bib manual.bib
 	$(cat)
+
+patch.bib: auto.bib bibpatch.pl
+	$(PUSH)
 
 Ignore += auto.html
 auto.html: auto.rmu
