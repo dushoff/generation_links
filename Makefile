@@ -12,6 +12,7 @@ Sources = Makefile README.md LICENSE.md
 ms = makestuff
 -include local.mk
 -include $(ms)/os.mk
+-include $(ms)/perl.def
 
 Sources += $(ms)
 
@@ -102,6 +103,7 @@ Ignore += refs.bib
 refs.bib: patch.bib manual.bib
 	$(cat)
 
+Sources += bibpatch.pl
 patch.bib: auto.bib bibpatch.pl
 	$(PUSH)
 
