@@ -184,8 +184,6 @@ We show that summarizing generation-interval distributions using moments provide
 We further discuss the applicability of the gamma approximation and provide examples of its relevance in using realistic epidemiological parameters from previous outbreaks. 
 By doing so, we shed light on the underpinnings of the relationship between $r$ and \RR, and on the factors underlying its robustness and its practical use when data on generation intervals is limited or hard to obtain.
 
-\swp{I suggest that we move this subexponential to discussion... I don't think it fits in the intro}
-
 \section{Relating \RR\ and $r$}
 
 \begin{figure}[htbp] \centering
@@ -287,20 +285,16 @@ This case corresponds to the classic SIR model, where the infectious period is e
 In this case, recovery rate and infection rate are constant for each individual.
 The rate of exponential growth per generation is then given directly by the net per capita increase in infections: $\RR-1$, where one represents the recovery of the initial infectious individual. 
 
-\revcomment{Make this paragraph clearer:}
-\swp{JD: I tried.}
 Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
 For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals \cite{Sven07}.
 This explains the apparent anomaly between earlier results: 
-when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
-when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ \cite{wearing2005appropriate}.
+when mean \emph{generation interval} is held constant, less-variable infectious periods simply reduce variation in generation intervals, leading to higher \RR\ estimates for a given value of $r$ \cite{roberts2007model};
+when mean \emph{infectious period} is held constant, less-variable infectious periods also reduce the overall length of generation intervals. This has a stronger effect than the change in variation, and leads to lower \RR\ estimates \cite{wearing2005appropriate}.
 
-\revcomment{Make this paragraph clearer:}
-\swp{JD: I also tried}
 There is a simple intuition for this result.
-Initial exponential growth of an epidemic is largely driven by shorter infections.
-Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
-Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
+Initial exponential growth of an epidemic is largely driven by fast events.
+Increasing variation in latent periods results in increase in number of infections with early progression, and a faster epidemic -- thus, lower \RR\ is required to match the desired value of $r$.
+Increasing variation in infectious period results in increase in number of infections with early recovery, and a slower epidemic -- thus, higher \RR\ is required to match the desired value of $r$.
 
 \subsection{Approximation method, in practice}
 
@@ -448,15 +442,13 @@ Many studies have linked $r$ with \RR\ using generation-interval distributions u
 Simple methods, such as delta and exponential approximations, require minimal information (i.e., mean generation interval) but result in extreme estimates. 
 More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates, but are harder to interpret and require more data. 
 
-\swp{I moved subexponential here and changed things a bit}
-
-The approaches based on $r$, including the approach taken in this paper, implicitly assume that \RR\ (and the generation distribution) remain roughly constant as an outbreak takes off.
+Approaches based on $r$, including the approach taken in this paper, implicitly assume that \RR\ (and the generation distribution) remain roughly constant as an outbreak takes off.
 The initial exponential growth assumption is supported by simple models \cite{AndeMay91}, but there are concerns about how long this exponential period is and whether outbreak might better be characterized by ``sub-exponential'' models \cite{viboud2016generalized, chowell2016characterizing}.
-For example, appropriate time frame in which the exponential assumption holds may be as short as 2-4 generations for EVD \cite{chowell2015western}.
+For example, the time frame in which the exponential assumption is appropriate may be as short as 2--4 generations for EVD \cite{chowell2015western}.
 Deceleration in the initial growth rate can be driven by many factors (e.g., heterogeneity in population structure, behaviour change, and early intervention), and failing to account for such patterns can result in overestimation of reproduction number \cite{viboud2016generalized}.
-However, we still expect qualitative roles of generation-interval distribution in shaping the \rR\ relationship to be similar regardless of initial growth patterns of an epidemic (e.g., see Figure 2 from \cite{chowell2016characterizing}).
+We do, however, expect the qualitative role of generation-interval distributions in shaping the \rR\ relationship to be similar regardless of initial growth patterns of an epidemic (e.g., see Figure 2 from \cite{chowell2016characterizing}).
 
-Summarizing an entire generation-interval distributions using two moments is a practically feasible approach that can give sensible and robust estimates of the relationship between $r$ and \RR\ that lie between extreme estimates (see Appendix).
+Summarizing an entire generation-interval distribution using two moments is a practically feasible approach that can give sensible and robust estimates of the relationship between $r$ and \RR\ that lie between extreme estimates (see Appendix).
 More detailed methods will often be preferred when data are abundant but the gamma approximation can be easily used in preliminary analyses.
 In particular, this framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
@@ -481,8 +473,6 @@ The authors thank Steve Bellan for helpful comments, and Katie Hampson for makin
 \subsection*{Funding}
 
 This work was supported by the Canadian Institutes of Health Research [funding reference number 143486]. J.S.W. is supported by Army Research Office grant W911NF-14-1-0402.
-
-\revcomment{Bibliogrphy style is inconsistent}
 
 \printbibliography
 

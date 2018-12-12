@@ -59,6 +59,15 @@ park_supp_text.pdf: interval.pdf
 
 ######################################################################
 
+## Draft response to Epidemics
+Sources += epiResponse.tex
+epiResponse.pdf: epiResponse.tex
+epiDiff.pdf: epiResponse.tex
+
+Ignore += epiDiff.tex
+epiDiff.tex: epiResponse.??.tex epiResponse_rev.tex
+	$(latexdiff)
+
 ## cover leter
 Sources += letter.tex
 letter.pdf: letter.tex
@@ -69,22 +78,13 @@ Sources += reviewers.txt
 ## Now edited for Epidemics
 Sources += edlet.txt highlights.txt
 
-## Draft response to Epidemics
-## Deleting previous round response 2018 Dec 04 (Tue)
-Sources += epiResponse.tex
-epiResponse.pdf: epiResponse.tex
-epiDiff.pdf: epiResponse.tex
-
-Ignore += epiDiff.tex
-epiDiff.tex: epiResponse.??.tex epiResponse_rev.tex
-	$(latexdiff)
-
 ## appendix.pdf is no longer a thing … rolled it into the MS
 ## appwrap.tex contains most of the stuff trimmed from appendix; in case we need to make it stand alone someday
 ## appendix.pdf: appendix.tex
 
 ## make interval.tex.HEAD~1.oldfile ##
-interval.tex.ec380689.oldfile:
+## Oct 2018 submission
+interval.tex.518696.oldfile: 
 compare.pdf: compare.tex
 
 Ignore += compare.tex
