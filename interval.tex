@@ -138,25 +138,25 @@ Moreover,  different assumptions about the shape of generation-interval distribu
 \hline
 \bf Method & \bf Required information & \bf Assumptions/Notes & \bf References \\
 \hline
-Delta approximation & \tabitem Mean generation interval & \tabitem Assumes fixed generation interval & \cite{wallinga2007generation, roberts2007model, mccallum2009transmission, trichereau2012estimation} \\
+Delta approximation & \tabitem Mean generation interval & \tabitem Assumes fixed generation interval & \cite{WallLips07, roberts2007model, mccallum2009transmission, trichereau2012estimation} \\
  &  & \tabitem Provides an upper bound for \RR\ estimate & \\
 \hline
-Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Relies on binning generation intervals & \cite{wallinga2007generation} \\
+Empirical (histogram-based) & \tabitem Generation interval samples & \tabitem Relies on binning generation intervals & \cite{WallLips07} \\
 & & \tabphant into discrete histograms &\\
 \hline
 Empirical (sample-based) & \tabitem Generation interval samples & \tabitem Uses discretized Euler-Lotka equation & \cite{hampson2009transmission}\\
 \hline
 Euler-Lotka & \tabitem Entire generation-interval distribution & \tabitem Uses moment generating function & \cite{Lotka} \\
 \hline
-Exponential approximation (SIR) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{AndeMay91, pybus2001epidemic, ferguson2005strategies, wallinga2007generation, trichereau2012estimation} \\
+Exponential approximation (SIR) & \tabitem Mean generation interval & \tabitem Assumes exponentially distributed generation interval & \cite{AndeMay91, pybus2001epidemic, ferguson2005strategies, WallLips07, trichereau2012estimation} \\
 & & \tabitem Predicts linear relationship between $r$ and \RR\ & \\
 \hline
 Gamma approximation & \tabitem Mean/SD generation interval & \tabitem Assumes gamma distributed generation intervals & \cite{NishCast09, mcbryde2009early, roberts2011early, trichereau2012estimation, nishiura2015theoretical} \\
 \hline
-Normal approximation & \tabitem Mean/SD generation interval & \tabitem Assumes normally distributed generation intervals & \cite{wallinga2007generation, trichereau2012estimation}\\
+Normal approximation & \tabitem Mean/SD generation interval & \tabitem Assumes normally distributed generation intervals & \cite{WallLips07, trichereau2012estimation}\\
 & & \tabitem Predicts decreasing \rR\ relationship for high $r$ & \\
 \hline
-SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent and & \cite{anderson1980spread, wearing2005appropriate, wallinga2007generation, roberts2007model} \\
+SEIR (gamma) & \tabitem Mean/SD latent period & \tabitem Assumes gamma distributed latent and & \cite{anderson1980spread, wearing2005appropriate, WallLips07, roberts2007model} \\
 & \tabitem Mean/SD infectious period & \tabphant infectious periods & \\
 & & \tabitem See \cite{yan2008separate} for summary of all special cases & \\
 \hline
