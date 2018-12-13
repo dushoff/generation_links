@@ -104,6 +104,7 @@ refs.bib: patch.bib manual.bib
 	$(cat)
 
 Sources += bibpatch.pl
+Ignore += patch.bib
 patch.bib: auto.bib bibpatch.pl
 	$(PUSH)
 
