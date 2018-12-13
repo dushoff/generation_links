@@ -117,7 +117,7 @@ Hence, another important quantity is the population-level \emph{rate of spread},
 early in an epidemic, since the number of incident cases at time $t$ is expected to follow $i(t) \approx i(0) \exp(r t)$. The rate of growth can also be described using the ``characteristic time'' of exponential growth $\Tc = 1/r$. This is closely related to, and simpler mathematically than, the more commonly used doubling time (given by $T_2 = \ln(2) \Tc \approx 0.69 \Tc$).
 
 In disease outbreaks, the rate of spread, $r$, can be inferred from case-incidence reports, e.g., by fitting an exponential function to the incidence curve \cite{MillRobi04, NishCast09, MaJDush14}.
-Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to esimate the effective reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
+Estimates of the initial exponential rate of spread, $r$, can then be combined with a mechanistic model that includes unobserved features of the infection to estimate the effective reproduction number \RR, i.e., the number of new infections caused on average by a single infection.
 In particular, $\RR$ can be calculated from $r$ and the generation-interval distribution using the generating function approach popularized by \cite{WallLips07}.
 
 The \emph{generation interval} is the amount of time between when an individual is infected by an infector, and the time that the infector was infected \cite{Sven07}.
@@ -165,7 +165,7 @@ SEIR (generalized) & \tabitem Latent period distribution & \tabitem Independent 
  & & \tabphant infectious periods & \\
 \hline
 Trapezoid approximation & \tabitem Period of no infection after exposure & \tabitem Assumes trapezoid shaped infection kernel & \cite{roberts2007model} \\
-& \tabitem Time until maxium infectivity& & \\
+& \tabitem Time until maximum infectivity& & \\
 & \tabitem Duration of maximum infectivity & & \\
 & \tabitem Time until recovery & &\\
 \hline
@@ -239,7 +239,7 @@ We follow the approach of \cite{NishCast09} and approximate the generation inter
 We prefer the gamma distribution to other choices -- including the commonly used normal approximation, and its positively valued cousin the lognormal -- for a number of reasons.
 First, it has a convenient moment-generating function, and provides a corresponding simple form for the \rR\ relationship that can be parameterized with only two parameters that have biologically relevant meanings that can assist in explaining intuition behind the \rR\ relationship.
 Second, it generalizes the result obtained from simple Susceptible-Infectious-Recovered (SIR) models, and approximately matches Susceptible-Exposed-Infectious-Recovered (SEIR), in the case where the latent period and infectious period are similar (see Appendix).
-Finally, restricting the domain to only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
+Finally, restricting the domain of $g(\tau)$ to only non-negative values makes it more biologically realistic than the normal, although other approximations also have this property.
 While the gamma approximation has been applied to infer \RR\ in previous outbreaks (\tref{review}), 
 its theoretical and practical importance in explaining the \rR\ relationship has not yet been explored in depth.
 
@@ -288,13 +288,13 @@ The rate of exponential growth per generation is then given directly by the net 
 Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models \cite{wearing2005appropriate, roberts2007model}, because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
 For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals \cite{Sven07}.
 This explains the apparent anomaly between earlier results: 
-when mean \emph{generation interval} is held constant, less-variable infectious periods simply reduce variation in generation intervals, leading to higher \RR\ estimates for a given value of $r$ \cite{roberts2007model};
+when mean \emph{generation interval} is held constant, less-variable infectious periods reduce variation in generation intervals, leading to higher \RR\ estimates for a given value of $r$ \cite{roberts2007model};
 when mean \emph{infectious period} is held constant, less-variable infectious periods also reduce the overall length of generation intervals. This has a stronger effect than the change in variation, and leads to lower \RR\ estimates \cite{wearing2005appropriate}.
 
-There is a simple intuition for this result.
+There is an intuitive explanation for this result.
 Initial exponential growth of an epidemic is largely driven by fast events.
-Increasing variation in latent periods results in increase in number of infections with early progression, and a faster epidemic -- thus, lower \RR\ is required to match the desired value of $r$.
-Increasing variation in infectious period results in increase in number of infections with early recovery, and a slower epidemic -- thus, higher \RR\ is required to match the desired value of $r$.
+Increasing variation in latent periods results in an increase in the number of infections with early progression, and a faster epidemic -- thus, lower \RR\ is required to match the realized value of $r$.
+Increasing variation in infectious period results in an increase in the number of infections with early recovery, and a slower epidemic -- thus, higher \RR\ is required to match the realized value of $r$.
 
 \subsection{Approximation method, in practice}
 
@@ -443,24 +443,23 @@ Simple methods, such as delta and exponential approximations, require minimal in
 More realistic methods, such as empirical and SEIR methods, may yield more realistic estimates, but are harder to interpret and require more data. 
 
 Approaches based on $r$, including the approach taken in this paper, implicitly assume that \RR\ (and the generation distribution) remain roughly constant as an outbreak takes off.
-The initial exponential growth assumption is supported by simple models \cite{AndeMay91}, but there are concerns about how long this exponential period is and whether outbreak might better be characterized by ``sub-exponential'' models \cite{viboud2016generalized, chowell2016characterizing}.
+The initial exponential growth assumption is supported by simple models \cite{AndeMay91}, but there are concerns about how long this exponential period is and whether outbreaks might better be characterized by ``sub-exponential'' models \cite{viboud2016generalized, chowell2016characterizing}.
 For example, the time frame in which the exponential assumption is appropriate may be as short as 2--4 generations for EVD \cite{chowell2015western}.
-Deceleration in the initial growth rate can be driven by many factors (e.g., heterogeneity in population structure, behaviour change, and early intervention), and failing to account for such patterns can result in overestimation of reproduction number \cite{viboud2016generalized}.
+Deceleration in the initial growth rate can be driven by many factors (e.g., heterogeneity in population structure, behaviour change, and early intervention), and failing to account for such patterns can result in overestimation of the reproduction number \cite{viboud2016generalized}.
 We do, however, expect the qualitative role of generation-interval distributions in shaping the \rR\ relationship to be similar regardless of initial growth patterns of an epidemic (e.g., see Figure 2 from \cite{chowell2016characterizing}).
 
 Summarizing an entire generation-interval distribution using two moments is a practically feasible approach that can give sensible and robust estimates of the relationship between $r$ and \RR\ that lie between extreme estimates (see Appendix).
 More detailed methods will often be preferred when data are abundant but the gamma approximation can be easily used in preliminary analyses.
 In particular, this framework has potential advantages for understanding the likely effects of parameter changes, and also for parameter estimation with uncertainty: since \RR\ can be estimated from three simple quantities ($\bar G$, $\kappa$ and $r$), it should be straightforward to propagate uncertainty from estimates of these quantities to estimates of \RR.
 
-For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofgren14, 
-KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
+For example, during the Ebola outbreak in West Africa, many researchers tried to estimate \RR\ from $r$ \cite{Alth14, AylwBarb14, NishChow15, RiveLofgren14, KingDome15} but uncertainty in the generation-interval distribution was often neglected (but see \cite{TaylDush16}).  
 During the outbreak, \cite{WeitDush15} used a generation-interval argument to show that neglecting the effects of post-burial transmission would be expected to lead to underestimates of \RR.
 Our generation interval framework provides a clear interpretation of this result: as long as post-burial transmission tends to increase generation intervals, it should result in higher estimates of \RR\ for a given estimate of $r$.
 Knowing the exact shape of the generation-interval distribution is difficult, but quantifying how various transmission routes and epidemic parameters affect the moments of the generation-interval distribution will help researchers better understand and predict the scope of future outbreaks.
 
 \subsection*{Authors' Contributions}
 
-SWP led the literature review, wrote the first draft of the MS, assisted with analytic calculations, and finalized the simulations and data analysis; JD conceived the study and did the initial simulations and analytic calculations;all authors contributed to refining study design, literature review, and MS writing. All authors gave final approval for publication.
+SWP led the literature review, wrote the first draft of the MS, assisted with analytic calculations, and finalized the simulations and data analysis; JD conceived the study and did the initial simulations and analytic calculations; all authors contributed to refining study design, literature review, and MS writing. All authors gave final approval for publication.
 
 \subsection*{Competing interests}
 
