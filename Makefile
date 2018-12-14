@@ -117,6 +117,19 @@ nish.html: nish.rmu
 interval.bbl: auto.rmu
 
 ######################################################################
+## New refs
+
+## Very little progress, but some promise 2018 Dec 13 (Thu)
+
+## Started from from https://www.ncbi.nlm.nih.gov/books/NBK25498/
+refs.out: refs.pl
+	$(PUSH)
+
+## https://metacpan.org/pod/BibTeX::Parser
+bib.out: manual.bib bib.pl
+	$(PUSH)
+
+######################################################################
 
 # Modules
 ## HOT
