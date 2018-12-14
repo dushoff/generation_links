@@ -103,7 +103,10 @@ Ignore += refs.bib
 refs.bib: patch.bib manual.bib
 	$(cat)
 
-Sources += bibpatch.pl
+perl = $(wildcard *.pl)
+Sources += $(perl)
+Ignore += $(perl:.pl=.out)
+
 Ignore += patch.bib
 patch.bib: auto.bib bibpatch.pl
 	$(PUSH)
