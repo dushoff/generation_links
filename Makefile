@@ -98,18 +98,17 @@ Generation_distributions/%:
 
 ## Refs
 
-Sources += manual.bib auto.rmu
-Ignore += refs.bib
-refs.bib: patch.bib manual.bib
-	$(cat)
-
 perl = $(wildcard *.pl)
 Sources += $(perl)
 Ignore += $(perl:.pl=.out)
 
-Ignore += patch.bib
-patch.bib: auto.bib bibpatch.pl
-	$(PUSH)
+Sources += manual.bib auto.rmu
+
+Ignore += refs.bib
+refs.bib: manual.bib bibclean.pl
+refs.bib: manual.bib bibclean.pl auto.bib bibpatch.pl
+	perl -wf bibclean.pl manual.bib > $@
+	perl -wf bibpatch.pl auto.bib >> $@
 
 Ignore += auto.html
 auto.html: auto.rmu
