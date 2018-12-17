@@ -84,9 +84,9 @@ Sources += edlet.txt highlights.txt
 ## appendix.pdf: appendix.tex
 
 ## make interval.tex.HEAD~1.oldfile ##
-## Oct 2018 submission
-interval.tex.518696.oldfile: 
-compare.pdf: compare.tex
+interval.tex.518696.oldfile: ## Oct 2018 submission
+interval.tex.8287422c02.oldfile: ## Dec co-authors #1
+compare.pdf: interval.tex
 
 Ignore += compare.tex
 compare.tex: interval.tex.* interval.tex
