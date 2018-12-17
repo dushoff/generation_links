@@ -105,10 +105,9 @@ Ignore += $(perl:.pl=.out)
 Sources += manual.bib auto.rmu
 
 Ignore += refs.bib
-refs.bib: manual.bib bibclean.pl
-refs.bib: manual.bib bibclean.pl auto.bib bibpatch.pl
-	perl -wf bibclean.pl manual.bib > $@
-	perl -wf bibpatch.pl auto.bib >> $@
+refs.bib: manual.bib manbib.pl auto.bib autbib.pl
+	perl -wf manbib.pl manual.bib > $@
+	perl -wf autbib.pl auto.bib >> $@
 
 Ignore += auto.html
 auto.html: auto.rmu
