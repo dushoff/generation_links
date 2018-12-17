@@ -57,7 +57,7 @@ Fixed.
 \revtext{Page 6 “taking only non-negative values makes it more biologically realistic than the normal”. What does this mean? The normal only takes positive values too.}
 
 We mean that the domain of a normal distribution extends from negative infinity to positive infinity.
-We have made this clearer in the current text: ``restricting the domain to only non-negative values makes it more biologically realistic than the normal.''
+We have made this clearer in the current text: ``restricting the domain of $g(\tau)$ to only non-negative values makes it more biologically realistic than the normal''
 
 \revtext{Page 6 “its theoretical properties and practical importance have not yet been explored in depth.” This is nonsense. There are whole books about the gamma function and its properties are taught to undergraduates.}
 
@@ -72,16 +72,16 @@ We have followed the reviewer's comment in changing the text.
 We have clarified these paragraphs as follows:
 
 ``
-Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models [46, 37], because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
+Characterizing the \rR\ relationship with mean and coefficient of variation also helps explain results based on compartmental models [46, 36], because the mean and variance of the generation interval is linked to the mean and variance of latent and infectious periods.
 For example, less-variable latent periods result in less-variable generation intervals, whereas less-variable infectious periods result in both less-variable and shorter generation intervals [39].
 This explains the apparent anomaly between earlier results: 
-when mean generation interval is held constant, less-variable infectious periods only reduces variation in generation intervals, leading to lower \RR;
-when mean infectious period is held constant, less-variable infectious periods reduces the overall length of generation intervals, leading to higher \RR\ [46].
+when mean \emph{generation interval} is held constant, less-variable infectious periods reduce variation in generation intervals, leading to higher \RR\ estimates for a given value of $r$ [36];
+when mean \emph{infectious period} is held constant, less-variable infectious periods also reduce the overall length of generation intervals. This has a stronger effect than the change in variation, and leads to lower \RR\ estimates [46].
 
-There is a simple intuition for this result.
-Initial exponential growth of an epidemic is largely driven by shorter infections.
-Increasing variation in latent periods results in increase in number of infections with early progression and a faster epidemic -- equivalently, lower \RR\ is required to match the desired value of $r$.
-Increasing variation in infectious period results in increase in number of infections with early recovery and a slower epidemic -- equivalently, higher \RR\ is required to match the desired value of $r$
+There is an intuitive explanation for this result.
+Initial exponential growth of an epidemic is largely driven by fast events.
+Increasing variation in latent periods results in an increase in the number of infections with early progression, and a faster epidemic -- thus, lower \RR\ is required to match the realized value of $r$.
+Increasing variation in infectious period results in an increase in the number of infections with early recovery, and a slower epidemic -- thus, higher \RR\ is required to match the realized value of $r$.
 ''
 
 
@@ -173,6 +173,14 @@ approximation for the very few generations under strong assumption
 that R0 is the same for all individuals including the individuals
 seeded at generation 0.}
 
-This is a good point. There are strong theoretical reasons to expect early exponential growth, and a long history of studying exponential growth in this context. Nonetheless, recent work has called this approach into question. We now address this point in our Discussion.
+This is a good point. There are strong theoretical reasons to expect early exponential growth, and a long history of studying exponential growth in this context. Nonetheless, recent work has called this approach into question. We now address this point in our Discussion:
+
+``
+Approaches based on $r$, including the approach taken in this paper, implicitly assume that \RR\ (and the generation distribution) remain roughly constant as an outbreak takes off.
+The initial exponential growth assumption is supported by simple models [5], but there are concerns about how long this exponential period is and whether outbreaks might better be characterized by ``sub-exponential'' models [44, 9].
+For example, the time frame in which the exponential assumption is appropriate may be as short as 2--4 generations for EVD [8].
+Deceleration in the initial growth rate can be driven by many factors (e.g., heterogeneity in population structure, behaviour change, and early intervention), and failing to account for such patterns can result in overestimation of the reproduction number [44].
+We do, however, expect the qualitative role of generation-interval distributions in shaping the \rR\ relationship to be similar regardless of initial growth patterns of an epidemic (e.g., see Figure 2 from [9]).
+''
 
 \end{document}
