@@ -96,6 +96,32 @@ compare.tex: interval.tex.* interval.tex
 Generation_distributions/%:
 	cd Generation_distributions && $(MAKE) $*
 
+######################################################################
+
+elsevier.tgz: interval.tex appendix.tex interval.bbl
+	tar czf $@ $^
+
+fig1.eps: link_calculations/steps.pdf
+fig2.eps: link_calculations/genExp.pdf
+fig3.eps: link_calculations/ebola.pdf Makefile
+fig4.eps: link_calculations/measles.pdf Makefile
+fig5.eps: link_calculations/rabies.pdf
+figS1.eps: link_calculations/ebola_gamma.pdf
+figS2.eps: link_calculations/ebola_normal.pdf
+figS3.eps: link_calculations/ebola_sample.pdf
+
+%.eps:
+ 
+
+%.othereps:
+	inkscape $< --export-eps=$@
+	pdftops -level3 -eps -origpagesizes $< $@
+	gs -q -dNOCACHE -dNOPAUSE -dBATCH -dSAFER -sDEVICE=eps2write -sOutputFile=$@ $<
+	convert $< $@ ## Weird error?
+
+
+######################################################################
+
 ## Refs
 
 perl = $(wildcard *.pl)
@@ -140,8 +166,9 @@ bib.out: manual.bib bib.pl
 mdirs += Generation_distributions link_calculations
 # mdirs += Generation_distributions autorefs
 
-hotdirs += $(mdirs)
 
+## Deprecated
+hotdirs += $(mdirs)
 -include $(ms)/modules.mk
 
 ######################################################################
