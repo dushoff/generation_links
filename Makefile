@@ -58,6 +58,10 @@ park_main.pdf: interval.pdf
 park_supp_text.pdf: interval.pdf
 	pdfjam -o $@ $< 23-
 
+## Added to resolve reference discrepancies
+
+## supp_only.pdf: supp_only.tex
+
 ######################################################################
 
 ## Draft response to Epidemics

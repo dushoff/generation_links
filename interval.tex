@@ -3,54 +3,14 @@
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\urlstyle{same}  % don't use monospace font for urls
 \usepackage[
     backend=biber,
     style=numeric,
 	 maxnames=7
 ]{biblatex}
-
-\newcommand{\rR}{\mbox{$r$--$\cal R$}}
-\newcommand{\RR}{\ensuremath{{\cal R}}}
-\newcommand{\RRhat}{\ensuremath{{\hat \cal R}}}
-\newcommand{\Rx}[1]{\ensuremath{{\cal R}_{#1}}} 
-\newcommand{\Ro}{\Rx{0}}
-\newcommand{\Reff}{\Rx{\mathit{eff}}}
-\newcommand{\Tc}{\ensuremath{C}}
-
-\newcommand{\eref}[1]{(\ref{eq:#1})}
-\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
-\newcommand{\Fref}[1]{Fig.~\ref{fig:#1}}
-\newcommand{\sref}[1]{Sec.~\ref{#1}}
-\newcommand{\frange}[2]{Fig.~\ref{fig:#1}--\ref{fig:#2}}
-\newcommand{\tref}[1]{Table~\ref{tab:#1}}
-\newcommand{\tlab}[1]{\label{tab:#1}}
-
-\newcommand{\tsub}[2]{#1_{{\textrm{\tiny #2}}}}
-\newcommand{\tsup}[2]{#1^{{\textrm{\tiny #2}}}}
-\newcommand{\qexp}{\tsup{\RR}{gamma}}
-
-\newcommand{\comment}[3]{\textcolor{#1}{\textbf{[#2: }\textsl{#3}\textbf{]}}}
-\newcommand{\jd}[1]{\comment{cyan}{JD}{#1}}
-\newcommand{\swp}[1]{\comment{magenta}{SWP}{#1}}
-\newcommand{\dc}[1]{\comment{blue}{DC}{#1}}
-\newcommand{\jsw}[1]{\comment{green}{JSW}{#1}}
-\newcommand{\hotcomment}[1]{\comment{red}{HOT}{#1}}
-\newcommand{\revcomment}[1]{\comment{red}{Reviewer}{#1}}
-
-\usepackage{afterpage}
-\usepackage{pdflscape}
-
-\usepackage{booktabs}% http://ctan.org/pkg/booktabs
-\newcommand{\tabitem}{~~\llap{\textbullet}~~}
-\newcommand{\tabphant}{\hphantom\tabitem}
-
 \addbibresource{refs.bib}
-\usepackage{graphicx,grffile}
 
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\input{headers.tex}
 
 \begin{document}
 
