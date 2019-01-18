@@ -59,7 +59,7 @@ park_supp_text.pdf: interval.pdf
 	pdfjam -o $@ $< 23-
 
 ## Added to resolve reference discrepancies
-
+Sources += supp_only_again.tex
 ## supp_only.pdf: supp_only.tex
 
 ######################################################################
