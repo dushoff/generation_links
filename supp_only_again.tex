@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+
+\usepackage[
+    backend=biber,
+    style=numeric,
+	 maxnames=7
+]{biblatex}
+\addbibresource{refs.bib}
+
+\input{headers.tex}
+
+\begin{document}
+
+\section{Supplement}
+
+\input{appendix.tex}
+
+\clearpage
+
+\printbibliography
+
+\end{document}
