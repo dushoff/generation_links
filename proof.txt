@@ -1,0 +1,14 @@
+
+Thanks for sending.
+
+* Please confirm that the supplement has been updated to the file that I sent with the proof. I am sending this file again. The old supplement currently seems to be linked. 
+
+* The Further Reading section is no longer necessary (covered by the new supplement)
+
+* Please change the last s. of F5 caption (Dashed curves…) to read:
+	* Curves show estimated distribution of generation intervals using method of moments (solid) and MLE (dashed); thees correspond to the approximate speed–strength relationships of the left panel
+
+* Under eq (4), please change S to S(t) in the inline math expression
+
+* We only have one ρ, but you show it in two different styles (slanty and straight). It would be nice if that could be consistent.
+

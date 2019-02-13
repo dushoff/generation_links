@@ -28,7 +28,7 @@ $(ms)/Makefile:
 
 ## Content
 
-Sources += todo.mkd
+Sources += todo.mkd proof.txt
 
 ## https://dushoff.github.io/generation_links/auto.html
 products: interval.pdf.gp epiResponse.pdf.gp auto.html.pages
