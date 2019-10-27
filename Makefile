@@ -1,28 +1,11 @@
-# Park et al. generation links
+## This is generation_links, a screens project directory
+## makestuff/project.Makefile
 
-### Hooks for the editor to set the default target
 current: target
 -include target.mk
-target: $(target)
 
-##################################################################
+# include makestuff/perl.def
 
-Sources = Makefile README.md LICENSE.md
-
-ms = makestuff
--include local.mk
--include $(ms)/os.mk
--include $(ms)/perl.def
-
-Sources += $(ms)
-
-$(ms)/%.mk: $(ms)/Makefile
-	touch $@
-
-$(ms)/Makefile:
-	git submodule init $(ms) 
-	git submodule update $(ms) 
-	touch $@
 
 ##################################################################
 
@@ -178,15 +161,25 @@ hotdirs += $(mdirs)
 
 ######################################################################
 
+Sources += Makefile
+
+vim_session:
+	bash -cl "vmt"
+
 Drop = ~/Dropbox
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
+Ignore += makestuff
+msrepo = https://github.com/dushoff
+Makefile: makestuff/Makefile
+makestuff/Makefile:
+	git clone $(msrepo)/makestuff
+	ls $@
+
 -include $(ms)/texdeps.mk
--include $(ms)/hybrid.mk
 -include $(ms)/autorefs.mk
 -include $(ms)/pandoc.mk
 
-######################################################################
-
-# -include $(ms)/wrapR.mk
+-include makestuff/os.mk
+-include makestuff/projdir.mk
+-include makestuff/visual.mk
+-include makestuff/git.mk

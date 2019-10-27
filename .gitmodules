@@ -1,6 +1,3 @@
-[submodule "makestuff"]
-	path = makestuff
-	url = https://github.com/dushoff/makestuff.git
 [submodule "Generation_distributions"]
 	path = Generation_distributions
 	url = https://github.com/dushoff/Generation_distributions.git
